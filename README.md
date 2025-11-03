@@ -1,6 +1,6 @@
-# Foobar
+# BIOF 501 Workflow Term Project
 
-Foobar is a Python library for dealing with word pluralization.
+Work by Giuli Sucar based on common practices of the Dr. Jeffrey Joy lab. 
 
 ## Installation
 

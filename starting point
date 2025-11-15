@@ -1,0 +1,67 @@
+#!/usr/bin/env nextflow
+
+params.ref_fna      = "${params.ref_fna}"
+params.ref_gff      = "${params.ref_gff}"
+params.query_dir    = "${params.query_dir}"
+params.outdir       = "results"
+
+process LIFTOFF {
+    tag "$sample"
+    publishDir "${params.outdir}/liftoff", mode: 'copy'
+
+    conda """
+        liftoff=1.6.3
+    """
+
+    input:
+    tuple val(sample), path(query_fna)
+    path ref_fna
+    path ref_gff
+
+    output:
+    tuple val(sample), path("${sample}.lifted.gff"), path(query_fna)
+
+    script:
+    """
+    liftoff \\
+        -g ${ref_gff} \\
+        -o ${sample}.lifted.gff \\
+        -u ${sample}.unmapped.txt \\
+        -dir liftoff_tmp_${sample} \\
+        ${query_fna} ${ref_fna}
+    """
+}
+
+process GFF_TO_GBFF {
+    tag "$sample"
+    publishDir "${params.outdir}/gbff", mode: 'copy'
+
+    conda """
+        gffread=0.12.7
+    """
+
+    input:
+    tuple val(sample), path(lifted_gff), path(query_fna)
+
+    output:
+    path("${sample}.gbff")
+
+    script:
+    """
+    gffread ${lifted_gff} -g ${query_fna} -o ${sample}.gbff
+    """
+}
+
+workflow {
+
+    Channel
+        .fromPath("${params.query_dir}/*.{fna,fa,fasta}")
+        .map { file ->
+            def sample = file.baseName
+            tuple(sample, file)
+        }
+        .set { genomes_ch }
+
+    liftoff_out = LIFTOFF(genomes_ch, file(params.ref_fna), file(params.ref_gff))
+    GFF_TO_GBFF(liftoff_out)
+}

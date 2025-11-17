@@ -1,0 +1,23 @@
+ Supervised regression models
+
+1.Linear regression model
+
+Training data:0.39464915164754233
+Testing data: -7.931215146930398e+23
+5-fold cross validation[-1.06331305e+25 -7.14521199e+23 -1.78931333e+25 -3.25391329e+23
+ -5.50895980e+24]
+
+Average score: -7.015027216502204e+24
+2. Ridge Linear regression model
+
+Training data:0.3929784122741683
+Testing data: -4.873480600976345
+5-fold cross validation[-3.64675332 -3.96296256 -9.54339935 -2.40448664 -5.53306329]
+
+3.Lasso Linear regression model
+
+Training data:0.14379593160519077
+Testing data: -0.037125985895306135
+5-fold cross validation[-0.013113   -0.07079058 -0.00647056 -0.0445948  -0.05313879]
+
+Average score: -0.03762154752332503

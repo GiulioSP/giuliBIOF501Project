@@ -38,14 +38,15 @@ for line in np_lines:
 #         my_dict[a] = b +'\t'+c+'\t'+d + '\t' + e
     #while cur_line < len(line1s):
     for line1 in line1s:
-        if line1.startswith('U'):
-            list = line1.split('\t')
-            if int(list[1]) > int(d):
-                break
-            if list[7][:-4] != 'SYN' and int(list[1]) >= int(c):
-                   # D96_6_1_5 = D96_6_1_5 + list[10]
-                for i in range(len(name_list)):
-                    name_dict[name_list[i]].append(int(list[(9+i)]))
+        if not line1 or line1.startswith('#'):
+            continue
+        list = line1.split('\t')
+        if int(list[1]) > int(d):
+            break
+        if list[7][:-4] != 'SYN' and int(list[1]) >= int(c):
+               # D96_6_1_5 = D96_6_1_5 + list[10]
+            for i in range(len(name_list)):
+                name_dict[name_list[i]].append(int(list[(9+i)]))
         cur_line += 1
     outline = b+'\t'+c+'\t'+d+'\t'+e
     for i in range(len(name_list)):

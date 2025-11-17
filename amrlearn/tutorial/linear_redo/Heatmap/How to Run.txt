@@ -1,0 +1,2 @@
+STEP 1: python3 KEGG.py -i gene_file.txt -o output.txt
+STEP 2: python3 Heatmap.py output.txt 

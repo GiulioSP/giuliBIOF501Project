@@ -1,0 +1,265 @@
+Nov.-16 23:39:22.410 [main] DEBUG nextflow.cli.Launcher - $> nextflow main.nf --sra_path '../data/PRJNA776899.4/*.sra' --outdir ../data/aligner_results.4
+Nov.-16 23:39:22.545 [main] DEBUG nextflow.cli.CmdRun - N E X T F L O W  ~  version 24.10.6
+Nov.-16 23:39:22.568 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; embedded=false; plugins-dir=/home/giuliosp/.nextflow/plugins; core-plugins: nf-amazon@2.9.3,nf-azure@1.10.2,nf-cloudcache@0.4.2,nf-codecommit@0.2.2,nf-console@1.1.4,nf-google@1.15.4,nf-tower@1.9.3,nf-wave@1.7.5
+Nov.-16 23:39:22.589 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
+Nov.-16 23:39:22.590 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
+Nov.-16 23:39:22.593 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.12.0 in 'deployment' mode
+Nov.-16 23:39:22.605 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
+Nov.-16 23:39:22.625 [main] DEBUG nextflow.config.ConfigBuilder - Found config local: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/nextflow.config
+Nov.-16 23:39:22.627 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/nextflow.config
+Nov.-16 23:39:22.647 [main] DEBUG n.secret.LocalSecretsProvider - Secrets store: /home/giuliosp/.nextflow/secrets/store.json
+Nov.-16 23:39:22.650 [main] DEBUG nextflow.secret.SecretsLoader - Discovered secrets providers: [nextflow.secret.LocalSecretsProvider@28a6301f] - activable => nextflow.secret.LocalSecretsProvider@28a6301f
+Nov.-16 23:39:22.661 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `standard`
+Nov.-16 23:39:23.023 [main] DEBUG nextflow.cli.CmdRun - Applied DSL=2 from script declaration
+Nov.-16 23:39:23.037 [main] DEBUG nextflow.cli.CmdRun - Launching `main.nf` [trusting_pesquet] DSL2 - revision: d0bd97f3f9
+Nov.-16 23:39:23.038 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins default=[]
+Nov.-16 23:39:23.038 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins resolved requirement=[]
+Nov.-16 23:39:23.094 [main] DEBUG nextflow.Session - Session UUID: faea13c4-0d77-48f4-9f72-bd87d7bd089c
+Nov.-16 23:39:23.094 [main] DEBUG nextflow.Session - Run name: trusting_pesquet
+Nov.-16 23:39:23.095 [main] DEBUG nextflow.Session - Executor pool size: 8
+Nov.-16 23:39:23.102 [main] DEBUG nextflow.file.FilePorter - File porter settings maxRetries=3; maxTransfers=50; pollTimeout=null
+Nov.-16 23:39:23.107 [main] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'FileTransfer' minSize=10; maxSize=24; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
+Nov.-16 23:39:23.131 [main] DEBUG nextflow.cli.CmdRun - 
+  Version: 24.10.6 build 5937
+  Created: 23-04-2025 16:53 UTC (09:53 PDT)
+  System: Linux 6.8.0-87-generic
+  Runtime: Groovy 4.0.23 on OpenJDK 64-Bit Server VM 11.0.27+6
+  Encoding: UTF-8 (UTF-8)
+  Process: 109539@giulipc [192.168.18.28]
+  CPUs: 8 - Mem: 7.2 GB (1.7 GB) - Swap: 2 GB (410.9 MB)
+Nov.-16 23:39:23.150 [main] DEBUG nextflow.file.FileHelper - Can't check if specified path is NFS (1): /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/work
+
+Nov.-16 23:39:23.150 [main] DEBUG nextflow.Session - Work-dir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/work [null]
+Nov.-16 23:39:23.151 [main] DEBUG nextflow.Session - Script base path does not exist or is not a directory: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/bin
+Nov.-16 23:39:23.161 [main] DEBUG nextflow.executor.ExecutorFactory - Extension executors providers=[]
+Nov.-16 23:39:23.171 [main] DEBUG nextflow.Session - Observer factory: DefaultObserverFactory
+Nov.-16 23:39:23.193 [main] DEBUG nextflow.cache.CacheFactory - Using Nextflow cache factory: nextflow.cache.DefaultCacheFactory
+Nov.-16 23:39:23.202 [main] DEBUG nextflow.util.CustomThreadPool - Creating default thread pool > poolSize: 9; maxThreads: 1000
+Nov.-16 23:39:23.310 [main] DEBUG nextflow.Session - Session start
+Nov.-16 23:39:23.756 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
+Nov.-16 23:39:23.769 [main] INFO  nextflow.Nextflow - SRA 2 FASTA ALIGNMENT PIPELINE
+===================================
+reference   : ../data/GCF_000020105.1_ref/GCF_000020105.1_ASM2010v1_genomic.fna
+sra path    : ../data/PRJNA776899.4/*.sra
+outdir      : ../data/aligner_results.4
+
+Nov.-16 23:39:23.954 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Nov.-16 23:39:23.954 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov.-16 23:39:23.960 [main] DEBUG nextflow.executor.Executor - [warm up] executor > local
+Nov.-16 23:39:23.967 [main] DEBUG n.processor.LocalPollingMonitor - Creating local task monitor for executor 'local' > cpus=8; memory=7.2 GB; capacity=8; pollInterval=100ms; dumpInterval=5m
+Nov.-16 23:39:23.970 [main] DEBUG n.processor.TaskPollingMonitor - >>> barrier register (monitor: local)
+Nov.-16 23:39:24.034 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Nov.-16 23:39:24.034 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov.-16 23:39:24.041 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Nov.-16 23:39:24.041 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov.-16 23:39:24.047 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Nov.-16 23:39:24.048 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov.-16 23:39:24.054 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Nov.-16 23:39:24.054 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov.-16 23:39:24.059 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Nov.-16 23:39:24.059 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov.-16 23:39:24.068 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Nov.-16 23:39:24.068 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov.-16 23:39:24.084 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Nov.-16 23:39:24.084 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov.-16 23:39:24.097 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Nov.-16 23:39:24.097 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov.-16 23:39:24.101 [main] DEBUG nextflow.Session - Workflow process names [dsl2]: dump_reads, index_bam, extract_aligned, build_index, fastqc, bam_to_fastq, align, multiqc, fastq_to_fasta, sort_bam
+Nov.-16 23:39:24.101 [main] DEBUG nextflow.Session - Igniting dataflow network (12)
+Nov.-16 23:39:24.108 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > dump_reads
+Nov.-16 23:39:24.108 [PathVisitor-1] DEBUG nextflow.file.PathVisitor - files for syntax: glob; folder: ../data/PRJNA776899.4/; pattern: *.sra; options: [:]
+Nov.-16 23:39:24.110 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > align
+Nov.-16 23:39:24.111 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > sort_bam
+Nov.-16 23:39:24.112 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > index_bam
+Nov.-16 23:39:24.113 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > extract_aligned
+Nov.-16 23:39:24.115 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > bam_to_fastq
+Nov.-16 23:39:24.116 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > fastq_to_fasta
+Nov.-16 23:39:24.117 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > fastqc
+Nov.-16 23:39:24.118 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > multiqc
+Nov.-16 23:39:24.118 [main] DEBUG nextflow.script.ScriptRunner - Parsed script files:
+  Script_046e17b369779482: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/main.nf
+Nov.-16 23:39:24.119 [main] DEBUG nextflow.script.ScriptRunner - > Awaiting termination 
+Nov.-16 23:39:24.120 [main] DEBUG nextflow.Session - Session await
+Nov.-16 23:39:24.327 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov.-16 23:39:24.330 [Task submitter] INFO  nextflow.Session - [9a/fab658] Submitted process > dump_reads (SRR16683616)
+Nov.-16 23:39:40.759 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 4; name: dump_reads (SRR16683616); status: COMPLETED; exit: 0; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/work/9a/fab6586a09460570cb48761e1339f4]
+Nov.-16 23:39:40.760 [Task monitor] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'TaskFinalizer' minSize=10; maxSize=24; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
+Nov.-16 23:39:40.763 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov.-16 23:39:40.764 [Task submitter] INFO  nextflow.Session - [80/3d6e93] Submitted process > dump_reads (SRR16683617)
+Nov.-16 23:39:57.981 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 3; name: dump_reads (SRR16683617); status: COMPLETED; exit: 0; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/work/80/3d6e93ff7adc66b8ad848bbdfa5f07]
+Nov.-16 23:39:58.064 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov.-16 23:39:58.066 [Task submitter] INFO  nextflow.Session - [d2/1b06c5] Submitted process > dump_reads (SRR16683618)
+Nov.-16 23:40:14.291 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 6; name: dump_reads (SRR16683618); status: COMPLETED; exit: 0; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/work/d2/1b06c579ce615cd55f17a760b8e506]
+Nov.-16 23:40:14.294 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov.-16 23:40:14.295 [Task submitter] INFO  nextflow.Session - [1b/616d27] Submitted process > dump_reads (SRR16683614)
+Nov.-16 23:40:35.010 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 5; name: dump_reads (SRR16683614); status: COMPLETED; exit: 0; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/work/1b/616d27241b97447142b0a977f06bcf]
+Nov.-16 23:40:35.082 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov.-16 23:40:35.082 [Task submitter] INFO  nextflow.Session - [07/6f5f2a] Submitted process > dump_reads (SRR16683615)
+Nov.-16 23:41:04.247 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 2; name: dump_reads (SRR16683615); status: COMPLETED; exit: 0; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/work/07/6f5f2a1e79a13150bbae24555726fb]
+Nov.-16 23:41:04.255 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov.-16 23:41:04.256 [Task submitter] INFO  nextflow.Session - [78/6ca00e] Submitted process > dump_reads (SRR16683619)
+Nov.-16 23:41:16.584 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 1; name: dump_reads (SRR16683619); status: COMPLETED; exit: 0; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/work/78/6ca00eb7cd0a880c8ddffb0f5474ab]
+Nov.-16 23:41:16.591 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov.-16 23:41:16.592 [Task submitter] INFO  nextflow.Session - [a0/64dfa5] Submitted process > align (SRR16683616)
+Nov.-16 23:42:10.287 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 7; name: align (SRR16683616); status: COMPLETED; exit: 0; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/work/a0/64dfa5c5426587910640a8f7fc3647]
+Nov.-16 23:42:10.327 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov.-16 23:42:10.328 [Task submitter] INFO  nextflow.Session - [45/50e071] Submitted process > fastqc (SRR16683616)
+Nov.-16 23:42:30.741 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 8; name: fastqc (SRR16683616); status: COMPLETED; exit: 0; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/work/45/50e071003d1702d2778ae64eebf9f6]
+Nov.-16 23:42:30.746 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov.-16 23:42:30.746 [Task submitter] INFO  nextflow.Session - [d3/15dad7] Submitted process > fastqc (SRR16683617)
+Nov.-16 23:42:30.763 [TaskFinalizer-8] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'PublishDir' minSize=10; maxSize=24; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
+Nov.-16 23:42:47.998 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 9; name: fastqc (SRR16683617); status: COMPLETED; exit: 0; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/work/d3/15dad743aabf036d809ae4a4f54b9f]
+Nov.-16 23:42:48.003 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov.-16 23:42:48.003 [Task submitter] INFO  nextflow.Session - [09/cec06c] Submitted process > align (SRR16683617)
+Nov.-16 23:43:32.517 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 10; name: align (SRR16683617); status: COMPLETED; exit: 0; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/work/09/cec06cc052dadb7ebd86041e918bea]
+Nov.-16 23:43:32.522 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov.-16 23:43:32.522 [Task submitter] INFO  nextflow.Session - [21/e869a0] Submitted process > fastqc (SRR16683618)
+Nov.-16 23:43:50.808 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 12; name: fastqc (SRR16683618); status: COMPLETED; exit: 0; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/work/21/e869a0045a20cce228d1fe8ab79a59]
+Nov.-16 23:43:50.812 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov.-16 23:43:50.812 [Task submitter] INFO  nextflow.Session - [f9/63db20] Submitted process > align (SRR16683618)
+Nov.-16 23:44:24.158 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 11; name: align (SRR16683618); status: RUNNING; exit: -; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/work/f9/63db20c5c0bdacca9918fae215aed5]
+Nov.-16 23:44:24.826 [Task submitter] DEBUG n.processor.TaskPollingMonitor - %% executor local > tasks in the submission queue: 8 -- tasks to be submitted are shown below
+~> TaskHandler[id: 14; name: fastqc (SRR16683614); status: NEW; exit: -; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/work/7a/a41cdeb6d5ca11db5444da1be60b78]
+~> TaskHandler[id: 13; name: align (SRR16683614); status: NEW; exit: -; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/work/54/408d31eac9a554213c1f6616f9744c]
+~> TaskHandler[id: 16; name: fastqc (SRR16683615); status: NEW; exit: -; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/work/89/3bc28b3804248df96ad2f37ea5f910]
+~> TaskHandler[id: 15; name: align (SRR16683615); status: NEW; exit: -; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/work/d5/34c8883ff0d16acf8b2ed9b8f3b5d6]
+~> TaskHandler[id: 18; name: fastqc (SRR16683619); status: NEW; exit: -; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/work/37/596eddf7c2a0589417f79d88f80b03]
+~> TaskHandler[id: 17; name: align (SRR16683619); status: NEW; exit: -; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/work/00/aee1ec449f40d9095115ebb3847fbe]
+~> TaskHandler[id: 19; name: sort_bam (SRR16683616); status: NEW; exit: -; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/work/14/d50562792e895c7d21c01a765ee754]
+~> TaskHandler[id: 20; name: sort_bam (SRR16683617); status: NEW; exit: -; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/work/c1/9942721d72fe1df637e2c29dfb7b05]
+Nov.-16 23:44:36.519 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 11; name: align (SRR16683618); status: COMPLETED; exit: 0; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/work/f9/63db20c5c0bdacca9918fae215aed5]
+Nov.-16 23:44:36.529 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov.-16 23:44:36.530 [Task submitter] INFO  nextflow.Session - [7a/a41cde] Submitted process > fastqc (SRR16683614)
+Nov.-16 23:44:59.802 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 14; name: fastqc (SRR16683614); status: COMPLETED; exit: 0; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/work/7a/a41cdeb6d5ca11db5444da1be60b78]
+Nov.-16 23:44:59.805 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov.-16 23:44:59.806 [Task submitter] INFO  nextflow.Session - [54/408d31] Submitted process > align (SRR16683614)
+Nov.-16 23:45:56.788 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 13; name: align (SRR16683614); status: COMPLETED; exit: 0; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/work/54/408d31eac9a554213c1f6616f9744c]
+Nov.-16 23:45:56.794 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov.-16 23:45:56.794 [Task submitter] INFO  nextflow.Session - [89/3bc28b] Submitted process > fastqc (SRR16683615)
+Nov.-16 23:46:24.078 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 16; name: fastqc (SRR16683615); status: COMPLETED; exit: 0; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/work/89/3bc28b3804248df96ad2f37ea5f910]
+Nov.-16 23:46:24.083 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov.-16 23:46:24.083 [Task submitter] INFO  nextflow.Session - [d5/34c888] Submitted process > align (SRR16683615)
+Nov.-16 23:47:41.268 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 15; name: align (SRR16683615); status: COMPLETED; exit: 0; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/work/d5/34c8883ff0d16acf8b2ed9b8f3b5d6]
+Nov.-16 23:47:41.332 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov.-16 23:47:41.333 [Task submitter] INFO  nextflow.Session - [37/596edd] Submitted process > fastqc (SRR16683619)
+Nov.-16 23:48:02.633 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 18; name: fastqc (SRR16683619); status: COMPLETED; exit: 0; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/work/37/596eddf7c2a0589417f79d88f80b03]
+Nov.-16 23:48:02.637 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov.-16 23:48:02.637 [Task submitter] INFO  nextflow.Session - [00/aee1ec] Submitted process > align (SRR16683619)
+Nov.-16 23:48:53.482 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 17; name: align (SRR16683619); status: COMPLETED; exit: 0; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/work/00/aee1ec449f40d9095115ebb3847fbe]
+Nov.-16 23:48:53.488 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov.-16 23:48:53.488 [Task submitter] INFO  nextflow.Session - [14/d50562] Submitted process > sort_bam (SRR16683616)
+Nov.-16 23:49:24.240 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 19; name: sort_bam (SRR16683616); status: RUNNING; exit: -; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/work/14/d50562792e895c7d21c01a765ee754]
+Nov.-16 23:49:25.501 [Task submitter] DEBUG n.processor.TaskPollingMonitor - %% executor local > tasks in the submission queue: 6 -- tasks to be submitted are shown below
+~> TaskHandler[id: 20; name: sort_bam (SRR16683617); status: NEW; exit: -; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/work/c1/9942721d72fe1df637e2c29dfb7b05]
+~> TaskHandler[id: 21; name: sort_bam (SRR16683618); status: NEW; exit: -; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/work/b1/1c29f4f2939e40827d50887f38f14b]
+~> TaskHandler[id: 22; name: sort_bam (SRR16683614); status: NEW; exit: -; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/work/57/bc96f5f0de9f595b0644f3a8d436a1]
+~> TaskHandler[id: 23; name: sort_bam (SRR16683615); status: NEW; exit: -; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/work/7e/6393228f9653ae1f0309f4a166057c]
+~> TaskHandler[id: 24; name: multiqc; status: NEW; exit: -; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/work/ac/18536f89030002cbbe4f8a3ebbbf10]
+~> TaskHandler[id: 25; name: sort_bam (SRR16683619); status: NEW; exit: -; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/work/a5/b408f7918ca4d317efbd7e5bff53f0]
+Nov.-16 23:49:32.595 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 19; name: sort_bam (SRR16683616); status: COMPLETED; exit: 0; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/work/14/d50562792e895c7d21c01a765ee754]
+Nov.-16 23:49:32.599 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov.-16 23:49:32.599 [Task submitter] INFO  nextflow.Session - [c1/994272] Submitted process > sort_bam (SRR16683617)
+Nov.-16 23:50:07.881 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 20; name: sort_bam (SRR16683617); status: COMPLETED; exit: 0; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/work/c1/9942721d72fe1df637e2c29dfb7b05]
+Nov.-16 23:50:07.887 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov.-16 23:50:07.887 [Task submitter] INFO  nextflow.Session - [b1/1c29f4] Submitted process > sort_bam (SRR16683618)
+Nov.-16 23:50:48.572 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 21; name: sort_bam (SRR16683618); status: COMPLETED; exit: 0; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/work/b1/1c29f4f2939e40827d50887f38f14b]
+Nov.-16 23:50:48.578 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov.-16 23:50:48.578 [Task submitter] INFO  nextflow.Session - [57/bc96f5] Submitted process > sort_bam (SRR16683614)
+Nov.-16 23:51:31.070 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 22; name: sort_bam (SRR16683614); status: COMPLETED; exit: 0; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/work/57/bc96f5f0de9f595b0644f3a8d436a1]
+Nov.-16 23:51:31.076 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov.-16 23:51:31.076 [Task submitter] INFO  nextflow.Session - [7e/639322] Submitted process > sort_bam (SRR16683615)
+Nov.-16 23:52:28.384 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 23; name: sort_bam (SRR16683615); status: COMPLETED; exit: 0; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/work/7e/6393228f9653ae1f0309f4a166057c]
+Nov.-16 23:52:28.392 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov.-16 23:52:28.392 [Task submitter] INFO  nextflow.Session - [ac/18536f] Submitted process > multiqc
+Nov.-16 23:52:31.897 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 24; name: multiqc; status: COMPLETED; exit: 0; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/work/ac/18536f89030002cbbe4f8a3ebbbf10]
+Nov.-16 23:52:31.900 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov.-16 23:52:31.900 [Task submitter] INFO  nextflow.Session - [a5/b408f7] Submitted process > sort_bam (SRR16683619)
+Nov.-16 23:53:09.399 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 25; name: sort_bam (SRR16683619); status: COMPLETED; exit: 0; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/work/a5/b408f7918ca4d317efbd7e5bff53f0]
+Nov.-16 23:53:09.405 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov.-16 23:53:09.405 [Task submitter] INFO  nextflow.Session - [87/40aae9] Submitted process > index_bam (SRR16683616)
+Nov.-16 23:53:10.447 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 26; name: index_bam (SRR16683616); status: COMPLETED; exit: 0; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/work/87/40aae99df15ceb36f4f933fee7e5aa]
+Nov.-16 23:53:10.452 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov.-16 23:53:10.452 [Task submitter] INFO  nextflow.Session - [5f/73581f] Submitted process > index_bam (SRR16683617)
+Nov.-16 23:53:11.377 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 27; name: index_bam (SRR16683617); status: COMPLETED; exit: 0; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/work/5f/73581f7d3f3ba3c8b796f523c4050b]
+Nov.-16 23:53:11.380 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov.-16 23:53:11.381 [Task submitter] INFO  nextflow.Session - [f4/9540e1] Submitted process > index_bam (SRR16683618)
+Nov.-16 23:53:12.327 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 28; name: index_bam (SRR16683618); status: COMPLETED; exit: 0; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/work/f4/9540e1ba01b5611f4f90c7d8fe1970]
+Nov.-16 23:53:12.330 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov.-16 23:53:12.331 [Task submitter] INFO  nextflow.Session - [6a/ec57f9] Submitted process > index_bam (SRR16683614)
+Nov.-16 23:53:13.440 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 29; name: index_bam (SRR16683614); status: COMPLETED; exit: 0; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/work/6a/ec57f97a9b143cde6c992d40738c0e]
+Nov.-16 23:53:13.443 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov.-16 23:53:13.443 [Task submitter] INFO  nextflow.Session - [7e/525f26] Submitted process > index_bam (SRR16683615)
+Nov.-16 23:53:14.901 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 30; name: index_bam (SRR16683615); status: COMPLETED; exit: 0; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/work/7e/525f26b7f11ae54c1347983761607b]
+Nov.-16 23:53:14.905 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov.-16 23:53:14.906 [Task submitter] INFO  nextflow.Session - [0e/ef0541] Submitted process > index_bam (SRR16683619)
+Nov.-16 23:53:15.864 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 31; name: index_bam (SRR16683619); status: COMPLETED; exit: 0; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/work/0e/ef054191e50a7612d44d5a98e056a4]
+Nov.-16 23:53:15.867 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov.-16 23:53:15.867 [Task submitter] INFO  nextflow.Session - [97/afba4c] Submitted process > extract_aligned (SRR16683616)
+Nov.-16 23:53:31.616 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 32; name: extract_aligned (SRR16683616); status: COMPLETED; exit: 0; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/work/97/afba4c10565b743f104634c136a600]
+Nov.-16 23:53:31.624 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov.-16 23:53:31.624 [Task submitter] INFO  nextflow.Session - [4a/5203ce] Submitted process > extract_aligned (SRR16683617)
+Nov.-16 23:53:44.901 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 33; name: extract_aligned (SRR16683617); status: COMPLETED; exit: 0; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/work/4a/5203cea06c20c82d881755b32425e9]
+Nov.-16 23:53:44.906 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov.-16 23:53:44.907 [Task submitter] INFO  nextflow.Session - [b2/f4b747] Submitted process > extract_aligned (SRR16683618)
+Nov.-16 23:53:58.743 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 34; name: extract_aligned (SRR16683618); status: COMPLETED; exit: 0; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/work/b2/f4b747c28ad3eeacfdda45339fb30f]
+Nov.-16 23:53:58.751 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov.-16 23:53:58.751 [Task submitter] INFO  nextflow.Session - [c9/d3118a] Submitted process > extract_aligned (SRR16683614)
+Nov.-16 23:54:14.668 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 35; name: extract_aligned (SRR16683614); status: COMPLETED; exit: 0; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/work/c9/d3118ac3f434f348f415211c1af5f2]
+Nov.-16 23:54:14.678 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov.-16 23:54:14.678 [Task submitter] INFO  nextflow.Session - [a1/65d27c] Submitted process > extract_aligned (SRR16683615)
+Nov.-16 23:54:24.284 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 36; name: extract_aligned (SRR16683615); status: RUNNING; exit: -; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/work/a1/65d27cd4d0c2af937b796092713a41]
+Nov.-16 23:54:25.682 [Task submitter] DEBUG n.processor.TaskPollingMonitor - %% executor local > tasks in the submission queue: 5 -- tasks to be submitted are shown below
+~> TaskHandler[id: 37; name: extract_aligned (SRR16683619); status: NEW; exit: -; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/work/ae/41b671b60d8eb8900f31409124df1b]
+~> TaskHandler[id: 38; name: bam_to_fastq (SRR16683616); status: NEW; exit: -; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/work/67/86288ab831fafe9b3cbdc05ab925a5]
+~> TaskHandler[id: 39; name: bam_to_fastq (SRR16683617); status: NEW; exit: -; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/work/61/72b991c7ba66396db58348f8572dc0]
+~> TaskHandler[id: 40; name: bam_to_fastq (SRR16683618); status: NEW; exit: -; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/work/1d/32e1bc23de3a8a8cadc844606646ba]
+~> TaskHandler[id: 41; name: bam_to_fastq (SRR16683614); status: NEW; exit: -; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/work/b8/77cca3dd461acbebcc29cdb669b978]
+Nov.-16 23:54:36.788 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 36; name: extract_aligned (SRR16683615); status: COMPLETED; exit: 0; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/work/a1/65d27cd4d0c2af937b796092713a41]
+Nov.-16 23:54:36.792 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov.-16 23:54:36.792 [Task submitter] INFO  nextflow.Session - [ae/41b671] Submitted process > extract_aligned (SRR16683619)
+Nov.-16 23:54:55.302 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 37; name: extract_aligned (SRR16683619); status: COMPLETED; exit: 0; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/work/ae/41b671b60d8eb8900f31409124df1b]
+Nov.-16 23:54:55.307 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov.-16 23:54:55.308 [Task submitter] INFO  nextflow.Session - [67/86288a] Submitted process > bam_to_fastq (SRR16683616)
+Nov.-16 23:55:22.935 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 38; name: bam_to_fastq (SRR16683616); status: COMPLETED; exit: 0; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/work/67/86288ab831fafe9b3cbdc05ab925a5]
+Nov.-16 23:55:22.943 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov.-16 23:55:22.943 [Task submitter] INFO  nextflow.Session - [61/72b991] Submitted process > bam_to_fastq (SRR16683617)
+Nov.-16 23:55:40.241 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 39; name: bam_to_fastq (SRR16683617); status: COMPLETED; exit: 0; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/work/61/72b991c7ba66396db58348f8572dc0]
+Nov.-16 23:55:40.248 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov.-16 23:55:40.249 [Task submitter] INFO  nextflow.Session - [1d/32e1bc] Submitted process > bam_to_fastq (SRR16683618)
+Nov.-16 23:55:54.834 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 40; name: bam_to_fastq (SRR16683618); status: COMPLETED; exit: 0; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/work/1d/32e1bc23de3a8a8cadc844606646ba]
+Nov.-16 23:55:54.846 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov.-16 23:55:54.847 [Task submitter] INFO  nextflow.Session - [b8/77cca3] Submitted process > bam_to_fastq (SRR16683614)
+Nov.-16 23:56:08.229 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 41; name: bam_to_fastq (SRR16683614); status: COMPLETED; exit: 0; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/work/b8/77cca3dd461acbebcc29cdb669b978]
+Nov.-16 23:56:08.238 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov.-16 23:56:08.239 [Task submitter] INFO  nextflow.Session - [cc/c9b9f9] Submitted process > bam_to_fastq (SRR16683615)
+Nov.-16 23:56:23.543 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 42; name: bam_to_fastq (SRR16683615); status: COMPLETED; exit: 0; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/work/cc/c9b9f97be068adbbb0773cdc420c12]
+Nov.-16 23:56:23.551 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov.-16 23:56:23.552 [Task submitter] INFO  nextflow.Session - [70/26c2aa] Submitted process > bam_to_fastq (SRR16683619)
+Nov.-16 23:56:34.991 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 43; name: bam_to_fastq (SRR16683619); status: COMPLETED; exit: 0; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/work/70/26c2aa24ca7c04b7eed4462187280a]
+Nov.-16 23:56:35.003 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov.-16 23:56:35.004 [Task submitter] INFO  nextflow.Session - [47/73b37e] Submitted process > fastq_to_fasta (SRR16683616)
+Nov.-16 23:56:38.546 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 44; name: fastq_to_fasta (SRR16683616); status: COMPLETED; exit: 0; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/work/47/73b37e3734163fa5011edf5b964424]
+Nov.-16 23:56:38.550 [TaskFinalizer-4] ERROR n.processor.TaskPollingMonitor - Unexpected error while finalizing task 'fastq_to_fasta (SRR16683616)' - cause: Failed to create publish directory: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/data/aligner_results.4/fasta
+Nov.-16 23:56:38.551 [TaskFinalizer-4] DEBUG nextflow.Session - Session aborted -- Cause: Failed to create publish directory: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/data/aligner_results.4/fasta
+Nov.-16 23:56:38.553 [Task submitter] DEBUG nextflow.processor.TaskProcessor - Handling unexpected condition for
+  task: name=fastq_to_fasta (SRR16683617); work-dir=/home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/work/10/0004d4efe11c2c959444c6c3f2a6fe
+  error [java.io.IOException]: No space left on device
+Nov.-16 23:56:38.571 [TaskFinalizer-4] DEBUG nextflow.Session - The following nodes are still active:
+  [operator] view
+
+Nov.-16 23:56:38.578 [TaskFinalizer-4] DEBUG nextflow.Session - 
+Thread[PublishDir-6,5,main]
+  java.base@11.0.27/jdk.internal.misc.Unsafe.park(Native Method)
+  java.base@11.0.27/java.util.concurrent.locks.LockSupport.park(LockSupport.java:194)
+  java.base@11.0.27/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:2081)
+  java.base@11.0.27/java.util.concurrent.LinkedBlockingQueue.take(LinkedBlockingQueue.java:433)
+  java.base@11.0.27/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1054)
+  java.base@11.0.27/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1114)
+  java.base@11.0.27/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+  java.base@11.0.27/java.lang.Thread.run(Thread.java:829)
+
+Thread[Task submitter,5,main]
+  java.base@11.0.2Nov.-16 23:56:38.792 [main] DEBUG nextflow.script.ScriptRunner - > Execution complete -- Goodbye

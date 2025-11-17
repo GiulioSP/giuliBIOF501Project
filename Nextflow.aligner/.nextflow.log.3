@@ -1,0 +1,39 @@
+Nov.-16 23:56:49.282 [main] DEBUG nextflow.cli.Launcher - $> nextflow main.nf --sra_path '../data/PRJNA776899.10/*.sra' --outdir ../data/aligner_results.10
+Nov.-16 23:56:49.429 [main] DEBUG nextflow.cli.CmdRun - N E X T F L O W  ~  version 24.10.6
+Nov.-16 23:56:49.451 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; embedded=false; plugins-dir=/home/giuliosp/.nextflow/plugins; core-plugins: nf-amazon@2.9.3,nf-azure@1.10.2,nf-cloudcache@0.4.2,nf-codecommit@0.2.2,nf-console@1.1.4,nf-google@1.15.4,nf-tower@1.9.3,nf-wave@1.7.5
+Nov.-16 23:56:49.475 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
+Nov.-16 23:56:49.476 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
+Nov.-16 23:56:49.479 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.12.0 in 'deployment' mode
+Nov.-16 23:56:49.491 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
+Nov.-16 23:56:49.509 [main] DEBUG nextflow.config.ConfigBuilder - Found config local: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/nextflow.config
+Nov.-16 23:56:49.511 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/nextflow.config
+Nov.-16 23:56:49.531 [main] DEBUG n.secret.LocalSecretsProvider - Secrets store: /home/giuliosp/.nextflow/secrets/store.json
+Nov.-16 23:56:49.534 [main] DEBUG nextflow.secret.SecretsLoader - Discovered secrets providers: [nextflow.secret.LocalSecretsProvider@28a6301f] - activable => nextflow.secret.LocalSecretsProvider@28a6301f
+Nov.-16 23:56:49.545 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `standard`
+Nov.-16 23:56:49.904 [main] DEBUG nextflow.cli.CmdRun - Applied DSL=2 from script declaration
+Nov.-16 23:56:49.918 [main] DEBUG nextflow.cli.CmdRun - Launching `main.nf` [prickly_curie] DSL2 - revision: d0bd97f3f9
+Nov.-16 23:56:49.920 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins default=[]
+Nov.-16 23:56:49.920 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins resolved requirement=[]
+Nov.-16 23:56:49.981 [main] DEBUG nextflow.Session - Session UUID: 5e28e8a0-dfb7-446b-b417-a6dbc56c9fdf
+Nov.-16 23:56:49.982 [main] DEBUG nextflow.Session - Run name: prickly_curie
+Nov.-16 23:56:49.982 [main] DEBUG nextflow.Session - Executor pool size: 8
+Nov.-16 23:56:49.991 [main] DEBUG nextflow.file.FilePorter - File porter settings maxRetries=3; maxTransfers=50; pollTimeout=null
+Nov.-16 23:56:49.996 [main] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'FileTransfer' minSize=10; maxSize=24; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
+Nov.-16 23:56:50.022 [main] DEBUG nextflow.cli.CmdRun - 
+  Version: 24.10.6 build 5937
+  Created: 23-04-2025 16:53 UTC (09:53 PDT)
+  System: Linux 6.8.0-87-generic
+  Runtime: Groovy 4.0.23 on OpenJDK 64-Bit Server VM 11.0.27+6
+  Encoding: UTF-8 (UTF-8)
+  Process: 120064@giulipc [192.168.18.28]
+  CPUs: 8 - Mem: 7.2 GB (222.6 MB) - Swap: 2 GB (411.1 MB)
+Nov.-16 23:56:50.042 [main] DEBUG nextflow.file.FileHelper - Can't check if specified path is NFS (1): /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/work
+
+Nov.-16 23:56:50.043 [main] DEBUG nextflow.Session - Work-dir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/work [null]
+Nov.-16 23:56:50.043 [main] DEBUG nextflow.Session - Script base path does not exist or is not a directory: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/bin
+Nov.-16 23:56:50.049 [main] ERROR nextflow.cli.Launcher - /tmp/nxf-375880987337628638: No space left on device
+java.nio.file.FileSystemException: /tmp/nxf-375880987337628638: No space left on device
+	at java.base/sun.nio.fs.UnixException.translateToIOException(UnixException.java:100)
+	at java.base/sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:111)
+	at java.base/sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:116)
+	at java.base/sun.nio.fs

@@ -1,0 +1,114 @@
+Nov-17 12:27:21.246 [main] DEBUG nextflow.cli.Launcher - $> nextflow main.nf
+Nov-17 12:27:21.344 [main] DEBUG nextflow.cli.CmdRun - N E X T F L O W  ~  version 25.10.0
+Nov-17 12:27:21.384 [main] DEBUG nextflow.config.ConfigBuilder - Found config local: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.amrlearn/nextflow.config
+Nov-17 12:27:21.387 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.amrlearn/nextflow.config
+Nov-17 12:27:21.412 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `standard`
+Nov-17 12:27:21.803 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; embedded=false; plugins-dir=/home/giuliosp/.nextflow/plugins; core-plugins: nf-amazon@3.4.1,nf-azure@1.20.2,nf-cloudcache@0.5.0,nf-codecommit@0.5.0,nf-console@1.3.0,nf-google@1.23.3,nf-k8s@1.2.2,nf-tower@1.17.1,nf-wave@1.16.1
+Nov-17 12:27:21.812 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
+Nov-17 12:27:21.812 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
+Nov-17 12:27:21.815 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.12.0 in 'deployment' mode
+Nov-17 12:27:21.826 [main] DEBUG nextflow.util.RetryConfig - Missing nextflow session - using default retry config
+Nov-17 12:27:21.979 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
+Nov-17 12:27:21.980 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins default=[]
+Nov-17 12:27:21.980 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins resolved requirement=[]
+Nov-17 12:27:21.992 [main] DEBUG n.secret.LocalSecretsProvider - Secrets store: /home/giuliosp/.nextflow/secrets/store.json
+Nov-17 12:27:21.995 [main] DEBUG nextflow.secret.SecretsLoader - Discovered secrets providers: [nextflow.secret.LocalSecretsProvider@4f94e148] - activable => nextflow.secret.LocalSecretsProvider@4f94e148
+Nov-17 12:27:22.004 [main] DEBUG nextflow.cli.CmdRun - Applied DSL=2 from script declaration
+Nov-17 12:27:22.017 [main] DEBUG nextflow.cli.CmdRun - Launching `main.nf` [fervent_nobel] DSL2 - revision: 2ca1f1ac24
+Nov-17 12:27:22.070 [main] DEBUG nextflow.Session - Session UUID: b6212530-5ce2-4a27-928c-d2dcc26502f7
+Nov-17 12:27:22.071 [main] DEBUG nextflow.Session - Run name: fervent_nobel
+Nov-17 12:27:22.071 [main] DEBUG nextflow.Session - Executor pool size: 8
+Nov-17 12:27:22.079 [main] DEBUG nextflow.file.FilePorter - File porter settings maxRetries=3; maxTransfers=50; pollTimeout=null
+Nov-17 12:27:22.084 [main] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'FileTransfer' minSize=10; maxSize=24; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
+Nov-17 12:27:22.101 [main] DEBUG nextflow.cli.CmdRun - 
+  Version: 25.10.0 build 10289
+  Created: 22-10-2025 16:26 UTC (09:26 PDT)
+  System: Linux 6.8.0-87-generic
+  Runtime: Groovy 4.0.28 on OpenJDK 64-Bit Server VM 21.0.2-internal-adhoc.conda.src
+  Encoding: UTF-8 (UTF-8)
+  Process: 180777@giulipc [192.168.25.26]
+  CPUs: 8 - Mem: 7.2 GB (872.7 MB) - Swap: 2 GB (680.3 MB)
+Nov-17 12:27:22.117 [main] DEBUG nextflow.file.FileHelper - Unable to determine FS type (1): /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.amrlearn/work
+
+Nov-17 12:27:22.118 [main] DEBUG nextflow.Session - Work-dir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.amrlearn/work [null]
+Nov-17 12:27:22.118 [main] DEBUG nextflow.Session - Script base path does not exist or is not a directory: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.amrlearn/bin
+Nov-17 12:27:22.126 [main] DEBUG nextflow.executor.ExecutorFactory - Extension executors providers=[]
+Nov-17 12:27:22.139 [main] DEBUG nextflow.Session - Observer factory (v2): LinObserverFactory
+Nov-17 12:27:22.142 [main] DEBUG nextflow.Session - Observer factory (v2): DefaultObserverFactory
+Nov-17 12:27:22.180 [main] DEBUG nextflow.cache.CacheFactory - Using Nextflow cache factory: nextflow.cache.DefaultCacheFactory
+Nov-17 12:27:22.188 [main] DEBUG nextflow.util.CustomThreadPool - Creating default thread pool > poolSize: 9; maxThreads: 1000
+Nov-17 12:27:22.244 [main] DEBUG nextflow.Session - Session start
+Nov-17 12:27:22.563 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
+Nov-17 12:27:22.571 [main] INFO  nextflow.Nextflow - SRA 2 FASTA ALIGNMENT PIPELINE
+===================================
+reference                   : ../data/GCF_000020105.1_ref/GCF_000020105.1.gbff
+fasta path                  : ../data/aligner_results/fasta
+project name                : PRJNA776899
+antibiotic susceptibility   : ../data/PRJNA776899.antibiotics.txt
+threshold for coefficients  : 0.1
+output directory            : ../amrlearn_results
+
+Nov-17 12:27:22.695 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Nov-17 12:27:22.696 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 12:27:22.705 [main] DEBUG nextflow.executor.Executor - [warm up] executor > local
+Nov-17 12:27:22.712 [main] DEBUG n.processor.LocalPollingMonitor - Creating local task monitor for executor 'local' > cpus=8; memory=7.2 GB; capacity=8; pollInterval=100ms; dumpInterval=5m
+Nov-17 12:27:22.715 [main] DEBUG n.processor.TaskPollingMonitor - >>> barrier register (monitor: local)
+Nov-17 12:27:22.740 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'gbff2tab': maxForks=0; fair=false; array=0
+Nov-17 12:27:22.789 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Nov-17 12:27:22.789 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 12:27:22.790 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'parsnp_vcf': maxForks=0; fair=false; array=0
+Nov-17 12:27:22.796 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Nov-17 12:27:22.796 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 12:27:22.797 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'vcf2snp': maxForks=0; fair=false; array=0
+Nov-17 12:27:22.800 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Nov-17 12:27:22.801 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 12:27:22.801 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'feature2target': maxForks=0; fair=false; array=0
+Nov-17 12:27:22.806 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Nov-17 12:27:22.806 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 12:27:22.807 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'ml_learn': maxForks=0; fair=false; array=0
+Nov-17 12:27:22.810 [main] DEBUG nextflow.Session - Workflow process names [dsl2]: parsnp_vcf, gbff2tab, vcf2snp, feature2target, ml_learn
+Nov-17 12:27:22.812 [main] DEBUG nextflow.Session - Igniting dataflow network (8)
+Nov-17 12:27:22.813 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > gbff2tab
+Nov-17 12:27:22.813 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > parsnp_vcf
+Nov-17 12:27:22.814 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > vcf2snp
+Nov-17 12:27:22.814 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > feature2target
+Nov-17 12:27:22.814 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > ml_learn
+Nov-17 12:27:22.815 [main] DEBUG nextflow.script.ScriptRunner - Parsed script files:
+  Script_882aa571aadcedb0: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.amrlearn/main.nf
+Nov-17 12:27:22.815 [main] DEBUG nextflow.script.ScriptRunner - > Awaiting termination 
+Nov-17 12:27:22.815 [main] DEBUG nextflow.Session - Session await
+Nov-17 12:27:22.982 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-17 12:27:22.984 [Task submitter] INFO  nextflow.Session - [aa/caeb1f] Submitted process > parsnp_vcf (PRJNA776899)
+Nov-17 12:28:26.593 [SIGINT handler] DEBUG nextflow.Session - Session aborted -- Cause: SIGINT
+Nov-17 12:28:26.616 [SIGINT handler] DEBUG nextflow.Session - The following nodes are still active:
+[process] vcf2snp
+  status=ACTIVE
+  port 0: (value) OPEN  ; channel: ref_tab
+  port 1: (value) OPEN  ; channel: vcf
+  port 2: (cntrl) -     ; channel: $
+
+[process] feature2target
+  status=ACTIVE
+  port 0: (value) OPEN  ; channel: snp_count
+  port 1: (value) bound ; channel: antibiotics
+  port 2: (cntrl) -     ; channel: $
+
+[process] ml_learn
+  status=ACTIVE
+  port 0: (value) OPEN  ; channel: features
+  port 1: (value) OPEN  ; channel: ref_tab
+  port 2: (value) bound ; channel: antibiotics
+  port 3: (value) bound ; channel: threshold
+  port 4: (cntrl) -     ; channel: $
+
+Nov-17 12:28:26.619 [Task monitor] DEBUG n.processor.TaskPollingMonitor - <<< barrier arrives (monitor: local) - terminating tasks monitor poll loop
+Nov-17 12:28:26.623 [SIGINT handler] WARN  n.processor.TaskPollingMonitor - Killing running tasks (1)
+Nov-17 12:28:26.633 [SIGINT handler] DEBUG n.executor.local.LocalTaskHandler - Unable to kill parsnp_vcf (PRJNA776899) -- command: kill -TERM 180900; exit: 1 
+ bash: line 1: kill: (180900) - No such process
+
+Nov-17 12:28:26.640 [SIGINT handler] DEBUG n.trace.WorkflowStatsObserver - Workflow completed > WorkflowStats[succeededCount=0; failedCount=0; ignoredCount=0; cachedCount=0; pendingCount=1; submittedCount=0; runningCount=0; retriesCount=0; abortedCount=1; succeedDuration=0ms; failedDuration=0ms; cachedDuration=0ms;loadCpus=0; loadMemory=0; peakRunning=1; peakCpus=6; peakMemory=7 GB; ]
+Nov-17 12:28:26.717 [main] DEBUG nextflow.Session - Session await > all processes finished
+Nov-17 12:28:26.718 [main] DEBUG nextflow.Session - Session await > all barriers passed
+Nov-17 12:28:26.718 [main] DEBUG n.trace.WorkflowStatsObserver - Workflow completed > WorkflowStats[succeededCount=0; failedCount=0; ignoredCount=0; cachedCount=0; pendingCount=1; submittedCount=0; runningCount=0; retriesCount=0; abortedCount=1; succeedDuration=0ms; failedDuration=0ms; cachedDuration=0ms;loadCpus=0; loadMemory=0; peakRunning=1; peakCpus=6; peakMemory=7 GB; ]
+Nov-17 12:28:26.724 [main] DEBUG nextflow.cache.CacheDB - Closing CacheDB done
+Nov-17 12:28:26.747 [main] DEBUG nextflow.script.ScriptRunner - > Execution complete -- Goodbye

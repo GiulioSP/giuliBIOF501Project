@@ -126,3 +126,17 @@
 2025-11-17 09:07:58	8m 13s	silly_tesla	OK	d0bd97f3f9bc295d17d3a09998e0a6b6	981253b9-0e65-4355-beb5-acd0324cd141	nextflow main.nf --sra_path '../data/PRJNA776899.13/*.sra' --outdir ../data/aligner_results.13
 2025-11-17 09:17:51	8m 12s	loquacious_rubens	OK	d0bd97f3f9bc295d17d3a09998e0a6b6	d5644403-5db8-4f96-8f9d-5b23feed7e4e	nextflow main.nf --sra_path '../data/PRJNA776899.14/*.sra' --outdir ../data/aligner_results.14
 2025-11-17 09:28:18	9m 3s	cheeky_yonath	OK	d0bd97f3f9bc295d17d3a09998e0a6b6	5c45cda7-1e22-40ee-8cd8-dad777f42583	nextflow main.nf --sra_path '../data/PRJNA776899.15/*.sra' --outdir ../data/aligner_results.15
+2025-11-17 13:29:53	3m 17s	nauseous_euclid	ERR	9abe12945016e2cc5a2f9c44c133d876	74454f21-9232-49e4-86fc-eec8c35b0972	nextflow mainV2.nf
+2025-11-17 13:35:30	17m 33s	maniac_lamarr	ERR	9abe12945016e2cc5a2f9c44c133d876	26bbeb9d-c046-40dd-947a-40b0a627799b	nextflow mainV2.nf
+2025-11-17 13:54:01	2.4s	suspicious_mayer	ERR	9abe12945016e2cc5a2f9c44c133d876	26bbeb9d-c046-40dd-947a-40b0a627799b	nextflow mainV2.nf -resume
+2025-11-17 13:54:35	2.1s	amazing_swanson	ERR	f01972b1846671f5ef07171b26aa1d5d	26bbeb9d-c046-40dd-947a-40b0a627799b	nextflow mainV2.nf -resume
+2025-11-17 14:06:03	7.5s	sad_baekeland	ERR	af92a253e17ba33576fb949cfd613ffc	062054df-8ad9-4ea1-af88-3b56e131f7ed	nextflow mainV2.nf
+2025-11-17 14:06:28	14.6s	golden_crick	ERR	af92a253e17ba33576fb949cfd613ffc	062054df-8ad9-4ea1-af88-3b56e131f7ed	nextflow mainV2.nf -resume -with-docker
+2025-11-17 14:07:35	2.1s	cheeky_becquerel	ERR	af92a253e17ba33576fb949cfd613ffc	062054df-8ad9-4ea1-af88-3b56e131f7ed	nextflow mainV2.nf -resume -with-docker
+2025-11-17 14:08:50	2.6s	wise_lichterman	ERR	af92a253e17ba33576fb949cfd613ffc	062054df-8ad9-4ea1-af88-3b56e131f7ed	nextflow mainV2.nf -resume -with-docker
+2025-11-17 14:12:17	2.1s	stupefied_hypatia	ERR	ca4c803e71fbeb6f533923689015f2e6	062054df-8ad9-4ea1-af88-3b56e131f7ed	nextflow mainV2.nf -resume -with-docker
+2025-11-17 14:12:33	2.5s	friendly_pike	ERR	ca4c803e71fbeb6f533923689015f2e6	062054df-8ad9-4ea1-af88-3b56e131f7ed	nextflow mainV2.nf -resume -with-docker
+2025-11-17 14:14:48	2.9s	jovial_poitras	ERR	af92a253e17ba33576fb949cfd613ffc	062054df-8ad9-4ea1-af88-3b56e131f7ed	nextflow run mainV2.nf -resume -with-docker
+2025-11-17 14:15:56	-	spontaneous_mcnulty	-	e1c62d32ca2e18e2564d9df2013f09a9	062054df-8ad9-4ea1-af88-3b56e131f7ed	nextflow run mainV3.nf -resume -with-docker
+2025-11-17 14:20:17	2.7s	awesome_curran	ERR	af92a253e17ba33576fb949cfd613ffc	062054df-8ad9-4ea1-af88-3b56e131f7ed	nextflow run mainV2.nf -resume
+2025-11-17 14:21:11	17m 36s	suspicious_crick	ERR	5ffeee18c72b2d7105bb3ee5941faafb	062054df-8ad9-4ea1-af88-3b56e131f7ed	nextflow run mainV2.nf -resume

@@ -1,180 +1,427 @@
-Nov.-17 08:58:15.408 [main] DEBUG nextflow.cli.Launcher - $> nextflow main.nf --sra_path '../data/PRJNA776899.12/*.sra' --outdir ../data/aligner_results.12
-Nov.-17 08:58:15.567 [main] DEBUG nextflow.cli.CmdRun - N E X T F L O W  ~  version 24.10.6
-Nov.-17 08:58:15.587 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; embedded=false; plugins-dir=/home/giuliosp/.nextflow/plugins; core-plugins: nf-amazon@2.9.3,nf-azure@1.10.2,nf-cloudcache@0.4.2,nf-codecommit@0.2.2,nf-console@1.1.4,nf-google@1.15.4,nf-tower@1.9.3,nf-wave@1.7.5
-Nov.-17 08:58:15.611 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
-Nov.-17 08:58:15.613 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
-Nov.-17 08:58:15.617 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.12.0 in 'deployment' mode
-Nov.-17 08:58:15.628 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
-Nov.-17 08:58:15.647 [main] DEBUG nextflow.config.ConfigBuilder - Found config local: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/nextflow.config
-Nov.-17 08:58:15.649 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/nextflow.config
-Nov.-17 08:58:15.668 [main] DEBUG n.secret.LocalSecretsProvider - Secrets store: /home/giuliosp/.nextflow/secrets/store.json
-Nov.-17 08:58:15.671 [main] DEBUG nextflow.secret.SecretsLoader - Discovered secrets providers: [nextflow.secret.LocalSecretsProvider@2c306a57] - activable => nextflow.secret.LocalSecretsProvider@2c306a57
-Nov.-17 08:58:15.680 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `standard`
-Nov.-17 08:58:16.038 [main] DEBUG nextflow.cli.CmdRun - Applied DSL=2 from script declaration
-Nov.-17 08:58:16.051 [main] DEBUG nextflow.cli.CmdRun - Launching `main.nf` [scruffy_brenner] DSL2 - revision: d0bd97f3f9
-Nov.-17 08:58:16.052 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins default=[]
-Nov.-17 08:58:16.052 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins resolved requirement=[]
-Nov.-17 08:58:16.110 [main] DEBUG nextflow.Session - Session UUID: 3d820d27-8879-4aa5-a272-4697a4e9015f
-Nov.-17 08:58:16.111 [main] DEBUG nextflow.Session - Run name: scruffy_brenner
-Nov.-17 08:58:16.111 [main] DEBUG nextflow.Session - Executor pool size: 8
-Nov.-17 08:58:16.119 [main] DEBUG nextflow.file.FilePorter - File porter settings maxRetries=3; maxTransfers=50; pollTimeout=null
-Nov.-17 08:58:16.124 [main] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'FileTransfer' minSize=10; maxSize=24; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
-Nov.-17 08:58:16.145 [main] DEBUG nextflow.cli.CmdRun - 
+Nov.-17 14:14:47.340 [main] DEBUG nextflow.cli.Launcher - $> nextflow run mainV2.nf -resume -with-docker
+Nov.-17 14:14:47.578 [main] DEBUG nextflow.cli.CmdRun - N E X T F L O W  ~  version 24.10.6
+Nov.-17 14:14:47.608 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; embedded=false; plugins-dir=/home/giuliosp/.nextflow/plugins; core-plugins: nf-amazon@2.9.3,nf-azure@1.10.2,nf-cloudcache@0.4.2,nf-codecommit@0.2.2,nf-console@1.1.4,nf-google@1.15.4,nf-tower@1.9.3,nf-wave@1.7.5
+Nov.-17 14:14:47.631 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
+Nov.-17 14:14:47.632 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
+Nov.-17 14:14:47.636 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.12.0 in 'deployment' mode
+Nov.-17 14:14:47.651 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
+Nov.-17 14:14:47.677 [main] DEBUG nextflow.config.ConfigBuilder - Found config local: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/nextflow.config
+Nov.-17 14:14:47.681 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/nextflow.config
+Nov.-17 14:14:47.717 [main] DEBUG n.secret.LocalSecretsProvider - Secrets store: /home/giuliosp/.nextflow/secrets/store.json
+Nov.-17 14:14:47.722 [main] DEBUG nextflow.secret.SecretsLoader - Discovered secrets providers: [nextflow.secret.LocalSecretsProvider@3721177d] - activable => nextflow.secret.LocalSecretsProvider@3721177d
+Nov.-17 14:14:47.729 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `standard`
+Nov.-17 14:14:48.216 [main] DEBUG nextflow.config.ConfigBuilder - Enabling execution in Docker container as requested by command-line option `-with-docker -`
+Nov.-17 14:14:48.237 [main] DEBUG nextflow.cli.CmdRun - Applied DSL=2 from script declaration
+Nov.-17 14:14:48.257 [main] DEBUG nextflow.cli.CmdRun - Launching `mainV2.nf` [jovial_poitras] DSL2 - revision: af92a253e1
+Nov.-17 14:14:48.259 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins default=[]
+Nov.-17 14:14:48.259 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins resolved requirement=[]
+Nov.-17 14:14:48.330 [main] DEBUG nextflow.Session - Session UUID: 062054df-8ad9-4ea1-af88-3b56e131f7ed
+Nov.-17 14:14:48.330 [main] DEBUG nextflow.Session - Run name: jovial_poitras
+Nov.-17 14:14:48.330 [main] DEBUG nextflow.Session - Executor pool size: 8
+Nov.-17 14:14:48.340 [main] DEBUG nextflow.file.FilePorter - File porter settings maxRetries=3; maxTransfers=50; pollTimeout=null
+Nov.-17 14:14:48.347 [main] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'FileTransfer' minSize=10; maxSize=24; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
+Nov.-17 14:14:48.375 [main] DEBUG nextflow.cli.CmdRun - 
   Version: 24.10.6 build 5937
   Created: 23-04-2025 16:53 UTC (09:53 PDT)
   System: Linux 6.8.0-87-generic
   Runtime: Groovy 4.0.23 on OpenJDK 64-Bit Server VM 11.0.27+6
   Encoding: UTF-8 (UTF-8)
-  Process: 107418@giulipc [172.16.146.234]
-  CPUs: 8 - Mem: 7.2 GB (2.4 GB) - Swap: 2 GB (141.3 MB)
-Nov.-17 08:58:16.163 [main] DEBUG nextflow.file.FileHelper - Can't check if specified path is NFS (1): /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/work
+  Process: 224387@giulipc [192.168.25.26]
+  CPUs: 8 - Mem: 7.2 GB (239 MB) - Swap: 2 GB (0)
+Nov.-17 14:14:48.454 [main] DEBUG nextflow.file.FileHelper - Can't check if specified path is NFS (1): /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/work
 
-Nov.-17 08:58:16.163 [main] DEBUG nextflow.Session - Work-dir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/work [null]
-Nov.-17 08:58:16.164 [main] DEBUG nextflow.Session - Script base path does not exist or is not a directory: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/bin
-Nov.-17 08:58:16.173 [main] DEBUG nextflow.executor.ExecutorFactory - Extension executors providers=[]
-Nov.-17 08:58:16.182 [main] DEBUG nextflow.Session - Observer factory: DefaultObserverFactory
-Nov.-17 08:58:16.202 [main] DEBUG nextflow.cache.CacheFactory - Using Nextflow cache factory: nextflow.cache.DefaultCacheFactory
-Nov.-17 08:58:16.210 [main] DEBUG nextflow.util.CustomThreadPool - Creating default thread pool > poolSize: 9; maxThreads: 1000
-Nov.-17 08:58:16.262 [main] DEBUG nextflow.Session - Session start
-Nov.-17 08:58:16.727 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
-Nov.-17 08:58:16.739 [main] INFO  nextflow.Nextflow - SRA 2 FASTA ALIGNMENT PIPELINE
+Nov.-17 14:14:48.454 [main] DEBUG nextflow.Session - Work-dir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/work [null]
+Nov.-17 14:14:48.455 [main] DEBUG nextflow.Session - Script base path does not exist or is not a directory: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/bin
+Nov.-17 14:14:48.467 [main] DEBUG nextflow.executor.ExecutorFactory - Extension executors providers=[]
+Nov.-17 14:14:48.479 [main] DEBUG nextflow.Session - Observer factory: DefaultObserverFactory
+Nov.-17 14:14:48.509 [main] DEBUG nextflow.cache.CacheFactory - Using Nextflow cache factory: nextflow.cache.DefaultCacheFactory
+Nov.-17 14:14:48.530 [main] DEBUG nextflow.util.CustomThreadPool - Creating default thread pool > poolSize: 9; maxThreads: 1000
+Nov.-17 14:14:48.646 [main] DEBUG nextflow.Session - Session start
+Nov.-17 14:14:49.538 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
+Nov.-17 14:14:49.555 [main] INFO  nextflow.Nextflow - SRA 2 FASTA ALIGNMENT PIPELINE
 ===================================
 reference   : ../data/GCF_000020105.1_ref/GCF_000020105.1_ASM2010v1_genomic.fna
-sra path    : ../data/PRJNA776899.12/*.sra
-outdir      : ../data/aligner_results.12
+sra path    : ../data/sra/*.sra
+outdir      : ../aligner_results
 
-Nov.-17 08:58:16.924 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
-Nov.-17 08:58:16.925 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
-Nov.-17 08:58:16.929 [main] DEBUG nextflow.executor.Executor - [warm up] executor > local
-Nov.-17 08:58:16.935 [main] DEBUG n.processor.LocalPollingMonitor - Creating local task monitor for executor 'local' > cpus=8; memory=7.2 GB; capacity=8; pollInterval=100ms; dumpInterval=5m
-Nov.-17 08:58:16.936 [main] DEBUG n.processor.TaskPollingMonitor - >>> barrier register (monitor: local)
-Nov.-17 08:58:16.987 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
-Nov.-17 08:58:16.987 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
-Nov.-17 08:58:16.993 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
-Nov.-17 08:58:16.993 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
-Nov.-17 08:58:16.999 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
-Nov.-17 08:58:16.999 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
-Nov.-17 08:58:17.004 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
-Nov.-17 08:58:17.004 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
-Nov.-17 08:58:17.009 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
-Nov.-17 08:58:17.009 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
-Nov.-17 08:58:17.017 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
-Nov.-17 08:58:17.017 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
-Nov.-17 08:58:17.029 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
-Nov.-17 08:58:17.030 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
-Nov.-17 08:58:17.040 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
-Nov.-17 08:58:17.040 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
-Nov.-17 08:58:17.044 [main] DEBUG nextflow.Session - Workflow process names [dsl2]: dump_reads, index_bam, extract_aligned, build_index, fastqc, bam_to_fastq, align, multiqc, fastq_to_fasta, sort_bam
-Nov.-17 08:58:17.044 [main] DEBUG nextflow.Session - Igniting dataflow network (12)
-Nov.-17 08:58:17.050 [PathVisitor-1] DEBUG nextflow.file.PathVisitor - files for syntax: glob; folder: ../data/PRJNA776899.12/; pattern: *.sra; options: [:]
-Nov.-17 08:58:17.051 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > dump_reads
-Nov.-17 08:58:17.052 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > align
-Nov.-17 08:58:17.052 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > sort_bam
-Nov.-17 08:58:17.053 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > index_bam
-Nov.-17 08:58:17.055 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > extract_aligned
-Nov.-17 08:58:17.056 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > bam_to_fastq
-Nov.-17 08:58:17.057 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > fastq_to_fasta
-Nov.-17 08:58:17.057 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > fastqc
-Nov.-17 08:58:17.058 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > multiqc
-Nov.-17 08:58:17.059 [main] DEBUG nextflow.script.ScriptRunner - Parsed script files:
-  Script_046e17b369779482: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/main.nf
-Nov.-17 08:58:17.059 [main] DEBUG nextflow.script.ScriptRunner - > Awaiting termination 
-Nov.-17 08:58:17.059 [main] DEBUG nextflow.Session - Session await
-Nov.-17 08:58:17.238 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
-Nov.-17 08:58:17.240 [Task submitter] INFO  nextflow.Session - [96/f1bddf] Submitted process > dump_reads (SRR16683576)
-Nov.-17 08:58:29.404 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 2; name: dump_reads (SRR16683576); status: COMPLETED; exit: 0; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/work/96/f1bddf7b860a938795a8a3b651d5f7]
-Nov.-17 08:58:29.405 [Task monitor] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'TaskFinalizer' minSize=10; maxSize=24; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
-Nov.-17 08:58:29.409 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
-Nov.-17 08:58:29.410 [Task submitter] INFO  nextflow.Session - [a2/6741de] Submitted process > dump_reads (SRR16683577)
-Nov.-17 08:58:46.383 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 3; name: dump_reads (SRR16683577); status: COMPLETED; exit: 0; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/work/a2/6741de9a32140a53b8d8616b00ccb0]
-Nov.-17 08:58:46.388 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
-Nov.-17 08:58:46.389 [Task submitter] INFO  nextflow.Session - [6d/d7ca04] Submitted process > dump_reads (SRR16683575)
-Nov.-17 08:59:03.434 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 1; name: dump_reads (SRR16683575); status: COMPLETED; exit: 0; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/work/6d/d7ca04dead27f6611f0687d758bca1]
-Nov.-17 08:59:03.557 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
-Nov.-17 08:59:03.558 [Task submitter] INFO  nextflow.Session - [45/0d2bd0] Submitted process > align (SRR16683576)
-Nov.-17 08:59:55.312 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 4; name: align (SRR16683576); status: COMPLETED; exit: 0; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/work/45/0d2bd0635d4bd0e02aab64414cf693]
-Nov.-17 08:59:55.316 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
-Nov.-17 08:59:55.317 [Task submitter] INFO  nextflow.Session - [b9/e4fe29] Submitted process > fastqc (SRR16683576)
-Nov.-17 09:00:14.919 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 5; name: fastqc (SRR16683576); status: COMPLETED; exit: 0; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/work/b9/e4fe29f8cf85b950031ed8b10efc00]
-Nov.-17 09:00:14.922 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
-Nov.-17 09:00:14.923 [Task submitter] INFO  nextflow.Session - [ed/5a70b2] Submitted process > fastqc (SRR16683577)
-Nov.-17 09:00:14.939 [TaskFinalizer-5] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'PublishDir' minSize=10; maxSize=24; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
-Nov.-17 09:00:35.178 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 7; name: fastqc (SRR16683577); status: COMPLETED; exit: 0; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/work/ed/5a70b2e71fe74192e8ff70ecf29e34]
-Nov.-17 09:00:35.181 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
-Nov.-17 09:00:35.182 [Task submitter] INFO  nextflow.Session - [9e/ed12a6] Submitted process > align (SRR16683577)
-Nov.-17 09:01:30.075 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 6; name: align (SRR16683577); status: COMPLETED; exit: 0; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/work/9e/ed12a69ebd5ed9839dfcc3771c9e17]
-Nov.-17 09:01:30.081 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
-Nov.-17 09:01:30.081 [Task submitter] INFO  nextflow.Session - [b1/5dab06] Submitted process > fastqc (SRR16683575)
-Nov.-17 09:01:54.746 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 8; name: fastqc (SRR16683575); status: COMPLETED; exit: 0; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/work/b1/5dab06498522d68c56eb97b7e2f87f]
-Nov.-17 09:01:54.750 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
-Nov.-17 09:01:54.751 [Task submitter] INFO  nextflow.Session - [5e/bf2bcf] Submitted process > align (SRR16683575)
-Nov.-17 09:03:03.070 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 9; name: align (SRR16683575); status: COMPLETED; exit: 0; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/work/5e/bf2bcf46d221119da191eb58d71d4f]
-Nov.-17 09:03:03.074 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
-Nov.-17 09:03:03.074 [Task submitter] INFO  nextflow.Session - [1a/d8e86d] Submitted process > sort_bam (SRR16683576)
-Nov.-17 09:03:17.089 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
-~> TaskHandler[id: 10; name: sort_bam (SRR16683576); status: RUNNING; exit: -; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/work/1a/d8e86d902cc84f57006ea197aa604a]
-Nov.-17 09:03:18.080 [Task submitter] DEBUG n.processor.TaskPollingMonitor - %% executor local > tasks in the submission queue: 3 -- tasks to be submitted are shown below
-~> TaskHandler[id: 11; name: sort_bam (SRR16683577); status: NEW; exit: -; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/work/82/b543bca6920d4a7315f9135a41aa51]
-~> TaskHandler[id: 12; name: multiqc; status: NEW; exit: -; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/work/bf/b21a825aee99de43f15846c559ab67]
-~> TaskHandler[id: 13; name: sort_bam (SRR16683575); status: NEW; exit: -; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/work/0c/dede981cca3e69c5059757807d6707]
-Nov.-17 09:03:40.849 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 10; name: sort_bam (SRR16683576); status: COMPLETED; exit: 0; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/work/1a/d8e86d902cc84f57006ea197aa604a]
-Nov.-17 09:03:40.853 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
-Nov.-17 09:03:40.853 [Task submitter] INFO  nextflow.Session - [82/b543bc] Submitted process > sort_bam (SRR16683577)
-Nov.-17 09:04:18.792 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 11; name: sort_bam (SRR16683577); status: COMPLETED; exit: 0; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/work/82/b543bca6920d4a7315f9135a41aa51]
-Nov.-17 09:04:18.797 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
-Nov.-17 09:04:18.797 [Task submitter] INFO  nextflow.Session - [bf/b21a82] Submitted process > multiqc
-Nov.-17 09:04:20.510 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 12; name: multiqc; status: COMPLETED; exit: 0; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/work/bf/b21a825aee99de43f15846c559ab67]
-Nov.-17 09:04:20.513 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
-Nov.-17 09:04:20.513 [Task submitter] INFO  nextflow.Session - [0c/dede98] Submitted process > sort_bam (SRR16683575)
-Nov.-17 09:05:04.865 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 13; name: sort_bam (SRR16683575); status: COMPLETED; exit: 0; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/work/0c/dede981cca3e69c5059757807d6707]
-Nov.-17 09:05:04.872 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
-Nov.-17 09:05:04.872 [Task submitter] INFO  nextflow.Session - [7c/c8bdd3] Submitted process > index_bam (SRR16683576)
-Nov.-17 09:05:05.835 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 14; name: index_bam (SRR16683576); status: COMPLETED; exit: 0; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/work/7c/c8bdd3f793a187a2ecc97efa6b1e18]
-Nov.-17 09:05:05.840 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
-Nov.-17 09:05:05.840 [Task submitter] INFO  nextflow.Session - [14/58653f] Submitted process > index_bam (SRR16683577)
-Nov.-17 09:05:06.934 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 15; name: index_bam (SRR16683577); status: COMPLETED; exit: 0; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/work/14/58653f2d3a9dc8d02adf55d737146f]
-Nov.-17 09:05:06.938 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
-Nov.-17 09:05:06.938 [Task submitter] INFO  nextflow.Session - [91/991a89] Submitted process > index_bam (SRR16683575)
-Nov.-17 09:05:08.083 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 16; name: index_bam (SRR16683575); status: COMPLETED; exit: 0; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/work/91/991a89284faa8968dd903589f37676]
-Nov.-17 09:05:08.085 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
-Nov.-17 09:05:08.086 [Task submitter] INFO  nextflow.Session - [09/8b0bed] Submitted process > extract_aligned (SRR16683576)
-Nov.-17 09:05:22.328 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 17; name: extract_aligned (SRR16683576); status: COMPLETED; exit: 0; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/work/09/8b0bed3f498ecb009764aba20462c8]
-Nov.-17 09:05:22.342 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
-Nov.-17 09:05:22.343 [Task submitter] INFO  nextflow.Session - [73/dbbfc1] Submitted process > extract_aligned (SRR16683577)
-Nov.-17 09:05:38.232 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 18; name: extract_aligned (SRR16683577); status: COMPLETED; exit: 0; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/work/73/dbbfc1d2f23107d444634e1f485f4f]
-Nov.-17 09:05:38.238 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
-Nov.-17 09:05:38.239 [Task submitter] INFO  nextflow.Session - [08/f80a3c] Submitted process > extract_aligned (SRR16683575)
-Nov.-17 09:05:54.918 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 19; name: extract_aligned (SRR16683575); status: COMPLETED; exit: 0; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/work/08/f80a3c7ae36556f30d3e042872b68c]
-Nov.-17 09:05:54.930 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
-Nov.-17 09:05:54.931 [Task submitter] INFO  nextflow.Session - [01/4e95aa] Submitted process > bam_to_fastq (SRR16683576)
-Nov.-17 09:06:04.664 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 20; name: bam_to_fastq (SRR16683576); status: COMPLETED; exit: 0; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/work/01/4e95aa9af2ac4eb52d5b7aa1301da5]
-Nov.-17 09:06:04.672 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
-Nov.-17 09:06:04.672 [Task submitter] INFO  nextflow.Session - [75/47a545] Submitted process > bam_to_fastq (SRR16683577)
-Nov.-17 09:06:14.167 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 21; name: bam_to_fastq (SRR16683577); status: COMPLETED; exit: 0; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/work/75/47a545e58b207e0423f43cb3011322]
-Nov.-17 09:06:14.177 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
-Nov.-17 09:06:14.177 [Task submitter] INFO  nextflow.Session - [af/438487] Submitted process > bam_to_fastq (SRR16683575)
-Nov.-17 09:06:24.759 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 22; name: bam_to_fastq (SRR16683575); status: COMPLETED; exit: 0; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/work/af/4384876bd60046b616d752cf6087cd]
-Nov.-17 09:06:24.767 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
-Nov.-17 09:06:24.771 [Task submitter] INFO  nextflow.Session - [0d/738c81] Submitted process > fastq_to_fasta (SRR16683576)
-Nov.-17 09:06:28.709 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 23; name: fastq_to_fasta (SRR16683576); status: COMPLETED; exit: 0; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/work/0d/738c81a82a397298cd5a363c808d3a]
-Nov.-17 09:06:28.712 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
-Nov.-17 09:06:28.712 [Task submitter] INFO  nextflow.Session - [86/85b0c9] Submitted process > fastq_to_fasta (SRR16683577)
-Nov.-17 09:06:37.894 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 24; name: fastq_to_fasta (SRR16683577); status: COMPLETED; exit: 0; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/work/86/85b0c911e8784b2b83c2dc75339f20]
-Nov.-17 09:06:37.897 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
-Nov.-17 09:06:37.897 [Task submitter] INFO  nextflow.Session - [02/37d106] Submitted process > fastq_to_fasta (SRR16683575)
-Nov.-17 09:06:45.240 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 25; name: fastq_to_fasta (SRR16683575); status: COMPLETED; exit: 0; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/work/02/37d106e2e26bde83fb895585bf0906]
-Nov.-17 09:06:45.243 [main] DEBUG nextflow.Session - Session await > all processes finished
-Nov.-17 09:06:45.341 [Task monitor] DEBUG n.processor.TaskPollingMonitor - <<< barrier arrives (monitor: local) - terminating tasks monitor poll loop
-Nov.-17 09:06:45.342 [main] DEBUG nextflow.Session - Session await > all barriers passed
-Nov.-17 09:06:45.396 [main] DEBUG nextflow.util.ThreadPoolManager - Thread pool 'TaskFinalizer' shutdown completed (hard=false)
-Nov.-17 09:06:47.656 [main] DEBUG nextflow.util.ThreadPoolManager - Thread pool 'PublishDir' shutdown completed (hard=false)
-Nov.-17 09:06:47.892 [main] DEBUG n.trace.WorkflowStatsObserver - Workflow completed > WorkflowStats[succeededCount=25; failedCount=0; ignoredCount=0; cachedCount=0; pendingCount=0; submittedCount=0; runningCount=0; retriesCount=0; abortedCount=0; succeedDuration=50m 33s; failedDuration=0ms; cachedDuration=0ms;loadCpus=0; loadMemory=0; peakRunning=1; peakCpus=6; peakMemory=7 GB; ]
-Nov.-17 09:06:48.289 [main] DEBUG nextflow.cache.CacheDB - Closing CacheDB done
-Nov.-17 09:06:48.327 [main] DEBUG nextflow.plugin.PluginsFacade - Using Default plugin manager
-Nov.-17 09:06:48.330 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
-Nov.-17 09:06:48.330 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
-Nov.-17 09:06:48.331 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.12.0 in 'deployment' mode
-Nov.-17 09:06:48.332 [main] DEBUG nextflow.cache.CacheFactory - Using Nextflow cache factory: nextflow.cache.DefaultCacheFactory
-Nov.-17 09:06:49.281 [main] DEBUG nextflow.cache.CacheDB - Closing CacheDB done
-Nov.-17 09:06:49.282 [main] DEBUG nextflow.util.ThreadPoolManager - Thread pool 'FileTransfer' shutdown completed (hard=false)
-Nov.-17 09:06:49.283 [main] DEBUG nextflow.script.ScriptRunner - > Execution complete -- Goodbye
+Nov.-17 14:14:49.757 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Nov.-17 14:14:49.757 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov.-17 14:14:49.764 [main] DEBUG nextflow.executor.Executor - [warm up] executor > local
+Nov.-17 14:14:49.771 [main] DEBUG n.processor.LocalPollingMonitor - Creating local task monitor for executor 'local' > cpus=8; memory=7.2 GB; capacity=8; pollInterval=100ms; dumpInterval=5m
+Nov.-17 14:14:49.774 [main] DEBUG n.processor.TaskPollingMonitor - >>> barrier register (monitor: local)
+Nov.-17 14:14:49.866 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Nov.-17 14:14:49.866 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov.-17 14:14:49.877 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Nov.-17 14:14:49.878 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov.-17 14:14:49.889 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Nov.-17 14:14:49.889 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov.-17 14:14:49.908 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Nov.-17 14:14:49.908 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov.-17 14:14:49.932 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Nov.-17 14:14:49.933 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov.-17 14:14:49.946 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Nov.-17 14:14:49.946 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov.-17 14:14:49.952 [main] DEBUG nextflow.Session - Workflow process names [dsl2]: dump_reads, index_bam, generate_consensus, extract_aligned, build_index, fastqc, bam_to_fastq, align, multiqc, fastq_to_fasta, sort_bam
+Nov.-17 14:14:49.952 [main] DEBUG nextflow.Session - Igniting dataflow network (10)
+Nov.-17 14:14:49.960 [PathVisitor-1] DEBUG nextflow.file.PathVisitor - files for syntax: glob; folder: ../data/sra/; pattern: *.sra; options: [:]
+Nov.-17 14:14:49.963 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > dump_reads
+Nov.-17 14:14:49.964 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > align
+Nov.-17 14:14:49.965 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > sort_bam
+Nov.-17 14:14:49.968 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > index_bam
+Nov.-17 14:14:49.970 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > generate_consensus
+Nov.-17 14:14:49.971 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > fastqc
+Nov.-17 14:14:49.971 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > multiqc
+Nov.-17 14:14:49.973 [main] DEBUG nextflow.script.ScriptRunner - Parsed script files:
+  Script_d37e56d5385cf83b: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/mainV2.nf
+Nov.-17 14:14:49.973 [main] DEBUG nextflow.script.ScriptRunner - > Awaiting termination 
+Nov.-17 14:14:49.973 [main] DEBUG nextflow.Session - Session await
+Nov.-17 14:14:50.322 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov.-17 14:14:50.326 [Task submitter] INFO  nextflow.Session - [dc/49a896] Submitted process > dump_reads (SRR1668517)
+Nov.-17 14:14:50.604 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 3; name: dump_reads (SRR1668517); status: COMPLETED; exit: 127; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/work/dc/49a896ca2dc6cb4f9b43f3de8c1eb2]
+Nov.-17 14:14:50.605 [Task monitor] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'TaskFinalizer' minSize=10; maxSize=24; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
+Nov.-17 14:14:50.609 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov.-17 14:14:50.610 [Task submitter] INFO  nextflow.Session - [50/142eec] Submitted process > dump_reads (SRR1668519)
+Nov.-17 14:14:50.619 [TaskFinalizer-1] DEBUG nextflow.processor.TaskProcessor - Handling unexpected condition for
+  task: name=dump_reads (SRR1668517); work-dir=/home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/work/dc/49a896ca2dc6cb4f9b43f3de8c1eb2
+  error [nextflow.exception.ProcessFailedException]: Process `dump_reads (SRR1668517)` terminated with an error exit status (127)
+Nov.-17 14:14:50.645 [TaskFinalizer-1] ERROR nextflow.processor.TaskProcessor - Error executing process > 'dump_reads (SRR1668517)'
+
+Caused by:
+  Process `dump_reads (SRR1668517)` terminated with an error exit status (127)
+
+
+Command executed:
+
+  fasterq-dump --split-files SRR1668517.sra
+
+Command exit status:
+  127
+
+Command output:
+  (empty)
+
+Command error:
+  docker: Error response from daemon: failed to create task for container: failed to create shim task: OCI runtime create failed: runc create failed: unable to start container process: error during container init: exec: "/bin/bash": stat /bin/bash: no such file or directory: unknown
+  
+  Run 'docker run --help' for more information
+
+Work dir:
+  /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.aligner/work/dc/49a896ca2dc6cb4f9b43f3de8c1eb2
+
+Container:
+  ncbi/sra-tools:2.11.2
+
+Tip: you can try to figure out what's wrong by changing to the process work dir and showing the script file named `.command.sh`
+Nov.-17 14:14:50.655 [TaskFinalizer-1] DEBUG nextflow.Session - Session aborted -- Cause: Process `dump_reads (SRR1668517)` terminated with an error exit status (127)
+Nov.-17 14:14:50.680 [Task monitor] DEBUG n.processor.TaskPollingMonitor - <<< barrier arrives (monitor: local) - terminating tasks monitor poll loop
+Nov.-17 14:14:50.692 [TaskFinalizer-1] DEBUG nextflow.Session - The following nodes are still active:
+[process] align
+  status=ACTIVE
+  port 0: (queue) OPEN  ; channel: -
+  port 1: (value) bound ; channel: ref_mmi
+  port 2: (cntrl) -     ; channel: $
+
+[process] sort_bam
+  status=ACTIVE
+  port 0: (queue) OPEN  ; channel: -
+  port 1: (cntrl) -     ; channel: $
+
+[process] index_bam
+  status=ACTIVE
+  port 0: (queue) OPEN  ; channel: -
+  port 1: (cntrl) -     ; channel: $
+
+[process] generate_consensus
+  status=ACTIVE
+  port 0: (queue) OPEN  ; channel: -
+  port 1: (value) bound ; channel: ref_fasta
+  port 2: (cntrl) -     ; channel: $
+
+[process] fastqc
+  status=ACTIVE
+  port 0: (queue) OPEN  ; channel: -
+  port 1: (cntrl) -     ; channel: $
+
+[process] multiqc
+  status=ACTIVE
+  port 0: (value) OPEN  ; channel: fastqc_files
+  port 1: (cntrl) -     ; channel: $
+
+Nov.-17 14:14:50.697 [TaskFinalizer-1] DEBUG nextflow.Session - 
+Thread[Actor Thread 1,5,main]
+  java.base@11.0.27/jdk.internal.misc.Unsafe.park(Native Method)
+  java.base@11.0.27/java.util.concurrent.locks.LockSupport.park(LockSupport.java:194)
+  java.base@11.0.27/java.util.concurrent.SynchronousQueue$TransferStack.awaitFulfill(SynchronousQueue.java:460)
+  java.base@11.0.27/java.util.concurrent.SynchronousQueue$TransferStack.transfer(SynchronousQueue.java:361)
+  java.base@11.0.27/java.util.concurrent.SynchronousQueue.take(SynchronousQueue.java:920)
+  java.base@11.0.27/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1054)
+  java.base@11.0.27/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1114)
+  java.base@11.0.27/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+  java.base@11.0.27/java.lang.Thread.run(Thread.java:829)
+
+Thread[Actor Thread 2,5,main]
+  java.base@11.0.27/jdk.internal.misc.Unsafe.park(Native Method)
+  java.base@11.0.27/java.util.concurrent.locks.LockSupport.park(LockSupport.java:194)
+  java.base@11.0.27/java.util.concurrent.SynchronousQueue$TransferStack.awaitFulfill(SynchronousQueue.java:460)
+  java.base@11.0.27/java.util.concurrent.SynchronousQueue$TransferStack.transfer(SynchronousQueue.java:361)
+  java.base@11.0.27/java.util.concurrent.SynchronousQueue.take(SynchronousQueue.java:920)
+  java.base@11.0.27/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1054)
+  java.base@11.0.27/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1114)
+  java.base@11.0.27/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+  java.base@11.0.27/java.lang.Thread.run(Thread.java:829)
+
+Thread[PathVisitor-1,5,main]
+  java.base@11.0.27/jdk.internal.misc.Unsafe.park(Native Method)
+  java.base@11.0.27/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:234)
+  java.base@11.0.27/java.util.concurrent.SynchronousQueue$TransferStack.awaitFulfill(SynchronousQueue.java:462)
+  java.base@11.0.27/java.util.concurrent.SynchronousQueue$TransferStack.transfer(SynchronousQueue.java:361)
+  java.base@11.0.27/java.util.concurrent.SynchronousQueue.poll(SynchronousQueue.java:937)
+  java.base@11.0.27/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1053)
+  java.base@11.0.27/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1114)
+  java.base@11.0.27/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+  java.base@11.0.27/java.lang.Thread.run(Thread.java:829)
+
+Thread[process reaper (pid 224617),10,system]
+  java.base@11.0.27/java.lang.ProcessHandleImpl.waitForProcessExit0(Native Method)
+  java.base@11.0.27/java.lang.ProcessHandleImpl$1.run(ProcessHandleImpl.java:145)
+  java.base@11.0.27/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+  java.base@11.0.27/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+  java.base@11.0.27/java.lang.Thread.run(Thread.java:829)
+
+Thread[Task submitter,5,main]
+  java.base@11.0.27/jdk.internal.misc.Unsafe.park(Native Method)
+  java.base@11.0.27/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:234)
+  java.base@11.0.27/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:2211)
+  app//nextflow.processor.TaskPollingMonitor.awaitSlots(TaskPollingMonitor.groovy:399)
+  app//nextflow.processor.TaskPollingMonitor.submitLoop(TaskPollingMonitor.groovy:420)
+  java.base@11.0.27/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+  java.base@11.0.27/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+  java.base@11.0.27/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+  java.base@11.0.27/java.lang.reflect.Method.invoke(Method.java:566)
+  app//org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:343)
+  app//groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:328)
+  app//groovy.lang.MetaClassImpl.doInvokeMethod(MetaClassImpl.java:1333)
+  app//groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1088)
+  app//groovy.lang.MetaClassImpl.invokeMethodClosure(MetaClassImpl.java:1017)
+  app//groovy.lang.MetaClassImpl.doInvokeMethod(MetaClassImpl.java:1207)
+  app//groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1088)
+  app//groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1007)
+  app//groovy.lang.Closure.call(Closure.java:433)
+  app//groovy.lang.Closure.call(Closure.java:412)
+  app//groovy.lang.Closure.run(Closure.java:505)
+  java.base@11.0.27/java.lang.Thread.run(Thread.java:829)
+
+Thread[Common-Cleaner,8,InnocuousThreadGroup]
+  java.base@11.0.27/java.lang.Object.wait(Native Method)
+  java.base@11.0.27/java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:155)
+  java.base@11.0.27/jdk.internal.ref.CleanerImpl.run(CleanerImpl.java:148)
+  java.base@11.0.27/java.lang.Thread.run(Thread.java:829)
+  java.base@11.0.27/jdk.internal.misc.InnocuousThread.run(InnocuousThread.java:161)
+
+Thread[pool-2-thread-1,5,main]
+  java.base@11.0.27/jdk.internal.misc.Unsafe.park(Native Method)
+  java.base@11.0.27/java.util.concurrent.locks.LockSupport.park(LockSupport.java:194)
+  java.base@11.0.27/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:2081)
+  java.base@11.0.27/java.util.concurrent.LinkedBlockingQueue.take(LinkedBlockingQueue.java:433)
+  java.base@11.0.27/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1054)
+  java.base@11.0.27/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1114)
+  java.base@11.0.27/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+  java.base@11.0.27/java.lang.Thread.run(Thread.java:829)
+
+Thread[Actor Thread 9,5,main]
+  java.base@11.0.27/jdk.internal.misc.Unsafe.park(Native Method)
+  java.base@11.0.27/java.util.concurrent.locks.LockSupport.park(LockSupport.java:194)
+  java.base@11.0.27/java.util.concurrent.SynchronousQueue$TransferStack.awaitFulfill(SynchronousQueue.java:460)
+  java.base@11.0.27/java.util.concurrent.SynchronousQueue$TransferStack.transfer(SynchronousQueue.java:361)
+  java.base@11.0.27/java.util.concurrent.SynchronousQueue.take(SynchronousQueue.java:920)
+  java.base@11.0.27/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1054)
+  java.base@11.0.27/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1114)
+  java.base@11.0.27/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+  java.base@11.0.27/java.lang.Thread.run(Thread.java:829)
+
+Thread[Reference Handler,10,system]
+  java.base@11.0.27/java.lang.ref.Reference.waitForReferencePendingList(Native Method)
+  java.base@11.0.27/java.lang.ref.Reference.processPendingReferences(Reference.java:241)
+  java.base@11.0.27/java.lang.ref.Reference$ReferenceHandler.run(Reference.java:213)
+
+Thread[Thread-1,5,main]
+  java.base@11.0.27/jdk.internal.misc.Unsafe.park(Native Method)
+  java.base@11.0.27/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:234)
+  java.base@11.0.27/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:2123)
+  java.base@11.0.27/java.util.concurrent.LinkedBlockingDeque.pollFirst(LinkedBlockingDeque.java:513)
+  java.base@11.0.27/java.util.concurrent.LinkedBlockingDeque.poll(LinkedBlockingDeque.java:675)
+  app//nextflow.util.SimpleAgent.run(SimpleAgent.groovy:89)
+  java.base@11.0.27/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+  java.base@11.0.27/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+  java.base@11.0.27/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+  java.base@11.0.27/java.lang.reflect.Method.invoke(Method.java:566)
+  app//org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:343)
+  app//groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:328)
+  app//groovy.lang.MetaClassImpl.doInvokeMethod(MetaClassImpl.java:1333)
+  app//groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1088)
+  app//groovy.lang.MetaClassImpl.invokeMethodClosure(MetaClassImpl.java:1017)
+  app//groovy.lang.MetaClassImpl.doInvokeMethod(MetaClassImpl.java:1207)
+  app//groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1088)
+  app//groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1007)
+  app//groovy.lang.Closure.call(Closure.java:433)
+  app//groovy.lang.Closure.call(Closure.java:412)
+  app//groovy.lang.Closure.run(Closure.java:505)
+  java.base@11.0.27/java.lang.Thread.run(Thread.java:829)
+
+Thread[Actor Thread 3,5,main]
+  java.base@11.0.27/jdk.internal.misc.Unsafe.park(Native Method)
+  java.base@11.0.27/java.util.concurrent.locks.LockSupport.park(LockSupport.java:194)
+  java.base@11.0.27/java.util.concurrent.SynchronousQueue$TransferStack.awaitFulfill(SynchronousQueue.java:460)
+  java.base@11.0.27/java.util.concurrent.SynchronousQueue$TransferStack.transfer(SynchronousQueue.java:361)
+  java.base@11.0.27/java.util.concurrent.SynchronousQueue.take(SynchronousQueue.java:920)
+  java.base@11.0.27/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1054)
+  java.base@11.0.27/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1114)
+  java.base@11.0.27/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+  java.base@11.0.27/java.lang.Thread.run(Thread.java:829)
+
+Thread[Actor Thread 5,5,main]
+  java.base@11.0.27/jdk.internal.misc.Unsafe.park(Native Method)
+  java.base@11.0.27/java.util.concurrent.locks.LockSupport.park(LockSupport.java:194)
+  java.base@11.0.27/java.util.concurrent.SynchronousQueue$TransferStack.awaitFulfill(SynchronousQueue.java:460)
+  java.base@11.0.27/java.util.concurrent.SynchronousQueue$TransferStack.transfer(SynchronousQueue.java:361)
+  java.base@11.0.27/java.util.concurrent.SynchronousQueue.take(SynchronousQueue.java:920)
+  java.base@11.0.27/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1054)
+  java.base@11.0.27/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1114)
+  java.base@11.0.27/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+  java.base@11.0.27/java.lang.Thread.run(Thread.java:829)
+
+Thread[AnsiLogObserver,5,main]
+  java.base@11.0.27/java.lang.Object.wait(Native Method)
+  app//nextflow.trace.AnsiLogObserver.render0(AnsiLogObserver.groovy:185)
+  java.base@11.0.27/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+  java.base@11.0.27/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+  java.base@11.0.27/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+  java.base@11.0.27/java.lang.reflect.Method.invoke(Method.java:566)
+  app//org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:343)
+  app//groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:328)
+  app//groovy.lang.MetaClassImpl.doInvokeMethod(MetaClassImpl.java:1333)
+  app//groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1088)
+  app//groovy.lang.MetaClassImpl.invokeMethodClosure(MetaClassImpl.java:1017)
+  app//groovy.lang.MetaClassImpl.doInvokeMethod(MetaClassImpl.java:1207)
+  app//groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1088)
+  app//groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1007)
+  app//groovy.lang.Closure.call(Closure.java:433)
+  app//groovy.lang.Closure.call(Closure.java:412)
+  app//groovy.lang.Closure.run(Closure.java:505)
+  java.base@11.0.27/java.lang.Thread.run(Thread.java:829)
+
+Thread[Actor Thread 7,5,main]
+  java.base@11.0.27/jdk.internal.misc.Unsafe.park(Native Method)
+  java.base@11.0.27/java.util.concurrent.locks.LockSupport.park(LockSupport.java:194)
+  java.base@11.0.27/java.util.concurrent.SynchronousQueue$TransferStack.awaitFulfill(SynchronousQueue.java:460)
+  java.base@11.0.27/java.util.concurrent.SynchronousQueue$TransferStack.transfer(SynchronousQueue.java:361)
+  java.base@11.0.27/java.util.concurrent.SynchronousQueue.take(SynchronousQueue.java:920)
+  java.base@11.0.27/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1054)
+  java.base@11.0.27/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1114)
+  java.base@11.0.27/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+  java.base@11.0.27/java.lang.Thread.run(Thread.java:829)
+
+Thread[main,5,main]
+  java.base@11.0.27/jdk.internal.misc.Unsafe.park(Native Method)
+  java.base@11.0.27/java.util.concurrent.locks.LockSupport.park(LockSupport.java:194)
+  java.base@11.0.27/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:2081)
+  app//nextflow.util.Barrier$_awaitCompletion_closure3.doCall(Barrier.groovy:92)
+  app//nextflow.util.Barrier$_awaitCompletion_closure3.call(Barrier.groovy)
+  app//nextflow.extension.Bolts.withLock(Bolts.groovy:337)
+  app//nextflow.extension.Bolts.withLock(Bolts.groovy)
+  app//nextflow.util.Barrier.awaitCompletion(Barrier.groovy:89)
+  app//nextflow.Session.await(Session.groovy:676)
+  app//nextflow.script.ScriptRunner.await(ScriptRunner.groovy:256)
+  app//nextflow.script.ScriptRunner.execute(ScriptRunner.groovy:144)
+  app//nextflow.cli.CmdRun.run(CmdRun.groovy:376)
+  app//nextflow.cli.Launcher.run(Launcher.groovy:503)
+  app//nextflow.cli.Launcher.main(Launcher.groovy:658)
+
+Thread[Actor Thread 4,5,main]
+  java.base@11.0.27/jdk.internal.misc.Unsafe.park(Native Method)
+  java.base@11.0.27/java.util.concurrent.locks.LockSupport.park(LockSupport.java:194)
+  java.base@11.0.27/java.util.concurrent.SynchronousQueue$TransferStack.awaitFulfill(SynchronousQueue.java:460)
+  java.base@11.0.27/java.util.concurrent.SynchronousQueue$TransferStack.transfer(SynchronousQueue.java:361)
+  java.base@11.0.27/java.util.concurrent.SynchronousQueue.take(SynchronousQueue.java:920)
+  java.base@11.0.27/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1054)
+  java.base@11.0.27/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1114)
+  java.base@11.0.27/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+  java.base@11.0.27/java.lang.Thread.run(Thread.java:829)
+
+Thread[Signal Dispatcher,9,system]
+
+Thread[TaskFinalizer-1,5,main]
+  java.base@11.0.27/java.lang.Thread.dumpThreads(Native Method)
+  java.base@11.0.27/java.lang.Thread.getAllStackTraces(Thread.java:1653)
+  app//nextflow.util.SysHelper.dumpThreads(SysHelper.groovy:188)
+  app//nextflow.Session.abort(Session.groovy:800)
+  app//nextflow.Session.fault(Session.groovy:766)
+  app//nextflow.processor.TaskPollingMonitor.finalizeTask(TaskPollingMonitor.groovy:695)
+  app//nextflow.processor.TaskPollingMonitor.safeFinalizeTask(TaskPollingMonitor.groovy:678)
+  java.base@11.0.27/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+  java.base@11.0.27/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+  java.base@11.0.27/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+  java.base@11.0.27/java.lang.reflect.Method.invoke(Method.java:566)
+  app//org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:343)
+  app//groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:328)
+  app//groovy.lang.MetaClassImpl.doInvokeMethod(MetaClassImpl.java:1333)
+  app//groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1088)
+  app//groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1007)
+  app//org.codehaus.groovy.runtime.InvokerHelper.invokePogoMethod(InvokerHelper.java:645)
+  app//org.codehaus.groovy.runtime.InvokerHelper.invokeMethod(InvokerHelper.java:628)
+  app//org.codehaus.groovy.runtime.InvokerHelper.invokeMethodSafe(InvokerHelper.java:82)
+  app//nextflow.processor.TaskPollingMonitor$_checkTaskStatus_lambda8.doCall(TaskPollingMonitor.groovy:668)
+  app//nextflow.processor.TaskPollingMonitor$$Lambda$427/0x0000000100577040.run(Unknown Source)
+  java.base@11.0.27/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+  java.base@11.0.27/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+  java.base@11.0.27/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+  java.base@11.0.27/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+  java.base@11.0.27/java.lang.Thread.run(Thread.java:829)
+
+Thread[pool-2-thread-2,5,main]
+  java.base@11.0.27/java.lang.Object.wait(Native Method)
+  java.base@11.0.27/java.lang.Object.wait(Object.java:328)
+  java.base@11.0.27/java.lang.ProcessImpl.waitFor(ProcessImpl.java:495)
+  app//nextflow.executor.local.LocalTaskHandler$_submit_closure1.doCall(LocalTaskHandler.groovy:109)
+  app//nextflow.executor.local.LocalTaskHandler$_submit_closure1.call(LocalTaskHandler.groovy)
+  app//groovy.lang.Closure.run(Closure.java:505)
+  java.base@11.0.27/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+  java.base@11.0.27/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+  java.base@11.0.27/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+  java.base@11.0.27/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+  java.base@11.0.27/java.lang.Thread.run(Thread.java:829)
+
+Thread[Finalizer,8,system]
+  java.base@11.0.27/java.lang.Object.wait(Native Method)
+  java.base@11.0.27/java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:155)
+  java.base@11.0.27/java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:176)
+  java.base@11.0.27/java.lang.ref.Finalizer$FinalizerThread.run(Finalizer.java:170)
+
+Thread[Actor Thread 6,5,main]
+  java.base@11.0.27/jdk.internal.misc.Unsafe.park(Native Method)
+  java.base@11.0.27/java.util.concurrent.locks.LockSupport.park(LockSupport.java:194)
+  java.base@11.0.27/java.util.concurrent.SynchronousQueue$TransferStack.awaitFulfill(SynchronousQueue.java:460)
+  java.base@11.0.27/java.util.concurrent.SynchronousQueue$TransferStack.transfer(SynchronousQueue.java:361)
+  java.base@11.0.27/java.util.concurrent.SynchronousQueue.take(SynchronousQueue.java:920)
+  java.base@11.0.27/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1054)
+  java.base@11.0.27/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1114)
+  java.base@11.0.27/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+  java.base@11.0.27/java.lang.Thread.run(Thread.java:829)
+
+Thread[Actor Thread 8,5,main]
+  java.base@11.0.27/jdk.internal.misc.Unsafe.park(Native Method)
+  java.base@11.0.27/java.util.concurrent.locks.LockSupport.park(LockSupport.java:194)
+  java.base@11.0.27/java.util.concurrent.SynchronousQueue$TransferStack.awaitFulfill(SynchronousQueue.java:460)
+  java.base@11.0.27/java.util.concurrent.SynchronousQueue$TransferStack.transfer(SynchronousQueue.java:361)
+  java.base@11.0.27/java.util.concurrent.SynchronousQueue.take(SynchronousQueue.java:920)
+  java.base@11.0.27/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1054)
+  java.base@11.0.27/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1114)
+  java.base@11.0.27/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+  java.base@11.0.27/java.lang.Thread.run(Thread.java:829)
+
+Nov.-17 14:14:50.699 [main] DEBUG nextflow.Session - Session await > all processes finished
+Nov.-17 14:14:50.700 [main] DEBUG nextflow.Session - Session await > all barriers passed
+Nov.-17 14:14:50.713 [main] WARN  n.processor.TaskPollingMonitor - Killing running tasks (1)
+Nov.-17 14:14:50.732 [main] DEBUG n.trace.WorkflowStatsObserver - Workflow completed > WorkflowStats[succeededCount=0; failedCount=1; ignoredCount=0; cachedCount=0; pendingCount=1; submittedCount=1; runningCount=0; retriesCount=0; abortedCount=0; succeedDuration=0ms; failedDuration=1.3s; cachedDuration=0ms;loadCpus=-6; loadMemory=0; peakRunning=1; peakCpus=6; peakMemory=7 GB; ]
+Nov.-17 14:14:50.867 [main] DEBUG nextflow.cache.CacheDB - Closing CacheDB done
+Nov.-17 14:14:50.910 [main] DEBUG nextflow.script.ScriptRunner - > Execution complete -- Goodbye

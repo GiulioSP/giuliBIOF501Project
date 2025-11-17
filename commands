@@ -112,6 +112,8 @@ seqkit fq2fa <accession.aligned.fastq> > <accession.aligned.fasta>
 
 (once) minimap2 -d GCF_000020105.1_ref/GCF_000020105.1.mmi GCF_000020105.1_ref/GCF_000020105.1_ASM2010v1_genomic.fna
 
+fasterq-dump --split-files PRJNA776899/test/SRR16683814.sra
+
 minimap2 -ax sr GCF_000020105.1_ref/GCF_000020105.1.mmi PRJNA776899/test/SRR16683814.sra_1.fastq PRJNA776899/test/SRR16683814.sra_2.fastq > PRJNA776899/test/SRR16683814.aln.sam
 
 samtools view -bS PRJNA776899/test/SRR16683814.aln.sam | samtools sort -o PRJNA776899/test/SRR16683814.aln.sorted.bam
@@ -124,11 +126,41 @@ samtools fastq PRJNA776899/test/SRR16683814.aln.aligned.bam > PRJNA776899/test/S
 
 seqkit fq2fa PRJNA776899/test/SRR16683814.aln.aligned.fastq > PRJNA776899/test/SRR16683814.aln.aligned.fasta
 
-rm PRJNA776899/test/SRR16683814.sra PRJNA776899/test/SRR16683814.aln.aligned.bam PRJNA776899/test/SRR16683814.aln.aligned.fastq PRJNA776899/test/SRR16683814.aln.sorted.bam PRJNA776899/test/SRR16683814.aln.sam PRJNA776899/test/SRR16683814.sra_1.fastq PRJNA776899/test/SRR16683814.sra_2.fastq PRJNA776899/test/SRR16683814.aln.sorted.bam.bai 
-
+rm 
+PRJNA776899/test/SRR16683814.sra 
+PRJNA776899/test/SRR16683814.aln.aligned.bam 
+PRJNA776899/test/SRR16683814.aln.aligned.fastq 
+PRJNA776899/test/SRR16683814.aln.sorted.bam 
+PRJNA776899/test/SRR16683814.aln.sam 
+PRJNA776899/test/SRR16683814.sra_1.fastq 
+PRJNA776899/test/SRR16683814.sra_2.fastq 
+PRJNA776899/test/SRR16683814.aln.sorted.bam.bai 
 
 
 SRR16683814
+
+
+(once) minimap2 -d GCF_000020105.1_ref/GCF_000020105.1.mmi GCF_000020105.1_ref/GCF_000020105.1_ASM2010v1_genomic.fna
+
+fasterq-dump --split-files PRJNA776899/SRR16683814.sra
+
+minimap2 -ax sr GCF_000020105.1_ref/GCF_000020105.1.mmi PRJNA776899/SRR16683814.sra_1.fastq PRJNA776899/SRR16683814.sra_2.fastq > PRJNA776899/SRR16683814.aln.sam
+
+samtools view -bS PRJNA776899/SRR16683814.aln.sam | samtools sort -o PRJNA776899/SRR16683814.aln.sorted.bam
+
+samtools index PRJNA776899/SRR16683814.aln.sorted.bam
+
+samtools view -b -F 4 PRJNA776899/SRR16683814.aln.sorted.bam > PRJNA776899/SRR16683814.aln.aligned.bam
+
+samtools fastq PRJNA776899/SRR16683814.aln.aligned.bam > PRJNA776899/SRR16683814.aln.aligned.fastq
+
+seqkit fq2fa PRJNA776899/SRR16683814.aln.aligned.fastq > PRJNA776899/SRR16683814.aln.aligned.fasta
+
+rm PRJNA776899/SRR16683814.sra PRJNA776899/SRR16683814.aln.aligned.bam PRJNA776899/SRR16683814.aln.aligned.fastq PRJNA776899/SRR16683814.aln.sorted.bam PRJNA776899/SRR16683814.aln.sam PRJNA776899/SRR16683814.sra_1.fastq PRJNA776899/SRR16683814.sra_2.fastq PRJNA776899/SRR16683814.aln.sorted.bam.bai 
+
+
+
+
 
 
 
@@ -165,6 +197,22 @@ python3 4.AMR_Learn_linear.py ../data/GCF_040383235.1.feature2target.txt Cefotax
 python3 4.AMR_Learn_linear.py ../data/GCF_040383235.1.feature2target.txt Ceftazidime 0.1
 
 
+
+process trim_reads {
+    tag { sra_id }
+
+    input:
+    tuple val(sra_id), path(r1), path(r2)
+
+    output:
+    tuple val(sra_id), path("*_trimmed_r1.fastq.gz"), path("*_trimmed_r2.fastq.gz")
+
+    script:
+    // fastp automatically handles quality trimming and adapter removal
+    """
+    fastp -i $r1 -I $r2 -o ${sra_id}_trimmed_r1.fastq.gz -O ${sra_id}_trimmed_r2.fastq.gz --json ${sra_id}.json --html ${sra_id}.html
+    """
+}
 
 
 

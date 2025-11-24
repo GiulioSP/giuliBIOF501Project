@@ -1,0 +1,291 @@
+Training model for resistance to PEN
+[6.40e+01 1.00e+00 6.40e+01 2.00e+00 2.00e+00 2.50e-01 2.50e-01 1.25e-01
+ 6.40e+01 6.40e+01 2.50e-01 6.40e+01 6.00e-02 2.50e-01 6.40e+01 8.00e+00
+ 6.40e+01 3.20e+01 2.50e-01 8.00e+00 6.40e+01 4.00e+00 4.00e+00 3.00e-02
+ 6.40e+01 6.40e+01 2.50e-01 6.40e+01 2.50e-01 2.00e+00 5.00e-01 8.00e+00
+ 2.50e-01 6.40e+01 2.00e+00 6.40e+01 1.00e+00 1.60e+01 2.00e+00 2.50e-01
+ 6.40e+01 5.00e-01 2.50e-01 1.00e+00 1.00e+00 6.00e-02 6.40e+01 2.50e-01
+ 6.40e+01 4.00e+00 4.00e+00 6.40e+01 6.40e+01 6.40e+01 1.00e+00 6.00e-02
+ 8.00e+00 2.00e+00 1.60e+01 1.50e-02 1.00e+00 1.00e+00 2.00e+00 2.50e-01
+ 6.40e+01 2.00e+00 3.00e-02 2.50e-01 2.50e-01 3.20e+01 4.00e+00 2.00e+00
+ 2.50e-01]
+Ridge Regression
+
+Training mean RMSE score: 0.0031145730333738157
+Testing mean RMSE score: 14.635266468567416
+5-fold cross validation RMSE: [ 7.20606119 12.00344164  6.89003618 16.979416    5.63213873]
+Cross validation averaged RMSE: 9.74221874927746
+
+Lasso Regression
+
+Training mean RMSE score: 0.37892474444566765
+Testing mean RMSE score: 13.523132329536354
+5-fold cross validation RMSE: [ 7.00711528 12.74461328 15.50512689 25.94197079  6.89912004]
+Cross validation averaged RMSE: 13.61958925583681
+
+Decision Tree
+
+Training mean RMSE score: 0.0
+Testing mean RMSE score: 24.14329339400677
+5-fold cross validation RMSE: [ 3.66554411 19.44768624  7.59810832 22.70813456 10.14681403]
+Cross validation averaged RMSE: 12.713257450904347
+
+Support Vector Machine
+
+Training mean RMSE score: 0.10001699904639012
+Testing mean RMSE score: 14.637426578712699
+5-fold cross validation RMSE: [ 7.19320738 12.00693027  6.8991157  16.99255585  5.63710025]
+Cross validation averaged RMSE: 9.745781890651331
+
+Training model for resistance to TET
+[ 1.     4.     0.5    4.     4.     1.    32.     0.25   1.     1.
+ 32.     1.     0.25   1.     1.     1.     1.    64.     1.     1.
+  0.5    8.     1.     0.25   1.     1.     1.     1.     1.     4.
+  0.5   32.     1.     4.     2.     1.     4.     1.     4.     0.5
+  1.     1.     0.5    1.     1.     0.25   1.     0.25   1.     2.
+  0.5    1.     1.     1.     1.     0.125 32.     1.    32.     0.25
+  2.     4.     4.     1.     0.5    4.     0.25   0.5    0.25   1.
+  1.     4.     1.   ]
+Ridge Regression
+
+Training mean RMSE score: 0.0026250638949495194
+Testing mean RMSE score: 7.462394708451529
+5-fold cross validation RMSE: [ 7.46848496 22.59332922 11.04636782  6.49373329  3.19198835]
+Cross validation averaged RMSE: 10.158780726766595
+
+Lasso Regression
+
+Training mean RMSE score: 0.3158645848941917
+Testing mean RMSE score: 8.872513743643532
+5-fold cross validation RMSE: [ 8.79382123 24.25974465  0.55017838  0.96052359  9.50400562]
+Cross validation averaged RMSE: 8.813654696323578
+
+Decision Tree
+
+Training mean RMSE score: 0.0
+Testing mean RMSE score: 11.598056508429647
+5-fold cross validation RMSE: [16.45603647 24.36082921  9.96650641  1.12915898 10.05360632]
+Cross validation averaged RMSE: 12.393227478433577
+
+Support Vector Machine
+
+Training mean RMSE score: 0.09981633935556633
+Testing mean RMSE score: 7.46046027868759
+5-fold cross validation RMSE: [ 7.4566198  22.55569826 11.05614912  6.51151809  3.20743657]
+Cross validation averaged RMSE: 10.157484368371081
+
+Training model for resistance to SPEC
+[16 16 16 16 32 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 32 16 16
+ 16 16 16 16 16 16 16 16 16 16 16 16 32 16 16 16 16 16 16 16 16 16 16 32
+ 16 16 16 16 16 16 16 16 16 16 16 16 16 16 32 16 16 16 16 16 16 16 16 32
+ 16]
+Ridge Regression
+
+Training mean RMSE score: 0.004891042351706474
+Testing mean RMSE score: 4.0109225928148655
+5-fold cross validation RMSE: [6.87802751 3.7199811  3.98050254 4.1214598  5.94117726]
+Cross validation averaged RMSE: 4.92822964528913
+
+Lasso Regression
+
+Training mean RMSE score: 0.6891502342456854
+Testing mean RMSE score: 3.586669465705781
+5-fold cross validation RMSE: [6.7641009  2.49614719 5.27004376 3.67146321 4.26868486]
+Cross validation averaged RMSE: 4.4940879846198705
+
+Decision Tree
+
+Training mean RMSE score: 0.0
+Testing mean RMSE score: 5.908391567007971
+5-fold cross validation RMSE: [6.82242292 7.15541753 5.05964426 5.05964426 7.15541753]
+Cross validation averaged RMSE: 6.250509298383401
+
+Support Vector Machine
+
+Training mean RMSE score: 0.09966321811459142
+Testing mean RMSE score: 3.9923448974793594
+5-fold cross validation RMSE: [6.83767146 3.68780909 3.95002912 4.10406222 5.88345587]
+Cross validation averaged RMSE: 4.892605550695565
+
+Training model for resistance to CFX
+[0.015 0.06  0.008 0.125 0.125 0.03  0.008 0.008 0.008 0.008 0.03  0.008
+ 0.008 0.06  0.008 0.03  0.008 0.008 0.015 0.03  0.008 0.125 0.008 0.002
+ 0.008 0.015 0.015 0.008 0.03  0.25  0.015 0.015 0.015 0.015 0.125 0.008
+ 0.125 0.03  0.03  0.008 0.015 0.03  0.008 0.03  0.03  0.015 0.015 0.03
+ 0.008 0.125 0.015 0.015 0.015 0.008 0.03  0.008 0.03  0.03  0.06  0.002
+ 0.03  0.125 0.25  0.015 0.008 0.125 0.002 0.015 0.03  0.008 0.015 0.25
+ 0.06 ]
+Ridge Regression
+
+Training mean RMSE score: 7.032649706472951e-05
+Testing mean RMSE score: 0.02842486730456946
+5-fold cross validation RMSE: [0.05030816 0.02330176 0.03933452 0.05290847 0.03498692]
+Cross validation averaged RMSE: 0.040167964651913066
+
+Lasso Regression
+
+Training mean RMSE score: 0.0621130234464633
+Testing mean RMSE score: 0.03970400668970458
+5-fold cross validation RMSE: [0.04311466 0.03789729 0.07445757 0.09759755 0.03887902]
+Cross validation averaged RMSE: 0.058389218586454
+
+Decision Tree
+
+Training mean RMSE score: 3.699892963052651e-18
+Testing mean RMSE score: 0.04005110371876047
+5-fold cross validation RMSE: [0.0505533  0.04275629 0.04137874 0.05854656 0.01163185]
+Cross validation averaged RMSE: 0.04097334845545368
+
+Support Vector Machine
+
+Training mean RMSE score: 0.08740718237873103
+Testing mean RMSE score: 0.08621784632196507
+5-fold cross validation RMSE: [0.08392907 0.08456434 0.09113754 0.09618635 0.08698217]
+Cross validation averaged RMSE: 0.08855989348008768
+
+Training model for resistance to CRO
+[0.008 0.03  0.004 0.03  0.06  0.015 0.008 0.004 0.004 0.004 0.015 0.004
+ 0.004 0.03  0.004 0.015 0.004 0.008 0.008 0.015 0.004 0.06  0.004 0.001
+ 0.004 0.008 0.008 0.004 0.015 0.06  0.008 0.008 0.008 0.015 0.06  0.004
+ 0.06  0.015 0.03  0.004 0.008 0.015 0.004 0.015 0.015 0.008 0.008 0.015
+ 0.004 0.125 0.008 0.008 0.008 0.004 0.015 0.004 0.015 0.03  0.03  0.001
+ 0.015 0.03  0.125 0.008 0.004 0.06  0.001 0.008 0.015 0.004 0.008 0.06
+ 0.03 ]
+Ridge Regression
+
+Training mean RMSE score: 2.1743891955367034e-05
+Testing mean RMSE score: 0.013691458335423632
+5-fold cross validation RMSE: [0.03667087 0.01841987 0.01629077 0.0260999  0.01162431]
+Cross validation averaged RMSE: 0.021821143393909066
+
+Lasso Regression
+
+Training mean RMSE score: 0.026401012411703784
+Testing mean RMSE score: 0.01854576893578678
+5-fold cross validation RMSE: [0.03379248 0.01221444 0.02054547 0.0379373  0.01788951]
+Cross validation averaged RMSE: 0.024475842065469676
+
+Decision Tree
+
+Training mean RMSE score: 1.1393482987432946e-18
+Testing mean RMSE score: 0.01668695734562013
+5-fold cross validation RMSE: [0.03193886 0.01265701 0.03621464 0.03163226 0.00391152]
+Cross validation averaged RMSE: 0.023270859459229177
+
+Support Vector Machine
+
+Training mean RMSE score: 0.05109449147240365
+Testing mean RMSE score: 0.04930517214248419
+5-fold cross validation RMSE: [0.05347982 0.04839215 0.0479239  0.05408697 0.05103234]
+Cross validation averaged RMSE: 0.050983034718935075
+
+Training model for resistance to CIP
+[4.0e+00 8.0e+00 4.0e+00 1.6e+01 1.6e+01 1.5e-02 8.0e-03 4.0e-03 4.0e+00
+ 4.0e+00 4.0e+00 4.0e+00 4.0e-03 1.5e-02 4.0e+00 4.0e+00 4.0e+00 4.0e+00
+ 4.0e-03 1.0e+00 4.0e+00 1.6e+01 5.0e-01 4.0e-03 4.0e+00 4.0e+00 4.0e-03
+ 4.0e+00 8.0e-03 1.6e+01 4.0e-03 1.0e+00 8.0e-03 8.0e+00 8.0e+00 4.0e+00
+ 1.6e+01 2.0e+00 1.5e-02 4.0e-03 4.0e+00 1.5e-02 4.0e-03 4.0e-03 4.0e-03
+ 4.0e-03 4.0e+00 8.0e-03 4.0e+00 1.5e-02 2.0e+00 4.0e+00 4.0e+00 4.0e+00
+ 4.0e-03 4.0e-03 1.0e+00 8.0e-03 2.0e+00 4.0e-03 8.0e-03 1.6e+01 1.6e+01
+ 8.0e-03 4.0e-03 1.6e+01 4.0e-03 4.0e-03 8.0e-03 4.0e+00 4.0e+00 1.6e+01
+ 8.0e-03]
+Ridge Regression
+
+Training mean RMSE score: 0.00023297602460896715
+Testing mean RMSE score: 1.858824679730487
+5-fold cross validation RMSE: [1.88830719 1.50481619 0.50844571 1.65579779 1.98266059]
+Cross validation averaged RMSE: 1.5080054915496615
+
+Lasso Regression
+
+Training mean RMSE score: 0.2591508540704999
+Testing mean RMSE score: 1.3909628747916254
+5-fold cross validation RMSE: [1.29795426 2.63785122 1.74876817 1.49930825 2.54444241]
+Cross validation averaged RMSE: 1.9456648609215619
+
+Decision Tree
+
+Training mean RMSE score: 4.2073224251123505e-19
+Testing mean RMSE score: 1.9568790783471335
+5-fold cross validation RMSE: [0.42641774 2.60737709 0.00602495 0.3162303  2.52982244]
+Cross validation averaged RMSE: 1.1771745045199502
+
+Support Vector Machine
+
+Training mean RMSE score: 0.090872286089057
+Testing mean RMSE score: 1.8524863465965467
+5-fold cross validation RMSE: [1.89452546 1.54341765 0.54954022 1.64527772 1.96278093]
+Cross validation averaged RMSE: 1.5191083968773398
+
+Training model for resistance to AZI
+[0.25  0.25  0.125 8.    0.5   0.5   0.06  0.03  0.25  0.125 0.06  0.25
+ 0.06  0.25  0.25  0.125 0.25  0.125 0.06  0.125 0.125 1.    0.25  0.125
+ 0.125 0.125 0.25  0.25  0.06  0.5   0.125 0.25  0.06  0.25  0.25  0.25
+ 0.5   0.125 0.25  0.015 0.25  0.5   0.03  0.125 0.125 0.25  0.25  0.25
+ 0.25  0.25  0.03  0.25  0.03  0.25  0.25  0.06  0.125 0.25  0.125 0.125
+ 0.5   0.5   0.5   1.    0.25  0.5   0.125 0.125 0.25  0.25  0.125 0.5
+ 0.25 ]
+Ridge Regression
+
+Training mean RMSE score: 0.0002993900621514531
+Testing mean RMSE score: 0.652036665364232
+5-fold cross validation RMSE: [0.41293214 2.39798015 0.2351894  0.45440056 1.51078632]
+Cross validation averaged RMSE: 1.0022577155555026
+
+Lasso Regression
+
+Training mean RMSE score: 0.16031575674813128
+Testing mean RMSE score: 0.21554094883509528
+5-fold cross validation RMSE: [0.13898784 2.45775688 0.12862519 0.11800576 0.24987306]
+Cross validation averaged RMSE: 0.6186497475216133
+
+Decision Tree
+
+Training mean RMSE score: 0.0
+Testing mean RMSE score: 0.2261711942111751
+5-fold cross validation RMSE: [0.1586305  2.37548206 0.21131138 0.04455334 2.46228908]
+Cross validation averaged RMSE: 1.0504532713328516
+
+Support Vector Machine
+
+Training mean RMSE score: 0.0889181635994849
+Testing mean RMSE score: 0.6715295720211855
+5-fold cross validation RMSE: [0.41454177 2.3739378  0.24737731 0.45710455 1.49519054]
+Cross validation averaged RMSE: 0.99763039569782
+
+Training model for resistance to ZOL
+[0.125 0.06  0.125 0.125 0.125 0.125 0.125 0.03  0.125 0.06  0.06  0.125
+ 0.03  0.125 0.125 0.06  0.125 0.125 0.125 0.06  0.125 0.25  0.125 0.125
+ 0.06  0.125 0.125 0.125 0.125 0.125 0.06  0.06  0.125 0.125 0.125 0.125
+ 0.125 0.06  0.125 0.008 0.125 0.125 0.004 0.125 0.06  0.06  0.125 0.25
+ 0.125 0.125 0.015 0.125 0.004 0.125 0.06  0.03  0.06  0.06  0.125 0.06
+ 0.125 0.125 0.125 0.125 0.125 0.125 0.06  0.125 0.25  0.125 0.125 0.125
+ 0.125]
+Ridge Regression
+
+Training mean RMSE score: 2.628790957094576e-05
+Testing mean RMSE score: 0.060073933498941176
+5-fold cross validation RMSE: [0.07471919 0.02853118 0.02270091 0.01951939 0.07019838]
+Cross validation averaged RMSE: 0.04313380699133691
+
+Lasso Regression
+
+Training mean RMSE score: 0.04904382930998719
+Testing mean RMSE score: 0.04726198976437688
+5-fold cross validation RMSE: [0.0710029  0.0165122  0.02600224 0.03077691 0.07462959]
+Cross validation averaged RMSE: 0.04378476768849005
+
+Decision Tree
+
+Training mean RMSE score: 0.0
+Testing mean RMSE score: 0.0774564393707844
+5-fold cross validation RMSE: [0.06001212 0.0509166  0.05226471 0.0480531  0.10087467]
+Cross validation averaged RMSE: 0.06242423993254507
+
+Support Vector Machine
+
+Training mean RMSE score: 0.04741052464401588
+Testing mean RMSE score: 0.05687383983376622
+5-fold cross validation RMSE: [0.0761106  0.01436435 0.03276571 0.03379914 0.06769652]
+Cross validation averaged RMSE: 0.044947264438994605
+

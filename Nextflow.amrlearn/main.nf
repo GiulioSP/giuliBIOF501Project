@@ -1,11 +1,11 @@
 nextflow.enable.dsl=2
 
-params.ref_gbff_path = "../data/GCF_000020105.1_ref/GCF_000020105.1.gbff"
-params.fasta_dir = "../data/aligner_results/fasta"
-params.antibiotics = "../data/PRJNA776899.antibiotics.txt"
-params.threshold = 0.1 //threshold for filtering absolute coefficient
+params.ref_gbff_path = "inputs/GCF_000020105.1_ref/GCF_000020105.1.gbff"
+params.fasta_dir = "outputs/mapper_results/fasta"
+params.antibiotics = "inputs/PRJNA776899.antibiotics.txt"
+params.threshold = 0.08 //threshold for filtering absolute coefficient
 params.project = "PRJNA776899"
-params.outdir = "../amrlearn_results"
+params.outdir = "outputs/amrlearn_results"
 
 
 log.info """\
@@ -23,7 +23,6 @@ log.info """\
 workflow {
 
     ref_gbff_ch = Channel.value(file(params.ref_gbff_path))
-    //project_ch = Channel.value(params.project)
     antibiotics_ch = Channel.value(file(params.antibiotics))
     fasta_ch = Channel.value(file(params.fasta_dir))
 
@@ -36,9 +35,6 @@ workflow {
     features = feature2target(snp_count, antibiotics_ch)
 
     ml_learn(features, ref_tab, antibiotics_ch, params.threshold)
-
-    // Add models output with pkl
-
 }
 
 process gbff2tab {
@@ -54,7 +50,7 @@ process gbff2tab {
 
     """
     
-    python3 1.gbff2tab.py $ref_gbff ${ref_gbff.baseName}.tab 
+    1.gbff2tab.py $ref_gbff ${ref_gbff.baseName}.tab 
     """
 }
 
@@ -88,7 +84,7 @@ process vcf2snp {
     path "*.snp_count.txt"
 
     """
-    python3 2.vcf2snp.py $ref_tab $vcf ${params.project}.snp_count.txt
+    2.vcf2snp.py $ref_tab $vcf ${params.project}.snp_count.txt
     """
 }
 
@@ -104,7 +100,7 @@ process feature2target {
     path "*.feature2target.txt"
 
     """
-    python3 3.feature2target.py $snp_count $antibiotics ${params.project}.feature2target.txt
+    3.feature2target.py $snp_count $antibiotics ${params.project}.feature2target.txt
     """
 }
 
@@ -119,10 +115,10 @@ process ml_learn {
     val threshold
 
     output:
-    path "learn"    
+    path "${params.project}.learn/"    
 
     """
-    python3 AMR_Learn_linear.py $features $ref_tab $antibiotics learn $threshold
+    4.AMR_Learn_linearV2.py $features $ref_tab $antibiotics ${params.project}.learn $threshold
     """
 }
 

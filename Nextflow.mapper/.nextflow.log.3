@@ -1,0 +1,183 @@
+Nov-19 10:21:11.800 [main] DEBUG nextflow.cli.Launcher - $> nextflow run mainV2.nf -with-dag mapper_diagram.png --sra_path ../data/sra_list1.txt
+Nov-19 10:21:12.093 [main] DEBUG nextflow.cli.CmdRun - N E X T F L O W  ~  version 25.10.0
+Nov-19 10:21:12.148 [main] DEBUG nextflow.config.ConfigBuilder - Found config local: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.mapper/nextflow.config
+Nov-19 10:21:12.151 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.mapper/nextflow.config
+Nov-19 10:21:12.185 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `standard`
+Nov-19 10:21:12.693 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; embedded=false; plugins-dir=/home/giuliosp/.nextflow/plugins; core-plugins: nf-amazon@3.4.1,nf-azure@1.20.2,nf-cloudcache@0.5.0,nf-codecommit@0.5.0,nf-console@1.3.0,nf-google@1.23.3,nf-k8s@1.2.2,nf-tower@1.17.1,nf-wave@1.16.1
+Nov-19 10:21:12.703 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
+Nov-19 10:21:12.704 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
+Nov-19 10:21:12.707 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.12.0 in 'deployment' mode
+Nov-19 10:21:12.723 [main] DEBUG nextflow.util.RetryConfig - Missing nextflow session - using default retry config
+Nov-19 10:21:12.895 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
+Nov-19 10:21:12.897 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins default=[]
+Nov-19 10:21:12.897 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins resolved requirement=[]
+Nov-19 10:21:12.911 [main] DEBUG n.secret.LocalSecretsProvider - Secrets store: /home/giuliosp/.nextflow/secrets/store.json
+Nov-19 10:21:12.915 [main] DEBUG nextflow.secret.SecretsLoader - Discovered secrets providers: [nextflow.secret.LocalSecretsProvider@46f902e0] - activable => nextflow.secret.LocalSecretsProvider@46f902e0
+Nov-19 10:21:12.916 [main] DEBUG nextflow.cli.CmdRun - Applied DSL=2 from script declaration
+Nov-19 10:21:12.930 [main] DEBUG nextflow.cli.CmdRun - Launching `mainV2.nf` [fabulous_lalande] DSL2 - revision: 95813f46c4
+Nov-19 10:21:12.984 [main] DEBUG nextflow.Session - Session UUID: 0f13a6df-5a01-464d-ad5a-30c07214e8f1
+Nov-19 10:21:12.985 [main] DEBUG nextflow.Session - Run name: fabulous_lalande
+Nov-19 10:21:12.985 [main] DEBUG nextflow.Session - Executor pool size: 8
+Nov-19 10:21:12.995 [main] DEBUG nextflow.file.FilePorter - File porter settings maxRetries=3; maxTransfers=50; pollTimeout=null
+Nov-19 10:21:13.001 [main] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'FileTransfer' minSize=10; maxSize=24; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
+Nov-19 10:21:13.027 [main] DEBUG nextflow.cli.CmdRun - 
+  Version: 25.10.0 build 10289
+  Created: 22-10-2025 16:26 UTC (09:26 PDT)
+  System: Linux 6.8.0-87-generic
+  Runtime: Groovy 4.0.28 on OpenJDK 64-Bit Server VM 23.0.2-internal-adhoc.conda.src
+  Encoding: UTF-8 (UTF-8)
+  Process: 805356@giulipc [192.168.18.28]
+  CPUs: 8 - Mem: 7.2 GB (166.7 MB) - Swap: 2 GB (857.5 MB)
+Nov-19 10:21:13.049 [main] DEBUG nextflow.file.FileHelper - Unable to determine FS type (1): /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.mapper/work
+
+Nov-19 10:21:13.050 [main] DEBUG nextflow.Session - Work-dir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.mapper/work [null]
+Nov-19 10:21:13.050 [main] DEBUG nextflow.Session - Script base path does not exist or is not a directory: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.mapper/bin
+Nov-19 10:21:13.062 [main] DEBUG nextflow.executor.ExecutorFactory - Extension executors providers=[]
+Nov-19 10:21:13.075 [main] DEBUG nextflow.Session - Observer factory (v2): LinObserverFactory
+Nov-19 10:21:13.078 [main] DEBUG nextflow.Session - Observer factory (v2): DefaultObserverFactory
+Nov-19 10:21:13.132 [main] DEBUG nextflow.cache.CacheFactory - Using Nextflow cache factory: nextflow.cache.DefaultCacheFactory
+Nov-19 10:21:13.142 [main] DEBUG nextflow.util.CustomThreadPool - Creating default thread pool > poolSize: 9; maxThreads: 1000
+Nov-19 10:21:13.206 [main] DEBUG nextflow.Session - Session start
+Nov-19 10:21:14.026 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
+Nov-19 10:21:14.040 [main] INFO  nextflow.Nextflow - SRA 2 FASTA Mapping Pipeline
+===================================
+reference   : ../data/GCF_000020105.1_ref/GCF_000020105.1_ASM2010v1_genomic.fna
+sra path    : ../data/sra_list1.txt
+outdir      : ../data/mapper_results
+
+Nov-19 10:21:14.359 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Nov-19 10:21:14.359 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-19 10:21:14.373 [main] DEBUG nextflow.executor.Executor - [warm up] executor > local
+Nov-19 10:21:14.384 [main] DEBUG n.processor.LocalPollingMonitor - Creating local task monitor for executor 'local' > cpus=8; memory=7.2 GB; capacity=8; pollInterval=100ms; dumpInterval=5m
+Nov-19 10:21:14.388 [main] DEBUG n.processor.TaskPollingMonitor - >>> barrier register (monitor: local)
+Nov-19 10:21:14.415 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'prefetch_sra': maxForks=0; fair=false; array=0
+Nov-19 10:21:14.457 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Nov-19 10:21:14.457 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-19 10:21:14.458 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'dump_reads': maxForks=0; fair=false; array=0
+Nov-19 10:21:14.463 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Nov-19 10:21:14.464 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-19 10:21:14.464 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'align': maxForks=0; fair=false; array=0
+Nov-19 10:21:14.470 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Nov-19 10:21:14.470 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-19 10:21:14.471 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'sort_bam': maxForks=0; fair=false; array=0
+Nov-19 10:21:14.475 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Nov-19 10:21:14.475 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-19 10:21:14.476 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'index_bam': maxForks=0; fair=false; array=0
+Nov-19 10:21:14.480 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Nov-19 10:21:14.480 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-19 10:21:14.481 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'generate_consensus': maxForks=0; fair=false; array=0
+Nov-19 10:21:14.491 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Nov-19 10:21:14.491 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-19 10:21:14.492 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'fastqc': maxForks=0; fair=false; array=0
+Nov-19 10:21:14.504 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Nov-19 10:21:14.504 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-19 10:21:14.505 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'multiqc': maxForks=0; fair=false; array=0
+Nov-19 10:21:14.509 [main] DEBUG nextflow.Session - Workflow process names [dsl2]: dump_reads, index_bam, generate_consensus, fastqc, prefetch_sra, align, multiqc, sort_bam
+Nov-19 10:21:14.511 [main] DEBUG nextflow.Session - Igniting dataflow network (11)
+Nov-19 10:21:14.520 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > prefetch_sra
+Nov-19 10:21:14.520 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > dump_reads
+Nov-19 10:21:14.521 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > align
+Nov-19 10:21:14.521 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > sort_bam
+Nov-19 10:21:14.522 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > index_bam
+Nov-19 10:21:14.522 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > generate_consensus
+Nov-19 10:21:14.522 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > fastqc
+Nov-19 10:21:14.522 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > multiqc
+Nov-19 10:21:14.521 [Actor Thread 6] ERROR nextflow.extension.DataflowHelper - @unknown
+java.nio.file.NoSuchFileException: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/data/sra_list1.txt
+	at java.base/sun.nio.fs.UnixException.translateToIOException(UnixException.java:92)
+	at java.base/sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:106)
+	at java.base/sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:111)
+	at java.base/sun.nio.fs.UnixFileSystemProvider.newByteChannel(UnixFileSystemProvider.java:262)
+	at java.base/java.nio.file.Files.newByteChannel(Files.java:380)
+	at java.base/java.nio.file.Files.newByteChannel(Files.java:432)
+	at java.base/java.nio.file.spi.FileSystemProvider.newInputStream(FileSystemProvider.java:420)
+	at java.base/java.nio.file.Files.newInputStream(Files.java:160)
+	at nextflow.splitter.AbstractSplitter.newInputStream(AbstractSplitter.groovy:453)
+	at nextflow.splitter.AbstractTextSplitter.newReader(AbstractTextSplitter.groovy:152)
+	at nextflow.splitter.AbstractTextSplitter.normalizeSource0(AbstractTextSplitter.groovy:130)
+	at nextflow.splitter.AbstractTextSplitter.normalizeSource(AbstractTextSplitter.groovy:112)
+	at nextflow.splitter.AbstractTextSplitter.normalizeSource(AbstractTextSplitter.groovy)
+	at nextflow.splitter.AbstractSplitter.apply(AbstractSplitter.groovy:153)
+	at nextflow.extension.SplitOp$_applySplittingOperator_closure1.doCall(SplitOp.groovy:190)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:343)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:328)
+	at org.codehaus.groovy.runtime.metaclass.ClosureMetaClass.invokeMethod(ClosureMetaClass.java:280)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1007)
+	at org.codehaus.groovy.vmplugin.v8.IndyInterface.fromCache(IndyInterface.java:321)
+	at nextflow.extension.DataflowHelper$_subscribeImpl_closure2.doCall(DataflowHelper.groovy:287)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:343)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:328)
+	at org.codehaus.groovy.runtime.metaclass.ClosureMetaClass.invokeMethod(ClosureMetaClass.java:280)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1007)
+	at groovy.lang.Closure.call(Closure.java:433)
+	at groovyx.gpars.dataflow.operator.DataflowOperatorActor.startTask(DataflowOperatorActor.java:120)
+	at groovyx.gpars.dataflow.operator.DataflowOperatorActor.onMessage(DataflowOperatorActor.java:108)
+	at groovyx.gpars.actor.impl.SDAClosure$1.call(SDAClosure.java:43)
+	at groovyx.gpars.actor.AbstractLoopingActor.runEnhancedWithoutRepliesOnMessages(AbstractLoopingActor.java:293)
+	at groovyx.gpars.actor.AbstractLoopingActor.access$400(AbstractLoopingActor.java:30)
+	at groovyx.gpars.actor.AbstractLoopingActor$1.handleMessage(AbstractLoopingActor.java:93)
+	at groovyx.gpars.util.AsyncMessagingCore.run(AsyncMessagingCore.java:132)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+Nov-19 10:21:14.524 [main] DEBUG nextflow.script.ScriptRunner - Parsed script files:
+  Script_d79e5850ebf16adf: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.mapper/mainV2.nf
+Nov-19 10:21:14.530 [main] DEBUG nextflow.script.ScriptRunner - > Awaiting termination 
+Nov-19 10:21:14.531 [main] DEBUG nextflow.Session - Session await
+Nov-19 10:21:14.532 [Actor Thread 6] DEBUG nextflow.Session - Session aborted -- Cause: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/data/sra_list1.txt
+Nov-19 10:21:14.582 [Actor Thread 6] DEBUG nextflow.Session - The following nodes are still active:
+[process] prefetch_sra
+  status=ACTIVE
+  port 0: (queue) OPEN  ; channel: sra_id
+  port 1: (cntrl) -     ; channel: $
+
+[process] dump_reads
+  status=ACTIVE
+  port 0: (queue) OPEN  ; channel: -
+  port 1: (cntrl) -     ; channel: $
+
+[process] align
+  status=ACTIVE
+  port 0: (queue) OPEN  ; channel: -
+  port 1: (value) bound ; channel: ref_mmi
+  port 2: (cntrl) -     ; channel: $
+
+[process] sort_bam
+  status=ACTIVE
+  port 0: (queue) OPEN  ; channel: -
+  port 1: (cntrl) -     ; channel: $
+
+[process] index_bam
+  status=ACTIVE
+  port 0: (queue) OPEN  ; channel: -
+  port 1: (cntrl) -     ; channel: $
+
+[process] generate_consensus
+  status=ACTIVE
+  port 0: (queue) OPEN  ; channel: -
+  port 1: (value) bound ; channel: ref_fasta
+  port 2: (cntrl) -     ; channel: $
+
+[process] fastqc
+  status=ACTIVE
+  port 0: (queue) OPEN  ; channel: -
+  port 1: (cntrl) -     ; channel: $
+
+[process] multiqc
+  status=ACTIVE
+  port 0: (value) OPEN  ; channel: fastqc_files
+  port 1: (cntrl) -     ; channel: $
+
+Nov-19 10:21:14.592 [Actor Thread 6] DEBUG n.trace.WorkflowStatsObserver - Workflow completed > WorkflowStats[succeededCount=0; failedCount=0; ignoredCount=0; cachedCount=0; pendingCount=0; submittedCount=0; runningCount=0; retriesCount=0; abortedCount=0; succeedDuration=0ms; failedDuration=0ms; cachedDuration=0ms;loadCpus=0; loadMemory=0; peakRunning=0; peakCpus=0; peakMemory=0; ]
+Nov-19 10:21:14.594 [Task monitor] DEBUG n.processor.TaskPollingMonitor - <<< barrier arrives (monitor: local) - terminating tasks monitor poll loop
+Nov-19 10:21:14.759 [Actor Thread 6] WARN  nextflow.dag.GraphvizRenderer - Graphviz is required to render the execution DAG in the given format -- See http://www.graphviz.org for more info.
+Nov-19 10:21:14.766 [main] DEBUG nextflow.Session - Session await > all processes finished
+Nov-19 10:21:14.766 [main] DEBUG nextflow.Session - Session await > all barriers passed
+Nov-19 10:21:14.766 [main] DEBUG n.trace.WorkflowStatsObserver - Workflow completed > WorkflowStats[succeededCount=0; failedCount=0; ignoredCount=0; cachedCount=0; pendingCount=0; submittedCount=0; runningCount=0; retriesCount=0; abortedCount=0; succeedDuration=0ms; failedDuration=0ms; cachedDuration=0ms;loadCpus=0; loadMemory=0; peakRunning=0; peakCpus=0; peakMemory=0; ]
+Nov-19 10:21:14.776 [main] WARN  nextflow.dag.GraphvizRenderer - Graphviz is required to render the execution DAG in the given format -- See http://www.graphviz.org for more info.
+Nov-19 10:21:14.783 [main] DEBUG nextflow.cache.CacheDB - Closing CacheDB done
+Nov-19 10:21:14.824 [main] DEBUG nextflow.script.ScriptRunner - > Execution complete -- Goodbye

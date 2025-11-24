@@ -1,0 +1,6 @@
+03:32:00 - [1;37mINFO[0m - |--Parsnp 2.1.1--|
+
+03:32:00 - [1;31mERROR[0m - fasta/ is not a valid file
+03:32:00 - [1;31mCRITICAL[0m - Less than 2 input sequences provided...
+
+ERROR conda.cli.main_run:execute(125): `conda run /bin/bash -c eval export PATH="$PATH:/home/giuliosp/Desktop/Joy_Lab/BIOF501/Project/giuliBIOF501Project/Nextflow.amrlearn/bin"; /bin/bash -ue /home/giuliosp/Desktop/Joy_Lab/BIOF501/Project/giuliBIOF501Project/Nextflow.amrlearn/work/db/d3a290e2b70b16c8f2beefc0aedc28/.command.sh` failed. (See above for error)

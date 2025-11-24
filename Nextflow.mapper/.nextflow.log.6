@@ -1,0 +1,296 @@
+Nov-18 13:36:55.170 [main] DEBUG nextflow.cli.Launcher - $> nextflow mainV2.nf --sra_path ../data/sra_list.9.txt
+Nov-18 13:36:55.380 [main] DEBUG nextflow.cli.CmdRun - N E X T F L O W  ~  version 25.10.0
+Nov-18 13:36:55.420 [main] DEBUG nextflow.config.ConfigBuilder - Found config local: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.mapper/nextflow.config
+Nov-18 13:36:55.423 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.mapper/nextflow.config
+Nov-18 13:36:55.445 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `standard`
+Nov-18 13:36:55.827 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; embedded=false; plugins-dir=/home/giuliosp/.nextflow/plugins; core-plugins: nf-amazon@3.4.1,nf-azure@1.20.2,nf-cloudcache@0.5.0,nf-codecommit@0.5.0,nf-console@1.3.0,nf-google@1.23.3,nf-k8s@1.2.2,nf-tower@1.17.1,nf-wave@1.16.1
+Nov-18 13:36:55.835 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
+Nov-18 13:36:55.836 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
+Nov-18 13:36:55.838 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.12.0 in 'deployment' mode
+Nov-18 13:36:55.848 [main] DEBUG nextflow.util.RetryConfig - Missing nextflow session - using default retry config
+Nov-18 13:36:55.993 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
+Nov-18 13:36:55.994 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins default=[]
+Nov-18 13:36:55.994 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins resolved requirement=[]
+Nov-18 13:36:56.007 [main] DEBUG n.secret.LocalSecretsProvider - Secrets store: /home/giuliosp/.nextflow/secrets/store.json
+Nov-18 13:36:56.009 [main] DEBUG nextflow.secret.SecretsLoader - Discovered secrets providers: [nextflow.secret.LocalSecretsProvider@46f902e0] - activable => nextflow.secret.LocalSecretsProvider@46f902e0
+Nov-18 13:36:56.011 [main] DEBUG nextflow.cli.CmdRun - Applied DSL=2 from script declaration
+Nov-18 13:36:56.023 [main] DEBUG nextflow.cli.CmdRun - Launching `mainV2.nf` [festering_linnaeus] DSL2 - revision: 744dc938a3
+Nov-18 13:36:56.077 [main] DEBUG nextflow.Session - Session UUID: c9176654-7ba1-4743-a4e0-3e13ab4f0ec7
+Nov-18 13:36:56.077 [main] DEBUG nextflow.Session - Run name: festering_linnaeus
+Nov-18 13:36:56.078 [main] DEBUG nextflow.Session - Executor pool size: 8
+Nov-18 13:36:56.086 [main] DEBUG nextflow.file.FilePorter - File porter settings maxRetries=3; maxTransfers=50; pollTimeout=null
+Nov-18 13:36:56.091 [main] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'FileTransfer' minSize=10; maxSize=24; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
+Nov-18 13:36:56.109 [main] DEBUG nextflow.cli.CmdRun - 
+  Version: 25.10.0 build 10289
+  Created: 22-10-2025 16:26 UTC (09:26 PDT)
+  System: Linux 6.8.0-87-generic
+  Runtime: Groovy 4.0.28 on OpenJDK 64-Bit Server VM 23.0.2-internal-adhoc.conda.src
+  Encoding: UTF-8 (UTF-8)
+  Process: 318474@giulipc [192.168.18.28]
+  CPUs: 8 - Mem: 7.2 GB (2.3 GB) - Swap: 2 GB (319.2 MB)
+Nov-18 13:36:56.126 [main] DEBUG nextflow.file.FileHelper - Unable to determine FS type (1): /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.mapper/work
+
+Nov-18 13:36:56.126 [main] DEBUG nextflow.Session - Work-dir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.mapper/work [null]
+Nov-18 13:36:56.126 [main] DEBUG nextflow.Session - Script base path does not exist or is not a directory: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.mapper/bin
+Nov-18 13:36:56.135 [main] DEBUG nextflow.executor.ExecutorFactory - Extension executors providers=[]
+Nov-18 13:36:56.143 [main] DEBUG nextflow.Session - Observer factory (v2): LinObserverFactory
+Nov-18 13:36:56.145 [main] DEBUG nextflow.Session - Observer factory (v2): DefaultObserverFactory
+Nov-18 13:36:56.180 [main] DEBUG nextflow.cache.CacheFactory - Using Nextflow cache factory: nextflow.cache.DefaultCacheFactory
+Nov-18 13:36:56.188 [main] DEBUG nextflow.util.CustomThreadPool - Creating default thread pool > poolSize: 9; maxThreads: 1000
+Nov-18 13:36:56.251 [main] DEBUG nextflow.Session - Session start
+Nov-18 13:36:56.669 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
+Nov-18 13:36:56.675 [main] INFO  nextflow.Nextflow - SRA 2 FASTA ALIGNMENT PIPELINE
+===================================
+reference   : ../data/GCF_000020105.1_ref/GCF_000020105.1_ASM2010v1_genomic.fna
+sra path    : ../data/sra_list.9.txt
+outdir      : ../data/aligner_results
+
+Nov-18 13:36:56.871 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Nov-18 13:36:56.872 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-18 13:36:56.881 [main] DEBUG nextflow.executor.Executor - [warm up] executor > local
+Nov-18 13:36:56.887 [main] DEBUG n.processor.LocalPollingMonitor - Creating local task monitor for executor 'local' > cpus=8; memory=7.2 GB; capacity=8; pollInterval=100ms; dumpInterval=5m
+Nov-18 13:36:56.890 [main] DEBUG n.processor.TaskPollingMonitor - >>> barrier register (monitor: local)
+Nov-18 13:36:56.909 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'prefetch_sra': maxForks=0; fair=false; array=0
+Nov-18 13:36:56.935 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Nov-18 13:36:56.935 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-18 13:36:56.936 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'dump_reads': maxForks=0; fair=false; array=0
+Nov-18 13:36:56.940 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Nov-18 13:36:56.940 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-18 13:36:56.941 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'align': maxForks=0; fair=false; array=0
+Nov-18 13:36:56.945 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Nov-18 13:36:56.945 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-18 13:36:56.946 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'sort_bam': maxForks=0; fair=false; array=0
+Nov-18 13:36:56.949 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Nov-18 13:36:56.950 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-18 13:36:56.950 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'index_bam': maxForks=0; fair=false; array=0
+Nov-18 13:36:56.953 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Nov-18 13:36:56.953 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-18 13:36:56.954 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'generate_consensus': maxForks=0; fair=false; array=0
+Nov-18 13:36:56.961 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Nov-18 13:36:56.961 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-18 13:36:56.962 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'fastqc': maxForks=0; fair=false; array=0
+Nov-18 13:36:56.970 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Nov-18 13:36:56.971 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-18 13:36:56.971 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'multiqc': maxForks=0; fair=false; array=0
+Nov-18 13:36:56.973 [main] DEBUG nextflow.Session - Workflow process names [dsl2]: dump_reads, index_bam, generate_consensus, fastqc, prefetch_sra, align, multiqc, sort_bam
+Nov-18 13:36:56.975 [main] DEBUG nextflow.Session - Igniting dataflow network (11)
+Nov-18 13:36:56.980 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > prefetch_sra
+Nov-18 13:36:56.981 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > dump_reads
+Nov-18 13:36:56.981 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > align
+Nov-18 13:36:56.981 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > sort_bam
+Nov-18 13:36:56.981 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > index_bam
+Nov-18 13:36:56.981 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > generate_consensus
+Nov-18 13:36:56.982 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > fastqc
+Nov-18 13:36:56.982 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > multiqc
+Nov-18 13:36:56.982 [main] DEBUG nextflow.script.ScriptRunner - Parsed script files:
+  Script_3d4304bf3c5d916b: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.mapper/mainV2.nf
+Nov-18 13:36:56.982 [main] DEBUG nextflow.script.ScriptRunner - > Awaiting termination 
+Nov-18 13:36:56.982 [main] DEBUG nextflow.Session - Session await
+Nov-18 13:36:57.150 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-18 13:36:57.152 [Task submitter] INFO  nextflow.Session - [1e/13bd8e] Submitted process > prefetch_sra (SRR16683636)
+Nov-18 13:37:14.773 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 2; name: prefetch_sra (SRR16683636); status: COMPLETED; exit: 0; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.mapper/work/1e/13bd8ed37292cbb8550dc0975fed95]
+Nov-18 13:37:14.773 [Task monitor] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'TaskFinalizer' minSize=10; maxSize=24; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
+Nov-18 13:37:14.778 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-18 13:37:14.779 [Task submitter] INFO  nextflow.Session - [9e/9958e4] Submitted process > prefetch_sra (SRR16683632)
+Nov-18 13:37:30.831 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 6; name: prefetch_sra (SRR16683632); status: COMPLETED; exit: 0; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.mapper/work/9e/9958e4bf07b50cff2ceaa2242c099b]
+Nov-18 13:37:30.836 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-18 13:37:30.836 [Task submitter] INFO  nextflow.Session - [bb/ec30a3] Submitted process > prefetch_sra (SRR16683635)
+Nov-18 13:37:49.140 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 3; name: prefetch_sra (SRR16683635); status: COMPLETED; exit: 0; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.mapper/work/bb/ec30a3e3c84541be1f4f7c7eb3311c]
+Nov-18 13:37:49.145 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-18 13:37:49.145 [Task submitter] INFO  nextflow.Session - [60/17343a] Submitted process > prefetch_sra (SRR16683633)
+Nov-18 13:38:06.620 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 5; name: prefetch_sra (SRR16683633); status: COMPLETED; exit: 0; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.mapper/work/60/17343a852c6450a6af08181ca8b2b2]
+Nov-18 13:38:06.623 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-18 13:38:06.624 [Task submitter] INFO  nextflow.Session - [57/68f0e4] Submitted process > prefetch_sra (SRR16683634)
+Nov-18 13:38:33.320 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 4; name: prefetch_sra (SRR16683634); status: COMPLETED; exit: 0; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.mapper/work/57/68f0e4d4a76819a7dadcd4b8a14cd3]
+Nov-18 13:38:33.324 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-18 13:38:33.325 [Task submitter] INFO  nextflow.Session - [5c/fc7f90] Submitted process > prefetch_sra (SRR16683637)
+Nov-18 13:38:50.315 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 1; name: prefetch_sra (SRR16683637); status: COMPLETED; exit: 0; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.mapper/work/5c/fc7f905dcf52c47ba4c65432ba2ad4]
+Nov-18 13:38:50.319 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-18 13:38:50.320 [Task submitter] INFO  nextflow.Session - [cb/0461ae] Submitted process > prefetch_sra (SRR16683631)
+Nov-18 13:39:13.487 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 7; name: prefetch_sra (SRR16683631); status: COMPLETED; exit: 0; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.mapper/work/cb/0461ae58395e1b06ff97d7abd80309]
+Nov-18 13:39:13.492 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-18 13:39:13.492 [Task submitter] INFO  nextflow.Session - [21/00afce] Submitted process > dump_reads (SRR16683636)
+Nov-18 13:39:34.897 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 8; name: dump_reads (SRR16683636); status: COMPLETED; exit: 0; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.mapper/work/21/00afce15c69a46ad6c5020416abf6b]
+Nov-18 13:39:34.972 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-18 13:39:34.973 [Task submitter] INFO  nextflow.Session - [83/cef1db] Submitted process > dump_reads (SRR16683632)
+Nov-18 13:39:48.659 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 9; name: dump_reads (SRR16683632); status: COMPLETED; exit: 0; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.mapper/work/83/cef1db0984c9e643163ad98c076946]
+Nov-18 13:39:48.663 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-18 13:39:48.663 [Task submitter] INFO  nextflow.Session - [09/10d2cc] Submitted process > dump_reads (SRR16683635)
+Nov-18 13:40:02.602 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 10; name: dump_reads (SRR16683635); status: COMPLETED; exit: 0; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.mapper/work/09/10d2cc15a099779101387c07f9db1b]
+Nov-18 13:40:02.610 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-18 13:40:02.611 [Task submitter] INFO  nextflow.Session - [20/cdec13] Submitted process > dump_reads (SRR16683633)
+Nov-18 13:40:16.134 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 11; name: dump_reads (SRR16683633); status: COMPLETED; exit: 0; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.mapper/work/20/cdec1398a107218db803375d20f3de]
+Nov-18 13:40:16.141 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-18 13:40:16.142 [Task submitter] INFO  nextflow.Session - [05/eb07d1] Submitted process > dump_reads (SRR16683634)
+Nov-18 13:40:34.531 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 12; name: dump_reads (SRR16683634); status: COMPLETED; exit: 0; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.mapper/work/05/eb07d10d787bc8157403510e41388d]
+Nov-18 13:40:34.573 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-18 13:40:34.573 [Task submitter] INFO  nextflow.Session - [95/5572d6] Submitted process > dump_reads (SRR16683637)
+Nov-18 13:40:45.627 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 13; name: dump_reads (SRR16683637); status: COMPLETED; exit: 0; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.mapper/work/95/5572d641c9e23344f68b8473f04234]
+Nov-18 13:40:45.634 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-18 13:40:45.635 [Task submitter] INFO  nextflow.Session - [94/403097] Submitted process > dump_reads (SRR16683631)
+Nov-18 13:41:03.318 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 14; name: dump_reads (SRR16683631); status: COMPLETED; exit: 0; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.mapper/work/94/403097e84bb05bc09a26ea2c917fe4]
+Nov-18 13:41:03.322 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-18 13:41:03.322 [Task submitter] INFO  nextflow.Session - [3c/ab067e] Submitted process > fastqc (SRR16683636)
+Nov-18 13:41:22.544 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 16; name: fastqc (SRR16683636); status: COMPLETED; exit: 0; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.mapper/work/3c/ab067e7211447352c83a0d28036830]
+Nov-18 13:41:22.547 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-18 13:41:22.548 [Task submitter] INFO  nextflow.Session - [4a/092199] Submitted process > align (SRR16683636)
+Nov-18 13:41:22.561 [TaskFinalizer-5] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'PublishDir' minSize=10; maxSize=24; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
+Nov-18 13:41:57.093 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 15; name: align (SRR16683636); status: RUNNING; exit: -; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.mapper/work/4a/09219907680cb03bce80957d2d0e84]
+Nov-18 13:41:57.565 [Task submitter] DEBUG n.processor.TaskPollingMonitor - %% executor local > tasks in the submission queue: 12 -- tasks to be submitted are shown below
+~> TaskHandler[id: 18; name: align (SRR16683632); status: NEW; exit: -; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.mapper/work/3b/2ffbda37db08283ad9b5628f0d6b76]
+~> TaskHandler[id: 17; name: fastqc (SRR16683632); status: NEW; exit: -; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.mapper/work/d3/dacda432cab1ff030d3b0f9008fc2f]
+~> TaskHandler[id: 20; name: fastqc (SRR16683635); status: NEW; exit: -; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.mapper/work/90/ace0189793d78fbabf393d412a5929]
+~> TaskHandler[id: 19; name: align (SRR16683635); status: NEW; exit: -; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.mapper/work/d4/0cdeb3db3b985b13a49a11027d9a86]
+~> TaskHandler[id: 22; name: fastqc (SRR16683633); status: NEW; exit: -; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.mapper/work/4d/612d4990381d92007a8c78ea916f85]
+~> TaskHandler[id: 21; name: align (SRR16683633); status: NEW; exit: -; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.mapper/work/64/1cb1f6a467c4c4981d5c831fcb0e88]
+~> TaskHandler[id: 24; name: fastqc (SRR16683634); status: NEW; exit: -; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.mapper/work/3b/5fa3e22c6c9ae64c25dcc1bf51bb4d]
+~> TaskHandler[id: 23; name: align (SRR16683634); status: NEW; exit: -; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.mapper/work/26/b0be47d79dce0f1373bfde951fcb63]
+~> TaskHandler[id: 25; name: fastqc (SRR16683637); status: NEW; exit: -; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.mapper/work/9b/674df5d1f70c1b35d68e90dcd26b8e]
+~> TaskHandler[id: 26; name: align (SRR16683637); status: NEW; exit: -; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.mapper/work/db/c5fe46778136d877873e2dfba21322]
+.. remaining tasks omitted.
+Nov-18 13:42:06.087 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 15; name: align (SRR16683636); status: COMPLETED; exit: 0; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.mapper/work/4a/09219907680cb03bce80957d2d0e84]
+Nov-18 13:42:06.092 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-18 13:42:06.092 [Task submitter] INFO  nextflow.Session - [3b/2ffbda] Submitted process > align (SRR16683632)
+Nov-18 13:42:47.376 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 18; name: align (SRR16683632); status: COMPLETED; exit: 0; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.mapper/work/3b/2ffbda37db08283ad9b5628f0d6b76]
+Nov-18 13:42:47.380 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-18 13:42:47.380 [Task submitter] INFO  nextflow.Session - [d3/dacda4] Submitted process > fastqc (SRR16683632)
+Nov-18 13:43:04.663 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 17; name: fastqc (SRR16683632); status: COMPLETED; exit: 0; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.mapper/work/d3/dacda432cab1ff030d3b0f9008fc2f]
+Nov-18 13:43:04.668 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-18 13:43:04.668 [Task submitter] INFO  nextflow.Session - [90/ace018] Submitted process > fastqc (SRR16683635)
+Nov-18 13:43:23.902 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 20; name: fastqc (SRR16683635); status: COMPLETED; exit: 0; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.mapper/work/90/ace0189793d78fbabf393d412a5929]
+Nov-18 13:43:23.909 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-18 13:43:23.909 [Task submitter] INFO  nextflow.Session - [d4/0cdeb3] Submitted process > align (SRR16683635)
+Nov-18 13:44:08.858 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 19; name: align (SRR16683635); status: COMPLETED; exit: 0; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.mapper/work/d4/0cdeb3db3b985b13a49a11027d9a86]
+Nov-18 13:44:08.863 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-18 13:44:08.863 [Task submitter] INFO  nextflow.Session - [4d/612d49] Submitted process > fastqc (SRR16683633)
+Nov-18 13:44:28.121 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 22; name: fastqc (SRR16683633); status: COMPLETED; exit: 0; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.mapper/work/4d/612d4990381d92007a8c78ea916f85]
+Nov-18 13:44:28.125 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-18 13:44:28.125 [Task submitter] INFO  nextflow.Session - [64/1cb1f6] Submitted process > align (SRR16683633)
+Nov-18 13:45:12.265 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 21; name: align (SRR16683633); status: COMPLETED; exit: 0; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.mapper/work/64/1cb1f6a467c4c4981d5c831fcb0e88]
+Nov-18 13:45:12.630 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-18 13:45:12.631 [Task submitter] INFO  nextflow.Session - [3b/5fa3e2] Submitted process > fastqc (SRR16683634)
+Nov-18 13:45:38.977 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 24; name: fastqc (SRR16683634); status: COMPLETED; exit: 0; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.mapper/work/3b/5fa3e22c6c9ae64c25dcc1bf51bb4d]
+Nov-18 13:45:38.982 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-18 13:45:38.982 [Task submitter] INFO  nextflow.Session - [26/b0be47] Submitted process > align (SRR16683634)
+Nov-18 13:46:49.159 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 23; name: align (SRR16683634); status: COMPLETED; exit: 0; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.mapper/work/26/b0be47d79dce0f1373bfde951fcb63]
+Nov-18 13:46:49.163 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-18 13:46:49.163 [Task submitter] INFO  nextflow.Session - [9b/674df5] Submitted process > fastqc (SRR16683637)
+Nov-18 13:46:57.174 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 25; name: fastqc (SRR16683637); status: RUNNING; exit: -; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.mapper/work/9b/674df5d1f70c1b35d68e90dcd26b8e]
+Nov-18 13:46:58.168 [Task submitter] DEBUG n.processor.TaskPollingMonitor - %% executor local > tasks in the submission queue: 8 -- tasks to be submitted are shown below
+~> TaskHandler[id: 26; name: align (SRR16683637); status: NEW; exit: -; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.mapper/work/db/c5fe46778136d877873e2dfba21322]
+~> TaskHandler[id: 27; name: fastqc (SRR16683631); status: NEW; exit: -; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.mapper/work/3a/0caf01e258266bc17ee525de81f698]
+~> TaskHandler[id: 28; name: align (SRR16683631); status: NEW; exit: -; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.mapper/work/c3/5fb1443e580e40ee558597102ef3ed]
+~> TaskHandler[id: 29; name: sort_bam (SRR16683636); status: NEW; exit: -; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.mapper/work/63/2a6ce773dad9dc4073558b7cb2d716]
+~> TaskHandler[id: 30; name: sort_bam (SRR16683632); status: NEW; exit: -; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.mapper/work/66/2580a844a62c95dd5a51865ba50f57]
+~> TaskHandler[id: 31; name: sort_bam (SRR16683635); status: NEW; exit: -; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.mapper/work/75/05f4214e7a15e72e139e290ca1ad4b]
+~> TaskHandler[id: 32; name: sort_bam (SRR16683633); status: NEW; exit: -; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.mapper/work/59/243154db85fc5a2b4ce0eea0bd8e19]
+~> TaskHandler[id: 33; name: sort_bam (SRR16683634); status: NEW; exit: -; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.mapper/work/07/dbbff4965a8fe4ca14042b2beff9c6]
+Nov-18 13:47:08.451 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 25; name: fastqc (SRR16683637); status: COMPLETED; exit: 0; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.mapper/work/9b/674df5d1f70c1b35d68e90dcd26b8e]
+Nov-18 13:47:08.455 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-18 13:47:08.456 [Task submitter] INFO  nextflow.Session - [db/c5fe46] Submitted process > align (SRR16683637)
+Nov-18 13:47:51.547 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 26; name: align (SRR16683637); status: COMPLETED; exit: 0; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.mapper/work/db/c5fe46778136d877873e2dfba21322]
+Nov-18 13:47:51.579 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-18 13:47:51.579 [Task submitter] INFO  nextflow.Session - [3a/0caf01] Submitted process > fastqc (SRR16683631)
+Nov-18 13:48:17.843 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 27; name: fastqc (SRR16683631); status: COMPLETED; exit: 0; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.mapper/work/3a/0caf01e258266bc17ee525de81f698]
+Nov-18 13:48:17.848 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-18 13:48:17.848 [Task submitter] INFO  nextflow.Session - [c3/5fb144] Submitted process > align (SRR16683631)
+Nov-18 13:49:27.328 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 28; name: align (SRR16683631); status: COMPLETED; exit: 0; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.mapper/work/c3/5fb1443e580e40ee558597102ef3ed]
+Nov-18 13:49:27.333 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-18 13:49:27.333 [Task submitter] INFO  nextflow.Session - [63/2a6ce7] Submitted process > sort_bam (SRR16683636)
+Nov-18 13:50:11.850 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 29; name: sort_bam (SRR16683636); status: COMPLETED; exit: 0; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.mapper/work/63/2a6ce773dad9dc4073558b7cb2d716]
+Nov-18 13:50:11.855 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-18 13:50:11.856 [Task submitter] INFO  nextflow.Session - [66/2580a8] Submitted process > sort_bam (SRR16683632)
+Nov-18 13:50:50.105 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 30; name: sort_bam (SRR16683632); status: COMPLETED; exit: 0; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.mapper/work/66/2580a844a62c95dd5a51865ba50f57]
+Nov-18 13:50:50.109 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-18 13:50:50.109 [Task submitter] INFO  nextflow.Session - [75/05f421] Submitted process > sort_bam (SRR16683635)
+Nov-18 13:51:34.920 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 31; name: sort_bam (SRR16683635); status: COMPLETED; exit: 0; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.mapper/work/75/05f4214e7a15e72e139e290ca1ad4b]
+Nov-18 13:51:34.923 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-18 13:51:34.923 [Task submitter] INFO  nextflow.Session - [59/243154] Submitted process > sort_bam (SRR16683633)
+Nov-18 13:51:57.260 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 32; name: sort_bam (SRR16683633); status: RUNNING; exit: -; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.mapper/work/59/243154db85fc5a2b4ce0eea0bd8e19]
+Nov-18 13:51:58.932 [Task submitter] DEBUG n.processor.TaskPollingMonitor - %% executor local > tasks in the submission queue: 7 -- tasks to be submitted are shown below
+~> TaskHandler[id: 33; name: sort_bam (SRR16683634); status: NEW; exit: -; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.mapper/work/07/dbbff4965a8fe4ca14042b2beff9c6]
+~> TaskHandler[id: 34; name: sort_bam (SRR16683637); status: NEW; exit: -; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.mapper/work/de/8eae745abf7a7b939b5cf9395498d5]
+~> TaskHandler[id: 35; name: multiqc; status: NEW; exit: -; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.mapper/work/71/054cab16e82178c90a4d9ba585c8a7]
+~> TaskHandler[id: 36; name: sort_bam (SRR16683631); status: NEW; exit: -; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.mapper/work/22/05791805eea439ef6106ad7454945d]
+~> TaskHandler[id: 37; name: index_bam (SRR16683636); status: NEW; exit: -; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.mapper/work/6a/8ccdafd612a1371b65bf6865372439]
+~> TaskHandler[id: 38; name: index_bam (SRR16683632); status: NEW; exit: -; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.mapper/work/d8/d3604ede273b30c10e1f30537a7a3d]
+~> TaskHandler[id: 39; name: index_bam (SRR16683635); status: NEW; exit: -; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.mapper/work/fb/6a2563b74f23675b9fb9c1d9dc5f9e]
+Nov-18 13:52:20.357 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 32; name: sort_bam (SRR16683633); status: COMPLETED; exit: 0; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.mapper/work/59/243154db85fc5a2b4ce0eea0bd8e19]
+Nov-18 13:52:20.361 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-18 13:52:20.361 [Task submitter] INFO  nextflow.Session - [07/dbbff4] Submitted process > sort_bam (SRR16683634)
+Nov-18 13:53:21.490 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 33; name: sort_bam (SRR16683634); status: COMPLETED; exit: 0; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.mapper/work/07/dbbff4965a8fe4ca14042b2beff9c6]
+Nov-18 13:53:21.494 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-18 13:53:21.495 [Task submitter] INFO  nextflow.Session - [de/8eae74] Submitted process > sort_bam (SRR16683637)
+Nov-18 13:54:04.759 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 34; name: sort_bam (SRR16683637); status: COMPLETED; exit: 0; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.mapper/work/de/8eae745abf7a7b939b5cf9395498d5]
+Nov-18 13:54:04.766 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-18 13:54:04.766 [Task submitter] INFO  nextflow.Session - [71/054cab] Submitted process > multiqc
+Nov-18 13:54:07.789 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 35; name: multiqc; status: COMPLETED; exit: 0; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.mapper/work/71/054cab16e82178c90a4d9ba585c8a7]
+Nov-18 13:54:07.792 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-18 13:54:07.792 [Task submitter] INFO  nextflow.Session - [22/057918] Submitted process > sort_bam (SRR16683631)
+Nov-18 13:55:10.739 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 36; name: sort_bam (SRR16683631); status: COMPLETED; exit: 0; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.mapper/work/22/05791805eea439ef6106ad7454945d]
+Nov-18 13:55:10.745 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-18 13:55:10.746 [Task submitter] INFO  nextflow.Session - [6a/8ccdaf] Submitted process > index_bam (SRR16683636)
+Nov-18 13:55:11.650 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 37; name: index_bam (SRR16683636); status: COMPLETED; exit: 0; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.mapper/work/6a/8ccdafd612a1371b65bf6865372439]
+Nov-18 13:55:11.656 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-18 13:55:11.656 [Task submitter] INFO  nextflow.Session - [d8/d3604e] Submitted process > index_bam (SRR16683632)
+Nov-18 13:55:12.491 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 38; name: index_bam (SRR16683632); status: COMPLETED; exit: 0; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.mapper/work/d8/d3604ede273b30c10e1f30537a7a3d]
+Nov-18 13:55:12.494 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-18 13:55:12.494 [Task submitter] INFO  nextflow.Session - [fb/6a2563] Submitted process > index_bam (SRR16683635)
+Nov-18 13:55:13.464 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 39; name: index_bam (SRR16683635); status: COMPLETED; exit: 0; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.mapper/work/fb/6a2563b74f23675b9fb9c1d9dc5f9e]
+Nov-18 13:55:13.467 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-18 13:55:13.468 [Task submitter] INFO  nextflow.Session - [81/3485d3] Submitted process > index_bam (SRR16683633)
+Nov-18 13:55:14.352 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 40; name: index_bam (SRR16683633); status: COMPLETED; exit: 0; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.mapper/work/81/3485d318dbf678efb5de40ad090368]
+Nov-18 13:55:14.357 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-18 13:55:14.357 [Task submitter] INFO  nextflow.Session - [1f/7523bc] Submitted process > index_bam (SRR16683634)
+Nov-18 13:55:15.658 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 41; name: index_bam (SRR16683634); status: COMPLETED; exit: 0; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.mapper/work/1f/7523bcd64554085f08b398db196672]
+Nov-18 13:55:15.661 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-18 13:55:15.662 [Task submitter] INFO  nextflow.Session - [71/e26e91] Submitted process > index_bam (SRR16683637)
+Nov-18 13:55:16.540 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 42; name: index_bam (SRR16683637); status: COMPLETED; exit: 0; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.mapper/work/71/e26e9188678fd781256832f7ab96ec]
+Nov-18 13:55:16.544 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-18 13:55:16.544 [Task submitter] INFO  nextflow.Session - [49/1951b2] Submitted process > index_bam (SRR16683631)
+Nov-18 13:55:17.879 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 43; name: index_bam (SRR16683631); status: COMPLETED; exit: 0; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.mapper/work/49/1951b2bd1b9956b0a9560e9b721d20]
+Nov-18 13:55:17.883 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-18 13:55:17.883 [Task submitter] INFO  nextflow.Session - [34/9ea88d] Submitted process > generate_consensus (SRR16683636)
+Nov-18 13:56:19.621 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 44; name: generate_consensus (SRR16683636); status: COMPLETED; exit: 0; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.mapper/work/34/9ea88df351a922eeb24aa209b98860]
+Nov-18 13:56:19.624 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-18 13:56:19.624 [Task submitter] INFO  nextflow.Session - [08/2e6a9e] Submitted process > generate_consensus (SRR16683632)
+Nov-18 13:56:57.276 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 45; name: generate_consensus (SRR16683632); status: RUNNING; exit: -; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.mapper/work/08/2e6a9e52835f00ab04f41814aab501]
+Nov-18 13:56:59.636 [Task submitter] DEBUG n.processor.TaskPollingMonitor - %% executor local > tasks in the submission queue: 5 -- tasks to be submitted are shown below
+~> TaskHandler[id: 46; name: generate_consensus (SRR16683635); status: NEW; exit: -; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.mapper/work/a9/a9e81133561e58c82faea6a5f47575]
+~> TaskHandler[id: 47; name: generate_consensus (SRR16683633); status: NEW; exit: -; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.mapper/work/63/b2ad3819561a6619148d4815636a37]
+~> TaskHandler[id: 48; name: generate_consensus (SRR16683634); status: NEW; exit: -; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.mapper/work/64/d4287359bac77c6272a4b9f2885213]
+~> TaskHandler[id: 49; name: generate_consensus (SRR16683637); status: NEW; exit: -; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.mapper/work/12/55056d74165dca5f67bffc23e82d41]
+~> TaskHandler[id: 50; name: generate_consensus (SRR16683631); status: NEW; exit: -; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.mapper/work/63/ad753f53f7f07423f59679a62549a0]
+Nov-18 13:57:17.283 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 45; name: generate_consensus (SRR16683632); status: COMPLETED; exit: 0; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.mapper/work/08/2e6a9e52835f00ab04f41814aab501]
+Nov-18 13:57:17.285 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-18 13:57:17.285 [Task submitter] INFO  nextflow.Session - [a9/a9e811] Submitted process > generate_consensus (SRR16683635)
+Nov-18 13:58:17.617 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 46; name: generate_consensus (SRR16683635); status: COMPLETED; exit: 0; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.mapper/work/a9/a9e81133561e58c82faea6a5f47575]
+Nov-18 13:58:17.620 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-18 13:58:17.620 [Task submitter] INFO  nextflow.Session - [63/b2ad38] Submitted process > generate_consensus (SRR16683633)
+Nov-18 13:59:25.055 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 47; name: generate_consensus (SRR16683633); status: COMPLETED; exit: 0; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.mapper/work/63/b2ad3819561a6619148d4815636a37]
+Nov-18 13:59:25.060 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-18 13:59:25.060 [Task submitter] INFO  nextflow.Session - [64/d42873] Submitted process > generate_consensus (SRR16683634)
+Nov-18 14:01:02.204 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 48; name: generate_consensus (SRR16683634); status: COMPLETED; exit: 0; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.mapper/work/64/d4287359bac77c6272a4b9f2885213]
+Nov-18 14:01:02.207 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-18 14:01:02.208 [Task submitter] INFO  nextflow.Session - [12/55056d] Submitted process > generate_consensus (SRR16683637)
+Nov-18 14:01:57.285 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 49; name: generate_consensus (SRR16683637); status: RUNNING; exit: -; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.mapper/work/12/55056d74165dca5f67bffc23e82d41]
+Nov-18 14:02:00.218 [Task submitter] DEBUG n.processor.TaskPollingMonitor - %% executor local > tasks in the submission queue: 1 -- tasks to be submitted are shown below
+~> TaskHandler[id: 50; name: generate_consensus (SRR16683631); status: NEW; exit: -; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.mapper/work/63/ad753f53f7f07423f59679a62549a0]
+Nov-18 14:02:01.647 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 49; name: generate_consensus (SRR16683637); status: COMPLETED; exit: 0; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.mapper/work/12/55056d74165dca5f67bffc23e82d41]
+Nov-18 14:02:01.649 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-18 14:02:01.650 [Task submitter] INFO  nextflow.Session - [63/ad753f] Submitted process > generate_consensus (SRR16683631)
+Nov-18 14:03:37.946 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 50; name: generate_consensus (SRR16683631); status: COMPLETED; exit: 0; error: -; workDir: /home/giuliosp/Desktop/Joy_Lab/BIOF 501/Project/giuliBIOF501Project/Nextflow.mapper/work/63/ad753f53f7f07423f59679a62549a0]
+Nov-18 14:03:37.949 [main] DEBUG nextflow.Session - Session await > all processes finished
+Nov-18 14:03:38.048 [Task monitor] DEBUG n.processor.TaskPollingMonitor - <<< barrier arrives (monitor: local) - terminating tasks monitor poll loop
+Nov-18 14:03:38.048 [main] DEBUG nextflow.Session - Session await > all barriers passed
+Nov-18 14:03:38.053 [main] DEBUG nextflow.util.ThreadPoolManager - Thread pool 'TaskFinalizer' shutdown completed (hard=false)
+Nov-18 14:03:38.054 [main] DEBUG nextflow.util.ThreadPoolManager - Thread pool 'PublishDir' shutdown completed (hard=false)
+Nov-18 14:03:38.082 [main] DEBUG n.trace.WorkflowStatsObserver - Workflow completed > WorkflowStats[succeededCount=50; failedCount=0; ignoredCount=0; cachedCount=0; pendingCount=0; submittedCount=0; runningCount=0; retriesCount=0; abortedCount=0; succeedDuration=2h 39m 33s; failedDuration=0ms; cachedDuration=0ms;loadCpus=0; loadMemory=0; peakRunning=1; peakCpus=6; peakMemory=7 GB; ]
+Nov-18 14:03:38.309 [main] DEBUG nextflow.cache.CacheDB - Closing CacheDB done
+Nov-18 14:03:38.341 [main] DEBUG nextflow.util.ThreadPoolManager - Thread pool 'FileTransfer' shutdown completed (hard=false)
+Nov-18 14:03:38.341 [main] DEBUG nextflow.script.ScriptRunner - > Execution complete -- Goodbye

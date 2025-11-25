@@ -18,17 +18,30 @@ The presence of resistance genes in plasmids can be challenging to detect direct
 ### Aim
 My pipeline will help in this work by training preliminary ML models that predict AMR based on chromosome variants of N. gonorrhoeae.
 
+### Objective
+Produce a pipeline that automatedly trains ML regression models to predict AMR (measured by MIC) and plots performance metrics. 
+
 ### Hypothesis
 Chromosomal sequences are sufficiently correlated with AMR to produce functional ML models and highlight relevant genomic regions.
 
+### Control and Test Groups
+With ML analysis, the control group is the training dataset, which is a subset of the data randomly collected for the regression models to train on. The test group is the testing dataset, which is all the data not used for training, which the ML regresison models predict the MIC of based on the sequence's SNPs, and verifies how accurate the model is with new data it has not trained on.  
+
+### Environment
+- Nextflow version 25.10.0
+- Docker version 20.10.20, build 9fdeb9c
+- Custom docker images: 
+	- giulisp/mapper:v2
+	- giulisp/amrlearn:v3
+	
 
 ## Datasets
 
 The resistance of a bacteria to an antimicrobial is commonly measured by a test of Munimum Inhibitory Concentration (MIC), where a colony is exposed to increasing concentrations of each medication. The minimum concentration needed to stop the colony from growing is recorded as the MIC value.
 
-A dataset with N. gonorrhoeae genomes and MIC tests for each sample were produced by Bristow et al., and will be used to demonstrate this pipeline. [2] The data is accessible under NCBI's BioProject PRJNA776899. For brevity in running this pipeline, I separated 73 out of the 457 samples to run. The samples selected were all samples from Canada and from the Dominican Republic. SRA numbers are listed in the file `/inputs/sra_list.txt` for the pipeline to access.
+A dataset with N. gonorrhoeae chromosomes (DNA sequence of the circular chromosome, without any plasmid DNA sequences) and MIC tests for each sample were produced by Bristow et al., and will be used to demonstrate this pipeline. [2] The data is accessible under NCBI's BioProject PRJNA776899. For brevity in running this pipeline, I separated 73 out of the 457 samples to run. The samples selected were all samples from Canada and from the Dominican Republic. SRA numbers are listed in the file `/inputs/sra_list.txt` for the pipeline to access.
 
-The reference genome used was the same as in Bristow's journal article, with accession number GCF_000020105.1_ref.  
+The reference genome used was the same as in Bristow's journal article, with accession number GCF_000020105.1_ref.   
 
 Table 1. N. gonorrhoeae samples included in this pipeline, Sequence Read Archive numbers, country of origin, year collected, anatomic site where sample was collected from, and MIC values for antimicrobials: penicilin (PEN), tetracycline (TET), spectinomycin (SPEC), cefixime (CFX), ceftriaxone (CRO), ciprofloxacin (CIP), azithromycin (AZI), and zoliflodacin (ZOL).
 
@@ -116,18 +129,18 @@ This pipeline is split into two workflows: Mapper and AMRlearn. With Mapper run 
 - Location: `/Nextflow.mapper` 
 - Example run with Nextflow 25.10.0:
 ```
-nextflow Nextflow.mapper/mainV2.nf -with-docker
+nextflow Nextflow.mapper/mainV2.nf -with-docker -c Nextflow.mapper/nextflow.config
 ```
 - Takes SRA accession numbers (in `sra_list.txt`), downloads the .sra files, then maps them to a reference genome (accession GCF_000020105, same as in the Bristow paper [2]) to produce consensus FASTA files. 
 - If computational resources are limited, skip this workflow and use consensus fasta files pre-compiled in `outputs/Example outputs/mapper_results/fasta`.
 - Its inputs are `sra_list.txt` and a reference genome in .fna and .mmi formats. Inputs paths are set as parameters: 
-	params.ref_fasta = "../inputs/GCF_000020105.1_ref/GCF_000020105.1_ASM2010v1_genomic.fna"
-	params.ref_mmi = "../inputs/GCF_000020105.1_ref/GCF_000020105.1.mmi"
-	params.sra_path = "../inputs/sra_list.txt"
+	params.ref_fasta = "inputs/GCF_000020105.1_ref/GCF_000020105.1_ASM2010v1_genomic.fna"
+	params.ref_mmi = "inputs/GCF_000020105.1_ref/GCF_000020105.1.mmi"
+	params.sra_path = "inputs/sra_list.txt"
 - It's outputs are:
 	- A `/reports` directory (with fastQC reports on each fastq file and a compiled MultiQC report on the whole dataset)
 	- A `/fasta` directory with all contructed consensus sequences. 
-	- Output directory path is set by one parameter `--params.outdir "../outputs/mapper_results"`
+	- Output directory path is set by one parameter `--params.outdir "outputs/mapper_results"`
 - Environment:
 	- Custom docker container with the environment for linux Ubuntu 22.04.5 LTS is in `giulisp/mapper:v2` and is listed in the nextflow.config file, so it can be applied by adding `-with-docker` to the nextflow command.  
 	- Conda environment for linux Ubuntu 22.04.5 LTS is in `Nextflow.mapper/mapper.yml`. To use the conda environment, first create a local environment from the `mapper.yml` file with `conda create --name [environment name] mapper.yml` then activate it with `conda activate [environment name]`.
@@ -140,30 +153,30 @@ nextflow Nextflow.mapper/mainV2.nf -with-docker
 - Location: `/Nextflow.amrlearn` 
 - Example run with Nextflow 25.10.0 after running Mapper:
 ```
-nextflow Nextflow.amrlearn/main.nf -with-docker
+nextflow Nextflow.amrlearn/main.nf -with-docker -c Nextflow.amrlearn/nextflow.config
 ```
 - Example run with Nextflow 25.10.0 skipping Mapper due to limited computational resources:
 ```
-nextflow Nextflow.amrlearn/main.nf --fasta_dir "../outputs/example_outputs/mapper_results/fasta" -with-docker
+nextflow Nextflow.amrlearn/main.nf --fasta_dir "outputs/example_outputs/mapper_results/fasta" -with-docker -c Nextflow.amrlearn/nextflow.config
 ```
 - Trains various ML models for AMR prediction based on bacterial chromosome sequences, then exports all trained models and their evaluations.
 - Its inputs are a gbff reference (same as the one for Mapper, but with a different format), the directory with consensus fasta files from samples, a tab-separated table of MIC values with one row per sample and one column per antibiotic, a threshold for ploting genes that matter to predictions, and a user-set name for the project. Inputs values and paths are set as parameters:    
-	params.ref_gbff_path = "../inputs/GCF_000020105.1_ref/GCF_000020105.1.gbff"
-	params.fasta_dir = "../outputs/mapper_results/fasta"
-	params.antibiotics = "../inputs/PRJNA776899.antibiotics.txt"
+	params.ref_gbff_path = "inputs/GCF_000020105.1_ref/GCF_000020105.1.gbff"
+	params.fasta_dir = "outputs/mapper_results/fasta"
+	params.antibiotics = "inputs/PRJNA776899.antibiotics.txt"
 	params.threshold = 0.08 //threshold for filtering absolute coefficient
 	params.project = "PRJNA776899"
 - Its outputs are:
 	- A `/[project name].learn` with pickle files (standard export format) of each model, lists of regions with coefficients above threshold for each model, model-specific plots of regions with coefficients above threshold, plots comparing all models, and run logfiles.
 	- A `/[project name].parsnp` directory with an intermediate vcf file generated for all fasta files
 	- Intermediate files (a tab file linking locus tags and positions, a SNP count noting frequencies of mutation features and a feature2target file noting the correlations between mutation features and each MIC target). 
-	- Output directory path is set by the parameter	`--params.outdir "../outputs/amrlearn_results"`
+	- Output directory path is set by the parameter	`--params.outdir "outputs/amrlearn_results"`
 - Environment:
 	- Custom docker container with the environment for linux Ubuntu 22.04.5 LTS is in `giulisp/amrlearn:v3` and is listed in the nextflow.config file, so it can be applied by adding `-with-docker` to the nextflow command.  
 	- Conda environment for linux Ubuntu 22.04.5 LTS is in `Nextflow.amrlearn/amrlearn.yml`. To use the conda environment, first create a local environment from the `amrlearn.yml` file with `conda create --name [environment name] amrlearn.yml` then activate it with `conda activate [environment name]`.
 
 
-![amrlearn diagram](Nextflow.amrlearn/amrlearn_diagram.png "Diagram of AMRlearn workflow")
+![amrlearn diagram](Nextflow.amrlearn/diagram_amrlearn.png "Diagram of AMRlearn workflow")
 
 
 ## Expected results

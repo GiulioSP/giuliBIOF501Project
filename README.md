@@ -121,16 +121,27 @@ Table 1. N. gonorrhoeae samples included in this pipeline, Sequence Read Archive
 |Ng_74|SRR16683580|Dominican Republic|2019-06|Urethral|16|32|16|0.06|0.03|2|0.125|0.125|
 |Ng_91|SRR16683579|Dominican Republic|2019-07|Urethral|32|1|16|0.008|0.004|4|0.25|0.125|
 
-## Usage (SOP)
+## SOP (Usage)
 
 This pipeline is split into two workflows: Mapper and AMRlearn. With Mapper run first and AMRlearn run second. 
 
-### Mapper (run first)
-- Location: `/Nextflow.mapper` 
-- Example run with Nextflow 25.10.0:
+1. Running mapper (optional. Skip to 2. b. if computing is too slow)
 ```
 nextflow Nextflow.mapper/mainV2.nf -with-docker -c Nextflow.mapper/nextflow.config
 ```
+
+2. a. Running AMRlearn after running Mapper
+```
+nextflow Nextflow.amrlearn/main.nf -with-docker -c Nextflow.amrlearn/nextflow.config
+```
+
+2. b. Running AMRlearn with previously generated FASTA due to limited computational resources:
+```
+nextflow Nextflow.amrlearn/main.nf --vcf "outputs/example_outputs/mapper_results/parsnp/parsnp.vcf" -with-docker -c Nextflow.amrlearn/nextflow.config
+```
+
+### About Mapper
+- Location: `/Nextflow.mapper` 
 - Takes SRA accession numbers (in `sra_list.txt`), downloads the .sra files, then maps them to a reference genome (accession GCF_000020105, same as in the Bristow paper [2]) to produce consensus FASTA files. 
 - If computational resources are limited, skip this workflow and use consensus fasta files pre-compiled in `outputs/Example outputs/mapper_results/fasta`.
 - Its inputs are `sra_list.txt` and a reference genome in .fna and .mmi formats. Inputs paths are set as parameters: 
@@ -149,16 +160,8 @@ nextflow Nextflow.mapper/mainV2.nf -with-docker -c Nextflow.mapper/nextflow.conf
 ![mapper diagram](Nextflow.mapper/mapper_diagram.png "Diagram of Mapper workflow")
 
 
-### AMRlearn (run second)
+### About AMRlearn
 - Location: `/Nextflow.amrlearn` 
-- Example run with Nextflow 25.10.0 after running Mapper:
-```
-nextflow Nextflow.amrlearn/main.nf -with-docker -c Nextflow.amrlearn/nextflow.config
-```
-- Example run with Nextflow 25.10.0 skipping Mapper due to limited computational resources:
-```
-nextflow Nextflow.amrlearn/main.nf --fasta_dir "outputs/example_outputs/mapper_results/fasta" -with-docker -c Nextflow.amrlearn/nextflow.config
-```
 - Trains various ML models for AMR prediction based on bacterial chromosome sequences, then exports all trained models and their evaluations.
 - Its inputs are a gbff reference (same as the one for Mapper, but with a different format), the directory with consensus fasta files from samples, a tab-separated table of MIC values with one row per sample and one column per antibiotic, a threshold for ploting genes that matter to predictions, and a user-set name for the project. Inputs values and paths are set as parameters:    
 	params.ref_gbff_path = "inputs/GCF_000020105.1_ref/GCF_000020105.1.gbff"
@@ -195,7 +198,6 @@ Expected results are models and their evaluations in the amrlearn output directo
 ![cip lasso](outputs/example_outputs/amrlearn_results/PRJNA776899.learn/CIP_Lasso\ Regression.png "Regions with coefficients above threshold CIP Lasso Regression") 
 
 The quality of models and region plots relies on the input data having many examples of resistant and non-resistant samples for each antibiotic. Given the smaller dataser selected for this demonstration, the quality is not ideal for models of AZI, CRO and ZOL. Zoliflodacin (ZOL) is a new antibiotic and therefore no resistance was observed in any sample. 
-!!!! redo with better normalization so CFX matters. 
 
 ## Sources
 [1] Zhang, Xi, et al. "AMRLearn: Protocol for a machine learning pipeline for characterization of antimicrobial resistance determinants in microbial genomic data." STAR protocols 6.2 (2025): 103733.

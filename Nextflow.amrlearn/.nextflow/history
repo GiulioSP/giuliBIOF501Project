@@ -90,3 +90,5 @@
 2025-11-19 18:33:37	2.4s	distracted_torvalds	ERR	e4bf49d846f7911cf66fc28df94eb702	89cc6913-4f68-48be-af53-2d515772c676	nextflow main.nf -with-docker
 2025-11-19 22:20:55	2.2s	deadly_roentgen	ERR	e4bf49d846f7911cf66fc28df94eb702	03dc8522-98ce-4e10-916b-a4f617a8fc98	nextflow main.nf -with-docker
 2025-11-23 22:31:37	24.9s	pensive_tesla	ERR	593581289685300880d5cd84e9039b96	20d9a8fd-ea83-4db7-9a07-a24a24177cf5	nextflow main.nf
+2025-11-24 19:09:28	52.6s	big_kimura	ERR	2a046cd73887b4843123c07f81601085	20d9a8fd-ea83-4db7-9a07-a24a24177cf5	nextflow main.nf --vcf ../outputs/example_outputs/mapper_results/parsnp/parsnp.vcf -with-docker -c nextflow.config -resume -with-dag
+2025-11-24 19:10:55	1h 29m 37s	wise_panini	ERR	4efd326257a338843914a55e695b06be	20d9a8fd-ea83-4db7-9a07-a24a24177cf5	nextflow main.nf --vcf ../outputs/example_outputs/mapper_results/parsnp/parsnp.vcf -with-docker -c nextflow.config -resume -with-dag

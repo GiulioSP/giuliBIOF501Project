@@ -16,11 +16,12 @@ from sklearn.metrics import mean_squared_error
 from sklearn import metrics
 from sklearn.tree import DecisionTreeRegressor
 from sklearn.svm import SVR
+from sklearn.preprocessing import StandardScaler
 
 
 import sys
 if len(sys.argv)!=6: 
-    print("Usage:python3 4.AMR_Learn_linear.py <feature2target.txt> <gene_location_info.txt> <antibiotics.txt> <out_dir_path> <threshold for filtering absolute coefficient>\n\n e.g.,python3 AMR_Learn_linear.py feature2target.txt Spectinomycin 0.1")
+    print("Usage:python3 4.AMR_Learn_linear.py <feature2target.txt> <gene_location_info.txt> <antibiotics.txt> <out_dir_path> \n\n e.g.,python3 AMR_Learn_linear.py feature2target.txt Spectinomycin 0.1")
     sys.exit()
 
 #  4.AMR_Learn_linear.py PRJNA776899.feature2target.txt GCF_000020105.1.tab PRJNA776899.antibiotics.small.txt learn 0.1
@@ -31,9 +32,15 @@ feature2target = sys.argv[1]
 gene_location = sys.argv[2] 
 antibiotics_path = sys.argv[3]
 out_path = sys.argv[4]
-threshold = float(sys.argv[5])
 
 os.makedirs(out_path, exist_ok=True) 
+
+# writing out the log file
+if keep_log:
+    f_log = open(out_path +'/run.log', 'w')
+    sys.stdout = f_log
+    f_err = open(out_path +'/run.err', 'w')
+    sys.stderr = f_err
 
 with open(antibiotics_path, 'r') as antibiotics_file:
     first_line = antibiotics_file.readline().strip()
@@ -42,23 +49,18 @@ with open(antibiotics_path, 'r') as antibiotics_file:
     separator = " "
     print("antibiotics being modeled: " + separator.join(antibiotics))
 
-
 # loading data
 print("load data")
 hsd_data = pd.read_csv(feature2target,sep='\t').fillna(0) 
 
 # creating features and arget arrays
 X = hsd_data.drop(columns=[*antibiotics, 'locus_tag'], axis=1).to_numpy()
-X = scale(X)
-print X
+print("X:")
+print(X)
+#X = scale(X)
+#print("X scaled:")
+#print(X)
 names = hsd_data.drop(columns=[*antibiotics, 'locus_tag'], axis=1).columns
-
-# writing out the log file
-if keep_log:
-    f_log = open(out_path +'/run.log', 'w')
-    sys.stdout = f_log
-    f_err = open(out_path +'/run.err', 'w')
-    sys.stderr = f_err
 
 # Define models in a dictionary for easy addition
 models_dict = {
@@ -78,7 +80,12 @@ for antibiotic_name in antibiotics:
     y = hsd_data[antibiotic_name].values
     print(y)
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42, shuffle=True)
-
+    scaler = StandardScaler()
+    X_train = scaler.fit_transform(X_train)
+    X_test  = scaler.transform(X_test)
+    print("scaled X train:")
+    print(X_train)
+    
     # Train all models sequentially
     for model_name, model in models_dict.items():
         print(f"{model_name}\n")
@@ -108,37 +115,38 @@ for antibiotic_name in antibiotics:
         if model_name in ["Decision Tree", "Support Vector Machine"]:
             continue  
 
+        # Write the top 10 coefficients by absolute value
         outfile = open(out_path + '/' + antibiotic_name + f"_{model_name}_coef.txt", 'w')
         coef = model.coef_
-        select_names = []
-        select_coef = []
+        # ensure 1D array for consistency
+        if hasattr(coef, 'ndim') and coef.ndim > 1:
+            coef = coef.ravel()
 
-        for i in range(len(coef)):
-            if abs(coef[i]) > float(threshold):
-                select_names.append(names[i])
-                select_coef.append(coef[i])
-                outfile.write(str(names[i]) + "\t" + str(coef[i]) + "\n")
+        # get indices of features sorted by absolute coefficient (descending)
+        abs_idx = np.argsort(np.abs(coef))[::-1]
+        top_n = 10
+        top_idx = abs_idx[:top_n]
+
+        select_names = [names[i] for i in top_idx]
+        select_coef = [coef[i] for i in top_idx]
+
+        # write: feature_name \t coefficient \t abs(coefficient)
+        for i in top_idx:
+            outfile.write(f"{names[i]}\t{coef[i]}\t{abs(coef[i])}\n")
         outfile.close()
         
         os.system(f"coef2gene.py {gene_location} {out_path}/{antibiotic_name}_{model_name}_coef.txt {out_path}/{antibiotic_name}_{model_name}_coef_out.txt")
         os.system(f"rm {out_path}/{antibiotic_name}_{model_name}_coef.txt")
 
-        if select_coef:
-            plt.figure()
-            plt.scatter(range(len(select_names)), select_coef)
-            plt.xticks(range(len(select_names)), select_names, rotation=90, fontsize=5)
-            plt.ylabel(f'{model_name} coefficients')
-            plt.title(f"Coefficients above threshold {threshold} Vs. Genes, for model of {antibiotic_name} resistance")
-            plt.savefig(out_path + '/' + antibiotic_name + f"_{model_name}.png")
-            plt.close()
         
-        else:
-            # If the plot is empty, add "No Data" text to the center
-            plt.figure()
-            plt.scatter([0,1],[1,0])
-            plt.text(0.5, 0.5, 'No coefficients above threshold', horizontalalignment='center', verticalalignment='center', fontsize=16, color='black')
-            plt.close()
-
+        plt.figure()
+        plt.scatter(range(len(select_names)), select_coef)
+        plt.xticks(range(len(select_names)), select_names, rotation=45, fontsize=8)
+        plt.ylabel(f'{model_name} coefficients')
+        plt.title(f"Coefficients Vs. Genes, for model of {antibiotic_name} resistance")
+        plt.savefig(out_path + '/' + antibiotic_name + f"_{model_name}.png")
+        plt.close()
+        
 
 # Plot all test scores
 plt.figure()

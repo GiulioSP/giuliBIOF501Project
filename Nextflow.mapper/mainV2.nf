@@ -1,5 +1,6 @@
 nextflow.enable.dsl=2
 
+params.ref_gbff_path = "inputs/GCF_000020105.1_ref/GCF_000020105.1.gbff"
 params.ref_fasta = "inputs/GCF_000020105.1_ref/GCF_000020105.1_ASM2010v1_genomic.fna"
 params.ref_mmi = "inputs/GCF_000020105.1_ref/GCF_000020105.1.mmi"
 params.sra_path = "inputs/sra_list.txt"
@@ -18,13 +19,7 @@ workflow {
 
     ref_fasta = Channel.value(file(params.ref_fasta))
     ref_mmi = Channel.value(file(params.ref_mmi))
-
-//    sra_files = Channel.fromPath(params.sra_path).map {
-//        file -> def sra_id = file.baseName
-//        tuple(sra_id, file)
-//        }
-
-  //  sra_id = Channel.fromPath(params.sra_path) //.splitText().map{it.trim()}.filter{it.length()>0}
+    ref_gbff_ch = Channel.value(file(params.ref_gbff_path))
 
     sra_id = Channel.fromPath(file(params.sra_path)).splitText().map{ it.trim() }.filter{ it.length()>0 }
 
@@ -38,7 +33,7 @@ workflow {
     
     indexed_bams = index_bam(sorted_bams)
 
-    generate_consensus(indexed_bams, ref_fasta).view()
+    parsnp_vcf(ref_gbff_ch, generate_consensus(indexed_bams, ref_fasta).collect()).view()
 
     multiqc(fastqc(read_pairs).collect())
 }
@@ -165,5 +160,23 @@ process generate_consensus {
     bcftools mpileup -Ou -f $ref_fasta $bam_file | bcftools call -c -Oz -o calls.vcf.gz
     bcftools index calls.vcf.gz
     cat $ref_fasta | bcftools consensus calls.vcf.gz > ${sra_id}.consensus.fasta
+    """
+}
+
+process parsnp_vcf {
+    tag "parsnp vcf"
+    publishDir params.outdir, mode: 'copy'
+
+    input:
+    path ref_gbff_ch
+    path fasta_ch
+    
+    output:
+    path "parsnp/*.vcf"
+
+    //-p 6
+    //-o ${params.outdir}/parsnp 
+    """
+    parsnp -g $ref_gbff_ch -d $fasta_ch/ -o parsnp --vcf
     """
 }

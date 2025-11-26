@@ -1,21 +1,20 @@
 nextflow.enable.dsl=2
 
-params.ref_gbff_path = "../inputs/GCF_000020105.1_ref/GCF_000020105.1.gbff"
+params.ref_gbff_path = "inputs/GCF_000020105.1_ref/GCF_000020105.1.gbff"
 //params.fasta_dir = "outputs/mapper_results/fasta"
-params.vcf = "../outputs/mapper_results/parsnp/parsnp.vcf"
-params.antibiotics = "../inputs/PRJNA776899.antibiotics.txt"
+params.vcf = "outputs/mapper_results/parsnp/parsnp.vcf"
+params.antibiotics = "inputs/PRJNA776899.antibiotics.txt"
 params.project = "PRJNA776899"
-params.outdir = "../outputs/amrlearn_results"
+params.outdir = "outputs/amrlearn_results"
 
 
 log.info """\
-    SRA 2 FASTA ALIGNMENT PIPELINE
+    SRA 2 VCF ALIGNMENT PIPELINE
     ===================================
     reference                   : ${params.ref_gbff_path}
     vcf path                    : ${params.vcf}
     project name                : ${params.project}
     antibiotic susceptibility   : ${params.antibiotics}
-    threshold for coefficients  : ${params.threshold}
     output directory            : ${params.outdir}
     """
     .stripIndent()

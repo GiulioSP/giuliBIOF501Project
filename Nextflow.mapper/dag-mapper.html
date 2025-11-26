@@ -35,26 +35,46 @@
 }%%
 flowchart TB
     subgraph " "
-    v0["ref_gbff_ch"]
-    v2["vcf_ch"]
-    v4["antibiotics_ch"]
+    v0["Channel.fromPath"]
+    v6["ref_mmi"]
+    v10["ref_fasta"]
+    v13["ref_gbff_ch"]
     end
-    v1(["gbff2tab"])
-    v3(["vcf2snp"])
-    v5(["feature2target"])
-    v6(["ml_learn"])
+    v4(["prefetch_sra"])
+    v5(["dump_reads"])
+    v7(["align"])
+    v8(["sort_bam"])
+    v9(["index_bam"])
+    v11(["generate_consensus"])
+    v14(["parsnp_vcf"])
     subgraph " "
-    v7[" "]
+    v16["VCF file from all samples"]
+    v20["Sequence data quality reports"]
     end
+    v17(["fastqc"])
+    v19(["multiqc"])
+    v1(( ))
+    v12(( ))
+    v15(( ))
+    v18(( ))
     v0 --> v1
-    v1 --> v3
-    v1 --> v6
-    v2 --> v3
-    v3 --> v5
+    v1 --> v4
     v4 --> v5
-    v4 --> v6
-    v5 --> v6
+    v5 --> v7
+    v5 --> v17
     v6 --> v7
+    v7 --> v8
+    v8 --> v9
+    v9 --> v11
+    v10 --> v11
+    v11 --> v12
+    v13 --> v14
+    v12 --> v14
+    v14 --> v15
+    v15 --> v16
+    v17 --> v18
+    v18 --> v19
+    v19 --> v20
 
 </pre>
 <script type="module">

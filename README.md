@@ -9,29 +9,29 @@ Implemented for Neisseria gonorrhoeae (Ghonorrhoea) with chromosome sequences an
 
 ## Background and motivation
 
-Antimicrobial resistance (AMR) is the phenomenon of bacteria evolving resistance to antibiotic medications (aka. antimicrobial). It can occur from mutations in the chromosome, or from acquisition of plasmids that confer such resistance. Since N. gonorrhoeae easily acquires new plasmids, it frequently develops resistance, creating the need for active genomic monitoring of this organism to inform which antibiotics to use as front-line treatments. 
+Antimicrobial resistance (AMR) is the phenomenon of bacteria evolving resistance to antibiotic medications (aka. antimicrobials). It can occur from mutations in the chromosome, or from acquisition of plasmids that confer such resistance. Since N. gonorrhoeae easily acquires new plasmids, it frequently develops resistance, creating the need for active genomic monitoring of this organism to inform which antibiotics to use as front-line treatments. 
 
-For instance, in May 2025 the Canadian province of British Columbia updated it's guidelines to establish Ceftriazxone (CRO) as the preferred treatment due to growing resistance to the previous regimen, which consisted of the combination Cefixime (CFX) and either Doxycycline (TET) or Azythromycin (AZI). [3] 
+For instance, in May 2025 the Canadian province of British Columbia updated it's guidelines to establish Ceftriazxone (CRO) as the preferred treatment due to growing resistance to the previous regimen, which consisted of the combination Cefixime (CFX) and either the tetracycine Doxycycline (TET) or Azythromycin (AZI). [3] 
 
-The presence of resistance genes in plasmids can be challenging to detect directly because plasmids are more difficult to sequence compared to the bacterial genome. This is due to plasmids being smaller and more dynamic, so the computational step of alignment is hampered. Luckily, some correlations exist between lineages and the plasmids they carry, so chromosome variants (like SNPs) can help predict AMR. Furthermore, chromosome mutations that confer resistance (not in a plasmid) can be detected directly.
+The presence of resistance genes in plasmids can be challenging to detect directly because plasmids are more difficult to sequence compared to the bacterial genome. This is due to plasmids being smaller and more dynamic, so the computational step of alignment requires a high sequencing depth. Luckily, AMR plasmids have a slight fitness cost to bacteria, so some chromosome mutations are selected for to compensate. Therefore, variants in some chromosome regions can help predict AMR, just not in a straightforward way. Furthermore, chromosome mutations that confer resistance (not in a plasmid) can be detected directly.
 
 ### Aim
 My pipeline will help in this work by training preliminary ML models that predict AMR based on chromosome variants of N. gonorrhoeae.
 
 ### Objective
-Produce a pipeline that automatedly trains ML regression models to predict AMR (measured by MIC) and plots performance metrics. 
+Produce a pipeline that automatedly trains ML regression models to predict AMR and plots performance metrics. 
 
 ### Hypothesis
 Chromosomal sequences are sufficiently correlated with AMR to produce functional ML models and highlight relevant genomic regions.
 
 ### Control and Test Groups
-With ML analysis, the control group is the training dataset, which is a subset of the data randomly collected for the regression models to train on. The test group is the testing dataset, which is all the data not used for training, which the ML regresison models predict the MIC of based on the sequence's SNPs, and verifies how accurate the model is with new data it has not trained on.  
+With ML analysis, the control group is the training dataset, which is a subset of the data randomly collected for the regression models to train on. The test group is the testing dataset (all the data not used for training) which the ML regresison models attempt to predict the MIC of  (minimum inhibitory concentration, a measure of AMR) based on the sequence's variants, and verifies how accurate their predictions were. 
 
 ### Environment
 - Nextflow version 25.10.0
 - Docker version 20.10.20, build 9fdeb9c
 - Custom docker images: 
-	- giulisp/mapper:v2
+	- giulisp/mapper:v3
 	- giulisp/amrlearn:v3
 	
 
@@ -39,11 +39,11 @@ With ML analysis, the control group is the training dataset, which is a subset o
 
 The resistance of a bacteria to an antimicrobial is commonly measured by a test of Munimum Inhibitory Concentration (MIC), where a colony is exposed to increasing concentrations of each medication. The minimum concentration needed to stop the colony from growing is recorded as the MIC value.
 
-A dataset with N. gonorrhoeae chromosomes (DNA sequence of the circular chromosome, without any plasmid DNA sequences) and MIC tests for each sample were produced by Bristow et al., and will be used to demonstrate this pipeline. [2] The data is accessible under NCBI's BioProject PRJNA776899. For brevity in running this pipeline, I separated 73 out of the 457 samples to run. The samples selected were all samples from Canada and from the Dominican Republic. SRA numbers are listed in the file `/inputs/sra_list.txt` for the pipeline to access.
+A dataset with N. gonorrhoeae chromosomes (not optimised for plasmid sequences) and MIC tests for each sample were produced by Bristow et al., and will be used to demonstrate this pipeline. [2] The data is accessible under NCBI's BioProject PRJNA776899. For brevity in running this pipeline, I separated 73 out of the 457 samples to run. The samples selected were all samples from Canada and from the Dominican Republic. SRA numbers are listed in the file `/inputs/sra_list.txt` for the pipeline to access.
 
-The reference genome used was the same as in Bristow's journal article, with accession number GCF_000020105.1_ref.   
+The reference genome used was the same as in Bristow's journal article, with accession number GCF_000020105.1_ref [2].   
 
-Table 1. N. gonorrhoeae samples included in this pipeline, Sequence Read Archive numbers, country of origin, year collected, anatomic site where sample was collected from, and MIC values for antimicrobials: penicilin (PEN), tetracycline (TET), spectinomycin (SPEC), cefixime (CFX), ceftriaxone (CRO), ciprofloxacin (CIP), azithromycin (AZI), and zoliflodacin (ZOL).
+Table 1. N. gonorrhoeae samples included in this pipeline, Sequence Read Archive numbers, country of origin, year collected, anatomic site where sample was collected from, and MIC values for antimicrobials: penicilin (PEN), tetracycline/doxycycline (TET), spectinomycin (SPEC), cefixime (CFX), ceftriaxone (CRO), ciprofloxacin (CIP), azithromycin (AZI), and zoliflodacin (ZOL).
 
 |Sample|SRA|Location|Date|Anatomic Site|PEN|TET|SPEC|CFX|CRO|CIP|AZI|ZOL|
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
@@ -135,29 +135,29 @@ nextflow Nextflow.mapper/mainV2.nf -with-docker -c Nextflow.mapper/nextflow.conf
 nextflow Nextflow.amrlearn/main.nf -with-docker -c Nextflow.amrlearn/nextflow.config
 ```
 
-2. b. Running AMRlearn with previously generated FASTA due to limited computational resources:
+2. b. Running AMRlearn with previously generated VCF due to limited computational resources:
 ```
 nextflow Nextflow.amrlearn/main.nf --vcf "outputs/example_outputs/mapper_results/parsnp/parsnp.vcf" -with-docker -c Nextflow.amrlearn/nextflow.config
 ```
 
 ### About Mapper
 - Location: `/Nextflow.mapper` 
-- Takes SRA accession numbers (in `sra_list.txt`), downloads the .sra files, then maps them to a reference genome (accession GCF_000020105, same as in the Bristow paper [2]) to produce consensus FASTA files. 
-- If computational resources are limited, skip this workflow and use consensus fasta files pre-compiled in `outputs/Example outputs/mapper_results/fasta`.
+- Takes SRA accession numbers (in `sra_list.txt`), downloads the .sra files, generates quality control (QC) reports, then maps them to a reference genome (accession GCF_000020105, same as in the Bristow paper [2]) to produce consensus FASTA files. Then, generates a single VCF file describing all variations from the reference genome for each sample.  
+- If computational resources are limited, skip this workflow and use the vcf files pre-compiled in `outputs/Example outputs/mapper_results/fasta`.
 - Its inputs are `sra_list.txt` and a reference genome in .fna and .mmi formats. Inputs paths are set as parameters: 
 	params.ref_fasta = "inputs/GCF_000020105.1_ref/GCF_000020105.1_ASM2010v1_genomic.fna"
 	params.ref_mmi = "inputs/GCF_000020105.1_ref/GCF_000020105.1.mmi"
 	params.sra_path = "inputs/sra_list.txt"
 - It's outputs are:
-	- A `/reports` directory (with fastQC reports on each fastq file and a compiled MultiQC report on the whole dataset)
+	- A `/reports` directory (with fastQC reports on each fastq file and a compiled MultiQC report on the whole dataset).
 	- A `/fasta` directory with all contructed consensus sequences. 
-	- Output directory path is set by one parameter `--params.outdir "outputs/mapper_results"`
+	- A `/parsnp` directory with the vcf file `parsnp.vcf`.
+	- Output directory path is set by one parameter `--params.outdir "outputs/mapper_results"`.
 - Environment:
 	- Custom docker container with the environment for linux Ubuntu 22.04.5 LTS is in `giulisp/mapper:v2` and is listed in the nextflow.config file, so it can be applied by adding `-with-docker` to the nextflow command.  
 	- Conda environment for linux Ubuntu 22.04.5 LTS is in `Nextflow.mapper/mapper.yml`. To use the conda environment, first create a local environment from the `mapper.yml` file with `conda create --name [environment name] mapper.yml` then activate it with `conda activate [environment name]`.
 
-
-![mapper diagram](Nextflow.mapper/mapper_diagram.png "Diagram of Mapper workflow")
+![mapper diagram](Nextflow.mapper/dag-mapper.png "Diagram of Mapper workflow")
 
 
 ### About AMRlearn
@@ -179,7 +179,7 @@ nextflow Nextflow.amrlearn/main.nf --vcf "outputs/example_outputs/mapper_results
 	- Conda environment for linux Ubuntu 22.04.5 LTS is in `Nextflow.amrlearn/amrlearn.yml`. To use the conda environment, first create a local environment from the `amrlearn.yml` file with `conda create --name [environment name] amrlearn.yml` then activate it with `conda activate [environment name]`.
 
 
-![amrlearn diagram](Nextflow.amrlearn/diagram_amrlearn.png "Diagram of AMRlearn workflow")
+![amrlearn diagram](Nextflow.amrlearn/dag-amrlearn.png "Diagram of AMRlearn workflow")
 
 
 ## Expected results

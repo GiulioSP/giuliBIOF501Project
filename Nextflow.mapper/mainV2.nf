@@ -146,7 +146,7 @@ process index_bam {
 
 process generate_consensus {
     tag { sra_id }
-    publishDir "${params.outdir}/fasta", mode: 'copy'
+    publishDir "${params.outdir}", mode: 'copy'
 
     input:
     tuple val(sra_id), path(bam_file), path(bai_file)
@@ -174,9 +174,13 @@ process parsnp_vcf {
     output:
     path "parsnp/*.vcf"
 
-    //-p 6
-    //-o ${params.outdir}/parsnp 
     """
-    parsnp -g $ref_gbff_ch -d $fasta_ch/ -o parsnp --vcf
+    echo "fasta paths:"
+    echo $fasta_ch
+    mkdir fasta
+    mv ${fasta_ch} fasta/ 
+    parsnp -g $ref_gbff_ch -d fasta/ -o parsnp --vcf
     """
+    //parsnp -g $ref_gbff_ch -d $fasta_ch -o parsnp --vcf
+
 }

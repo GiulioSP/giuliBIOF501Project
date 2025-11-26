@@ -148,45 +148,40 @@ nextflow Nextflow.amrlearn/main.nf -with-docker -c Nextflow.amrlearn/nextflow.co
 - Takes SRA accession numbers (in `sra_list.txt`), downloads the .sra files, then maps them to a reference genome (accession GCF_000020105, same as in the Bristow paper [2]) to produce consensus FASTA files. 
 - If computational resources are limited, skip this workflow and use consensus fasta files pre-compiled in `outputs/Example outputs/mapper_results/fasta`.
 - Its inputs are `sra_list.txt` and a reference genome in .fna and .mmi formats. Inputs paths are set as parameters: 
-	params.ref_fasta = "../inputs/GCF_000020105.1_ref/GCF_000020105.1_ASM2010v1_genomic.fna"
-	params.ref_mmi = "../inputs/GCF_000020105.1_ref/GCF_000020105.1.mmi"
-	params.sra_path = "../inputs/sra_list.txt"
+	params.ref_fasta = "inputs/GCF_000020105.1_ref/GCF_000020105.1_ASM2010v1_genomic.fna"
+	params.ref_mmi = "inputs/GCF_000020105.1_ref/GCF_000020105.1.mmi"
+	params.sra_path = "inputs/sra_list.txt"
 - It's outputs are:
 	- A `/reports` directory (with fastQC reports on each fastq file and a compiled MultiQC report on the whole dataset)
 	- A `/fasta` directory with all contructed consensus sequences. 
-	- Output directory path is set by one parameter `--params.outdir "../outputs/mapper_results"`
+	- Output directory path is set by one parameter `--params.outdir "outputs/mapper_results"`
 - Environment:
 	- Custom docker container with the environment for linux Ubuntu 22.04.5 LTS is in `giulisp/mapper:v2` and is listed in the nextflow.config file, so it can be applied by adding `-with-docker` to the nextflow command.  
 	- Conda environment for linux Ubuntu 22.04.5 LTS is in `Nextflow.mapper/mapper.yml`. To use the conda environment, first create a local environment from the `mapper.yml` file with `conda create --name [environment name] mapper.yml` then activate it with `conda activate [environment name]`.
 
 
-![mapper diagram](Nextflow.mapper/mapper_diagram.png "Diagram of Mapper workflow")
+![mapper diagram](Nextflow.mapper/dag_mapper.png "Diagram of Mapper workflow")
 
 
 ### AMRlearn (run second)
 - Location: `/Nextflow.amrlearn` 
-- Example run with Nextflow 25.10.0 skipping Mapper due to limited computational resources:
-```
-nextflow Nextflow.amrlearn/main.nf --fasta_dir "../outputs/example_outputs/mapper_results/fasta" -with-docker
-```
 - Trains various ML models for AMR prediction based on bacterial chromosome sequences, then exports all trained models and their evaluations.
 - Its inputs are a gbff reference (same as the one for Mapper, but with a different format), the directory with consensus fasta files from samples, a tab-separated table of MIC values with one row per sample and one column per antibiotic, a threshold for ploting genes that matter to predictions, and a user-set name for the project. Inputs values and paths are set as parameters:    
-	params.ref_gbff_path = "../inputs/GCF_000020105.1_ref/GCF_000020105.1.gbff"
-	params.fasta_dir = "../outputs/mapper_results/fasta"
-	params.antibiotics = "../inputs/PRJNA776899.antibiotics.txt"
-	params.threshold = 0.08 //threshold for filtering absolute coefficient
+	params.ref_gbff_path = "inputs/GCF_000020105.1_ref/GCF_000020105.1.gbff"
+	params.fasta_dir = "outputs/mapper_results/fasta"
+	params.antibiotics = "inputs/PRJNA776899.antibiotics.txt"
 	params.project = "PRJNA776899"
 - Its outputs are:
 	- A `/[project name].learn` with pickle files (standard export format) of each model, lists of regions with coefficients above threshold for each model, model-specific plots of regions with coefficients above threshold, plots comparing all models, and run logfiles.
 	- A `/[project name].parsnp` directory with an intermediate vcf file generated for all fasta files
 	- Intermediate files (a tab file linking locus tags and positions, a SNP count noting frequencies of mutation features and a feature2target file noting the correlations between mutation features and each MIC target). 
-	- Output directory path is set by the parameter	`--params.outdir "../outputs/amrlearn_results"`
+	- Output directory path is set by the parameter	`--params.outdir "outputs/amrlearn_results"`
 - Environment:
 	- Custom docker container with the environment for linux Ubuntu 22.04.5 LTS is in `giulisp/amrlearn:v3` and is listed in the nextflow.config file, so it can be applied by adding `-with-docker` to the nextflow command.  
 	- Conda environment for linux Ubuntu 22.04.5 LTS is in `Nextflow.amrlearn/amrlearn.yml`. To use the conda environment, first create a local environment from the `amrlearn.yml` file with `conda create --name [environment name] amrlearn.yml` then activate it with `conda activate [environment name]`.
 
 
-![amrlearn diagram](Nextflow.amrlearn/amrlearn_diagram.png "Diagram of AMRlearn workflow")
+![amrlearn diagram](Nextflow.amrlearn/dag_amrlearn.png "Diagram of AMRlearn workflow")
 
 
 ## Expected results
@@ -208,10 +203,14 @@ Expected results are models and their evaluations in the amrlearn output directo
 - Cross validation (CV) subsamples random portions of the training data to evaluate the impact of training data randomization. The models for which CV scores differ from each other and from test scores are dependent on the training data used, so they are likely less reliable and would benefit from more input data. Note that this is the case for TET Ridge, PEN Ridge, PEN Decision Tree and PEN Support Vector Machine.
 ![all models cv](outputs/example_outputs/amrlearn_results/PRJNA776899.learn/all_models_cv.png "Comparison of 5-fold cross validation averaged RMSE scores") 
 
-- Model-specific plot of all regions wih coefficients above threshold (in absolute value). These can only be produced for Lasso Regression and Ridge Regression, as other models do not produce independent coefficients for each region. If no regions are found with sufficient threshold for a given model, the plot is not produced. Below is the example for antibiotic CIP with Lasso Regression. Note that one region (GK_RS1195) has a more expressive coefficient, which aligns with the original paper stating that all CIP resistant samples had mutations in the gyrA gene [2].
-![cip lasso](outputs/example_outputs/amrlearn_results/PRJNA776899.learn/CIP_Lasso\ Regression.png "Regions with coefficients above threshold CIP Lasso Regression") 
+- Model-specific plots of the genomic regions with the 10 strongest ML model coefficients (highest or lowest, measured in absolute value). These can only be produced for Lasso Regression and Ridge Regression, as other models do not produce independent coefficients for each region. These plots show the most relevant regions for a given model, and may guide biological interpretation. 
+	- For example, the Lasso regression for AZI has one very significant region, RS10820, which is expected as Azithromycin reisstance is conferred by a single mutation in the 23S rRNA gene. 
+	![azi lasso](<outputs/example_outputs/amrlearn_results/PRJNA776899.learn/AZI_Lasso Regression.png> "AZI lasso regression") 
 
-The quality of models and region plots relies on the input data having many examples of resistant and non-resistant samples for each antibiotic. Given the smaller dataser selected for this demonstration, the quality is not ideal for models of AZI, CRO and ZOL. Zoliflodacin (ZOL) is a new antibiotic and therefore no resistance was observed in any sample. 
+	- Meanwhile, PEN shows a more complex model that takes into account various regions, which is expected as Penicilin resistance is conferred by plasmids, so the expected signal in the chromosome is from compensatory mutations, which are not deterministic. 
+	![pen ridge](<outputs/example_outputs/amrlearn_results/PRJNA776899.learn/PEN_Ridge Regression.png> "PEN ridge regression") 
+
+	- The quality of models and region plots relies on the input data having many examples of resistant and non-resistant samples for each antibiotic. Given the smaller dataser selected for this demonstration, the quality is not ideal for models, especially of AZI, CRO and ZOL. Zoliflodacin (ZOL) is a new antibiotic and therefore no resistance was observed in any sample. The significant regions and coefficients vary by model. 
 
 
 ## Sources

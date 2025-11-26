@@ -3,7 +3,6 @@ nextflow.enable.dsl=2
 params.ref_gbff_path = "inputs/GCF_000020105.1_ref/GCF_000020105.1.gbff"
 params.fasta_dir = "outputs/mapper_results/fasta"
 params.antibiotics = "inputs/PRJNA776899.antibiotics.txt"
-params.threshold = 0.08 //threshold for filtering absolute coefficient
 params.project = "PRJNA776899"
 params.outdir = "outputs/amrlearn_results"
 
@@ -15,7 +14,6 @@ log.info """\
     fasta path                  : ${params.fasta_dir}
     project name                : ${params.project}
     antibiotic susceptibility   : ${params.antibiotics}
-    threshold for coefficients  : ${params.threshold}
     output directory            : ${params.outdir}
     """
     .stripIndent()
@@ -34,7 +32,7 @@ workflow {
 
     features = feature2target(snp_count, antibiotics_ch)
 
-    ml_learn(features, ref_tab, antibiotics_ch, params.threshold)
+    ml_learn(features, ref_tab, antibiotics_ch)
 }
 
 process gbff2tab {
@@ -112,13 +110,12 @@ process ml_learn {
     path features
     path ref_tab
     path antibiotics
-    val threshold
 
     output:
     path "${params.project}.learn/"    
 
     """
-    4.AMR_Learn_linearV2.py $features $ref_tab $antibiotics ${params.project}.learn $threshold
+    4.AMR_Learn_linearV3.py $features $ref_tab $antibiotics ${params.project}.learn
     """
 }
 

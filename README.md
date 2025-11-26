@@ -9,9 +9,9 @@ Implemented for Neisseria gonorrhoeae (Ghonorrhoea) with chromosome sequences an
 
 ## Background and motivation
 
-Antimicrobial resistance (AMR) is the phenomenon of bacteria evolving resistance to antibiotic medications (aka. antimicrobials). It can occur from mutations in the chromosome, or from acquisition of plasmids that confer such resistance. Since N. gonorrhoeae easily acquires new plasmids, it frequently develops resistance, creating the need for active genomic monitoring of this organism to inform which antibiotics to use as front-line treatments. 
+Antimicrobial resistance (AMR) is the phenomenon of bacteria evolving resistance to antibiotic medications (aka. antimicrobial). It can occur from mutations in the chromosome, or from acquisition of plasmids that confer such resistance. Since N. gonorrhoeae easily acquires new plasmids, it frequently develops resistance, creating the need for active genomic monitoring of this organism to inform which antibiotics to use as front-line treatments. 
 
-For instance, in May 2025 the Canadian province of British Columbia updated it's guidelines to establish Ceftriazxone (CRO) as the preferred treatment due to growing resistance to the previous regimen, which consisted of the combination Cefixime (CFX) and either the tetracycine Doxycycline (TET) or Azythromycin (AZI). [3] 
+For instance, in May 2025 the Canadian province of British Columbia updated it's guidelines to establish Ceftriazxone (CRO) as the preferred treatment due to growing resistance to the previous regimen, which consisted of the combination Cefixime (CFX) and either Doxycycline (TET) or Azythromycin (AZI). [3] 
 
 The presence of resistance genes in plasmids can be challenging to detect directly because plasmids are more difficult to sequence compared to the bacterial genome. This is due to plasmids being smaller and more dynamic, so the computational step of alignment requires a high sequencing depth. Luckily, AMR plasmids have a slight fitness cost to bacteria, so some chromosome mutations are selected for to compensate. Therefore, variants in some chromosome regions can help predict AMR, just not in a straightforward way. Furthermore, chromosome mutations that confer resistance (not in a plasmid) can be detected directly.
 
@@ -33,7 +33,6 @@ With ML analysis, the control group is the training dataset, which is a subset o
 - Custom docker images: 
 	- giulisp/mapper:v3
 	- giulisp/amrlearn:v3
-	
 
 ## Datasets
 
@@ -41,7 +40,7 @@ The resistance of a bacteria to an antimicrobial is commonly measured by a test 
 
 A dataset with N. gonorrhoeae chromosomes (not optimised for plasmid sequences) and MIC tests for each sample were produced by Bristow et al., and will be used to demonstrate this pipeline. [2] The data is accessible under NCBI's BioProject PRJNA776899. For brevity in running this pipeline, I separated 73 out of the 457 samples to run. The samples selected were all samples from Canada and from the Dominican Republic. SRA numbers are listed in the file `/inputs/sra_list.txt` for the pipeline to access.
 
-The reference genome used was the same as in Bristow's journal article, with accession number GCF_000020105.1_ref [2].   
+The reference genome used was the same as in Bristow's journal article, with accession number GCF_000020105.1_ref [2].  
 
 Table 1. N. gonorrhoeae samples included in this pipeline, Sequence Read Archive numbers, country of origin, year collected, anatomic site where sample was collected from, and MIC values for antimicrobials: penicilin (PEN), tetracycline/doxycycline (TET), spectinomycin (SPEC), cefixime (CFX), ceftriaxone (CRO), ciprofloxacin (CIP), azithromycin (AZI), and zoliflodacin (ZOL).
 
@@ -124,65 +123,80 @@ Table 1. N. gonorrhoeae samples included in this pipeline, Sequence Read Archive
 ## SOP (Usage)
 
 This pipeline is split into two workflows: Mapper and AMRlearn. With Mapper run first and AMRlearn run second. 
+The workflows are split to allow a faster run without pre-processing SRA files, and because the environments they require have incompatible packages.  
 
-1. Running mapper (optional. Skip to 2. b. if computing is too slow)
+1. Running Mapper and then AMRlearn, with ample computing resources.
 ```
+# Run Mapper
 nextflow Nextflow.mapper/mainV2.nf -with-docker -c Nextflow.mapper/nextflow.config
-```
 
-2. a. Running AMRlearn after running Mapper
-```
+# Run AMRlearn 
 nextflow Nextflow.amrlearn/main.nf -with-docker -c Nextflow.amrlearn/nextflow.config
 ```
 
-2. b. Running AMRlearn with previously generated VCF due to limited computational resources:
+2. Validating Mapper with few samples, and running AMRlearn with pre-processed FASTA files (by Mapper)
 ```
-nextflow Nextflow.amrlearn/main.nf --vcf "outputs/example_outputs/mapper_results/parsnp/parsnp.vcf" -with-docker -c Nextflow.amrlearn/nextflow.config
+# Run Mapper validation with few samples
+nextflow Nextflow.mapper/mainV2.nf -with-docker -c Nextflow.mapper/nextflow.config --sra_path "inputs/sra_list_small.txt"
+
+# Run AMRlearn with pre-processed FASTA files
+nextflow Nextflow.amrlearn/main.nf -with-docker -c Nextflow.amrlearn/nextflow.config --fasta_dir "outputs/example_outputs/mapper_results/fasta" 
 ```
 
-### About Mapper
+### Mapper (run first)
 - Location: `/Nextflow.mapper` 
-- Takes SRA accession numbers (in `sra_list.txt`), downloads the .sra files, generates quality control (QC) reports, then maps them to a reference genome (accession GCF_000020105, same as in the Bristow paper [2]) to produce consensus FASTA files. Then, generates a single VCF file describing all variations from the reference genome for each sample.  
-- If computational resources are limited, skip this workflow and use the vcf files pre-compiled in `outputs/Example outputs/mapper_results/fasta`.
+- Takes SRA accession numbers (in `sra_list.txt`), downloads the .sra files, then maps them to a reference genome (accession GCF_000020105, same as in the Bristow paper [2]) to produce consensus FASTA files. 
+- If computational resources are limited, skip this workflow and use consensus fasta files pre-compiled in `outputs/Example outputs/mapper_results/fasta`.
 - Its inputs are `sra_list.txt` and a reference genome in .fna and .mmi formats. Inputs paths are set as parameters: 
-	params.ref_fasta = "inputs/GCF_000020105.1_ref/GCF_000020105.1_ASM2010v1_genomic.fna"
-	params.ref_mmi = "inputs/GCF_000020105.1_ref/GCF_000020105.1.mmi"
-	params.sra_path = "inputs/sra_list.txt"
+	params.ref_fasta = "../inputs/GCF_000020105.1_ref/GCF_000020105.1_ASM2010v1_genomic.fna"
+	params.ref_mmi = "../inputs/GCF_000020105.1_ref/GCF_000020105.1.mmi"
+	params.sra_path = "../inputs/sra_list.txt"
 - It's outputs are:
-	- A `/reports` directory (with fastQC reports on each fastq file and a compiled MultiQC report on the whole dataset).
+	- A `/reports` directory (with fastQC reports on each fastq file and a compiled MultiQC report on the whole dataset)
 	- A `/fasta` directory with all contructed consensus sequences. 
-	- A `/parsnp` directory with the vcf file `parsnp.vcf`.
-	- Output directory path is set by one parameter `--params.outdir "outputs/mapper_results"`.
+	- Output directory path is set by one parameter `--params.outdir "../outputs/mapper_results"`
 - Environment:
 	- Custom docker container with the environment for linux Ubuntu 22.04.5 LTS is in `giulisp/mapper:v2` and is listed in the nextflow.config file, so it can be applied by adding `-with-docker` to the nextflow command.  
 	- Conda environment for linux Ubuntu 22.04.5 LTS is in `Nextflow.mapper/mapper.yml`. To use the conda environment, first create a local environment from the `mapper.yml` file with `conda create --name [environment name] mapper.yml` then activate it with `conda activate [environment name]`.
 
-![mapper diagram](Nextflow.mapper/dag-mapper.png "Diagram of Mapper workflow")
+
+![mapper diagram](Nextflow.mapper/mapper_diagram.png "Diagram of Mapper workflow")
 
 
-### About AMRlearn
+### AMRlearn (run second)
 - Location: `/Nextflow.amrlearn` 
+- Example run with Nextflow 25.10.0 skipping Mapper due to limited computational resources:
+```
+nextflow Nextflow.amrlearn/main.nf --fasta_dir "../outputs/example_outputs/mapper_results/fasta" -with-docker
+```
 - Trains various ML models for AMR prediction based on bacterial chromosome sequences, then exports all trained models and their evaluations.
 - Its inputs are a gbff reference (same as the one for Mapper, but with a different format), the directory with consensus fasta files from samples, a tab-separated table of MIC values with one row per sample and one column per antibiotic, a threshold for ploting genes that matter to predictions, and a user-set name for the project. Inputs values and paths are set as parameters:    
-	params.ref_gbff_path = "inputs/GCF_000020105.1_ref/GCF_000020105.1.gbff"
-	params.fasta_dir = "outputs/mapper_results/fasta"
-	params.antibiotics = "inputs/PRJNA776899.antibiotics.txt"
+	params.ref_gbff_path = "../inputs/GCF_000020105.1_ref/GCF_000020105.1.gbff"
+	params.fasta_dir = "../outputs/mapper_results/fasta"
+	params.antibiotics = "../inputs/PRJNA776899.antibiotics.txt"
 	params.threshold = 0.08 //threshold for filtering absolute coefficient
 	params.project = "PRJNA776899"
 - Its outputs are:
 	- A `/[project name].learn` with pickle files (standard export format) of each model, lists of regions with coefficients above threshold for each model, model-specific plots of regions with coefficients above threshold, plots comparing all models, and run logfiles.
 	- A `/[project name].parsnp` directory with an intermediate vcf file generated for all fasta files
 	- Intermediate files (a tab file linking locus tags and positions, a SNP count noting frequencies of mutation features and a feature2target file noting the correlations between mutation features and each MIC target). 
-	- Output directory path is set by the parameter	`--params.outdir "outputs/amrlearn_results"`
+	- Output directory path is set by the parameter	`--params.outdir "../outputs/amrlearn_results"`
 - Environment:
 	- Custom docker container with the environment for linux Ubuntu 22.04.5 LTS is in `giulisp/amrlearn:v3` and is listed in the nextflow.config file, so it can be applied by adding `-with-docker` to the nextflow command.  
 	- Conda environment for linux Ubuntu 22.04.5 LTS is in `Nextflow.amrlearn/amrlearn.yml`. To use the conda environment, first create a local environment from the `amrlearn.yml` file with `conda create --name [environment name] amrlearn.yml` then activate it with `conda activate [environment name]`.
 
 
-![amrlearn diagram](Nextflow.amrlearn/dag-amrlearn.png "Diagram of AMRlearn workflow")
+![amrlearn diagram](Nextflow.amrlearn/amrlearn_diagram.png "Diagram of AMRlearn workflow")
 
 
 ## Expected results
+
+### Mapper
+Expected results for Mapper include the fasta directory `/outputs/mapper_results/fasta` with FASTA files for all SRA samples listed as an input. The quality of these files is reported in `outputs/mapper_results/reports`, especially in the file `multiqc_report.html` that summarizes all reports. An example is shown in the image below.  
+
+![multiqc](outputs/example_outputs/mapper_results/reports/image_of_multiqc.png "MultiQC image")
+
+### AMRlearn
 Expected results are models and their evaluations in the amrlearn output directory, `/outputs/amrlearn_results/[project name].learn` by default. Below are examples of output evaluation plots and how to interpret them.
 
 - Training comparison across models using RMSE (root mean squared error). A low RMSE score indicates an accurate regression, with a small cumulative difference between predicted and actual MIC values. Note that scores are low for all models except Lasso Regression, because those models are prone to overfitting on training data. 
@@ -198,6 +212,7 @@ Expected results are models and their evaluations in the amrlearn output directo
 ![cip lasso](outputs/example_outputs/amrlearn_results/PRJNA776899.learn/CIP_Lasso\ Regression.png "Regions with coefficients above threshold CIP Lasso Regression") 
 
 The quality of models and region plots relies on the input data having many examples of resistant and non-resistant samples for each antibiotic. Given the smaller dataser selected for this demonstration, the quality is not ideal for models of AZI, CRO and ZOL. Zoliflodacin (ZOL) is a new antibiotic and therefore no resistance was observed in any sample. 
+
 
 ## Sources
 [1] Zhang, Xi, et al. "AMRLearn: Protocol for a machine learning pipeline for characterization of antimicrobial resistance determinants in microbial genomic data." STAR protocols 6.2 (2025): 103733.
